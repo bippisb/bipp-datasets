@@ -1,0 +1,1559 @@
+District,crop_name,crop_type,Area,Production
+ARARIA,Aonla/Gooseberry,fruits,,200
+ARWAL,Aonla/Gooseberry,fruits,,200
+AURANGABAD,Aonla/Gooseberry,fruits,100,600
+BANKA,Aonla/Gooseberry,fruits,,200
+BEGUSARAI,Aonla/Gooseberry,fruits,100,700
+BHAGALPUR,Aonla/Gooseberry,fruits,,400
+BHOJPUR,Aonla/Gooseberry,fruits,,300
+BUXAR,Aonla/Gooseberry,fruits,,300
+DARBHANGA,Aonla/Gooseberry,fruits,,300
+GAYA,Aonla/Gooseberry,fruits,110,110
+GOPALGANJ,Aonla/Gooseberry,fruits,,300
+JAMUI,Aonla/Gooseberry,fruits,,200
+JEHANABAD,Aonla/Gooseberry,fruits,,200
+KAIMUR (BHABUA),Aonla/Gooseberry,fruits,,500
+KATIHAR,Aonla/Gooseberry,fruits,,500
+KHAGARIA,Aonla/Gooseberry,fruits,,200
+KISHANGANJ,Aonla/Gooseberry,fruits,,300
+LAKHISARAI,Aonla/Gooseberry,fruits,,100
+MADHEPURA,Aonla/Gooseberry,fruits,,300
+MADHUBANI,Aonla/Gooseberry,fruits,,300
+MUNGER,Aonla/Gooseberry,fruits,,200
+MUZAFFARPUR,Aonla/Gooseberry,fruits,100,800
+NALANDA,Aonla/Gooseberry,fruits,,400
+NAWADA,Aonla/Gooseberry,fruits,,200
+PASHCHIM CHAMPARAN,Aonla/Gooseberry,fruits,100,600
+PATNA,Aonla/Gooseberry,fruits,,300
+PURBI CHAMPARAN,Aonla/Gooseberry,fruits,,500
+PURNIA,Aonla/Gooseberry,fruits,100,600
+ROHTAS,Aonla/Gooseberry,fruits,100,900
+SAHARSA,Aonla/Gooseberry,fruits,,400
+SAMASTIPUR,Aonla/Gooseberry,fruits,100,900
+SARAN,Aonla/Gooseberry,fruits,,300
+SHEIKHPURA,Aonla/Gooseberry,fruits,,100
+SHEOHAR,Aonla/Gooseberry,fruits,,200
+SITAMARHI,Aonla/Gooseberry,fruits,,400
+SIWAN,Aonla/Gooseberry,fruits,,300
+SUPAUL,Aonla/Gooseberry,fruits,,100
+VAISHALI,Aonla/Gooseberry,fruits,100,800
+ARARIA,Banana,fruits,500,18700
+ARWAL,Banana,fruits,150,9150
+AURANGABAD,Banana,fruits,410,1605
+BANKA,Banana,fruits,410,15067.5
+BEGUSARAI,Banana,fruits,1010,45854
+BHAGALPUR,Banana,fruits,1350,54623.08
+BHOJPUR,Banana,fruits,500,19000
+BUXAR,Banana,fruits,210,11025
+DARBHANGA,Banana,fruits,1325,72263.47
+GAYA,Banana,fruits,300,12900
+GOPALGANJ,Banana,fruits,800,32000
+JAMUI,Banana,fruits,203,9744
+JEHANABAD,Banana,fruits,205,8302.5
+KAIMUR (BHABUA),Banana,fruits,208,11544
+KATIHAR,Banana,fruits,1506,40862.8
+KHAGARIA,Banana,fruits,1110,46115.45
+KISHANGANJ,Banana,fruits,708,31860
+LAKHISARAI,Banana,fruits,204,6630
+MADHEPURA,Banana,fruits,1420,69377.14
+MADHUBANI,Banana,fruits,1000,49272.72
+MUNGER,Banana,fruits,320,16960
+MUZAFFARPUR,Banana,fruits,5280,271471.69
+NALANDA,Banana,fruits,600,25000
+NAWADA,Banana,fruits,410,12300
+PASHCHIM CHAMPARAN,Banana,fruits,1100,51000
+PATNA,Banana,fruits,650,28135.71
+PURBI CHAMPARAN,Banana,fruits,1200,52472.72
+PURNIA,Banana,fruits,1200,44769.23
+ROHTAS,Banana,fruits,322,15241.34
+SAHARSA,Banana,fruits,1211,51972.09
+SAMASTIPUR,Banana,fruits,2310,102945.65
+SARAN,Banana,fruits,911,38869.34
+SHEIKHPURA,Banana,fruits,105,6510
+SHEOHAR,Banana,fruits,304,12160
+SITAMARHI,Banana,fruits,710,30834.28
+SIWAN,Banana,fruits,802,35189
+SUPAUL,Banana,fruits,701,24034.28
+VAISHALI,Banana,fruits,3402,142083.53
+ARARIA,Guava,fruits,200,1200
+ARWAL,Guava,fruits,200,1800
+AURANGABAD,Guava,fruits,710,4865.83
+BANKA,Guava,fruits,300,2500
+BEGUSARAI,Guava,fruits,500,4600
+BHAGALPUR,Guava,fruits,711,5808.17
+BHOJPUR,Guava,fruits,1925,16500
+BUXAR,Guava,fruits,1600,12500
+DARBHANGA,Guava,fruits,600,4900
+GAYA,Guava,fruits,700,5500
+GOPALGANJ,Guava,fruits,600,5000
+JAMUI,Guava,fruits,200,1700
+JEHANABAD,Guava,fruits,300,2100
+KAIMUR (BHABUA),Guava,fruits,1400,10600
+KATIHAR,Guava,fruits,500,3700
+KHAGARIA,Guava,fruits,400,3000
+KISHANGANJ,Guava,fruits,200,1900
+LAKHISARAI,Guava,fruits,100,1100
+MADHEPURA,Guava,fruits,700,5000
+MADHUBANI,Guava,fruits,500,4100
+MUNGER,Guava,fruits,300,2300
+MUZAFFARPUR,Guava,fruits,1500,11800
+NALANDA,Guava,fruits,1500,146200
+NAWADA,Guava,fruits,500,3900
+PASHCHIM CHAMPARAN,Guava,fruits,1600,13800
+PATNA,Guava,fruits,1100,9000
+PURBI CHAMPARAN,Guava,fruits,1700,14000
+PURNIA,Guava,fruits,400,3200
+ROHTAS,Guava,fruits,3312,27098.18
+SAHARSA,Guava,fruits,712,5390.85
+SAMASTIPUR,Guava,fruits,701,5307.57
+SARAN,Guava,fruits,-,-
+SHEIKHPURA,Guava,fruits,109,1199
+SHEOHAR,Guava,fruits,301,2608.67
+SITAMARHI,Guava,fruits,699,6191.14
+SIWAN,Guava,fruits,700,5500
+SUPAUL,Guava,fruits,400,3300
+VAISHALI,Guava,fruits,1500,11200
+ARARIA,Limes and Lemons,fruits,300,1700
+ARWAL,Limes and Lemons,fruits,150,1500
+AURANGABAD,Limes and Lemons,fruits,505,3960
+BANKA,Limes and Lemons,fruits,505,3333
+BEGUSARAI,Limes and Lemons,fruits,403,3123.25
+BHAGALPUR,Limes and Lemons,fruits,945,7245
+BHOJPUR,Limes and Lemons,fruits,500,3750
+BUXAR,Limes and Lemons,fruits,300,2200
+DARBHANGA,Limes and Lemons,fruits,900,6187.5
+GAYA,Limes and Lemons,fruits,410,2870
+GOPALGANJ,Limes and Lemons,fruits,400,3100
+JAMUI,Limes and Lemons,fruits,200,1300
+JEHANABAD,Limes and Lemons,fruits,200,1300
+KAIMUR (BHABUA),Limes and Lemons,fruits,300,1800
+KATIHAR,Limes and Lemons,fruits,300,400
+KHAGARIA,Limes and Lemons,fruits,200,1700
+KISHANGANJ,Limes and Lemons,fruits,300,2000
+LAKHISARAI,Limes and Lemons,fruits,100,500
+MADHEPURA,Limes and Lemons,fruits,505,3535
+MADHUBANI,Limes and Lemons,fruits,700,4800
+MUNGER,Limes and Lemons,fruits,200,1500
+MUZAFFARPUR,Limes and Lemons,fruits,700,5000
+NALANDA,Limes and Lemons,fruits,400,3000
+NAWADA,Limes and Lemons,fruits,400,3000
+PASHCHIM CHAMPARAN,Limes and Lemons,fruits,1600,12300
+PATNA,Limes and Lemons,fruits,600,4300
+PURBI CHAMPARAN,Limes and Lemons,fruits,1600,11900
+PURNIA,Limes and Lemons,fruits,400,3100
+ROHTAS,Limes and Lemons,fruits,400,2800
+SAHARSA,Limes and Lemons,fruits,600,4400
+SAMASTIPUR,Limes and Lemons,fruits,800,5700
+SARAN,Limes and Lemons,fruits,500,3800
+SHEIKHPURA,Limes and Lemons,fruits,100,600
+SHEOHAR,Limes and Lemons,fruits,200,1100
+SITAMARHI,Limes and Lemons,fruits,300,2100
+SIWAN,Limes and Lemons,fruits,512,3993.6
+SUPAUL,Limes and Lemons,fruits,310,2006.67
+VAISHALI,Limes and Lemons,fruits,601,4701.84
+ARARIA,Litchi,fruits,400,1400
+ARWAL,Litchi,fruits,-,-
+AURANGABAD,Litchi,fruits,-,-
+BANKA,Litchi,fruits,100,300
+BEGUSARAI,Litchi,fruits,600.06,3300.12
+BHAGALPUR,Litchi,fruits,600,4300
+BHOJPUR,Litchi,fruits,-,-
+BUXAR,Litchi,fruits,-,-
+DARBHANGA,Litchi,fruits,800,4100
+GAYA,Litchi,fruits,-,-
+GOPALGANJ,Litchi,fruits,1200,8000
+JAMUI,Litchi,fruits,100,1200
+JEHANABAD,Litchi,fruits,-,-
+KAIMUR (BHABUA),Litchi,fruits,-,-
+KATIHAR,Litchi,fruits,1503,10220.4
+KHAGARIA,Litchi,fruits,303,2121
+KISHANGANJ,Litchi,fruits,400,2100
+LAKHISARAI,Litchi,fruits,,300
+MADHEPURA,Litchi,fruits,209,1463
+MADHUBANI,Litchi,fruits,800,5500
+MUNGER,Litchi,fruits,302,2214.66
+MUZAFFARPUR,Litchi,fruits,7900,40500
+NALANDA,Litchi,fruits,-,-
+NAWADA,Litchi,fruits,-,-
+PASHCHIM CHAMPARAN,Litchi,fruits,2100,11500
+PATNA,Litchi,fruits,-,-
+PURBI CHAMPARAN,Litchi,fruits,2005,12330.75
+PURNIA,Litchi,fruits,1290,8434.61
+ROHTAS,Litchi,fruits,-,-
+SAHARSA,Litchi,fruits,610,4778.34
+SAMASTIPUR,Litchi,fruits,1512,10382.4
+SARAN,Litchi,fruits,1112,9401.45
+SHEIKHPURA,Litchi,fruits,,300
+SHEOHAR,Litchi,fruits,1028,6990.4
+SITAMARHI,Litchi,fruits,2312,17490.78
+SIWAN,Litchi,fruits,1205,7631.67
+SUPAUL,Litchi,fruits,101,707
+VAISHALI,Litchi,fruits,3695,21670.68
+ARARIA,Mango,fruits,708,5724.0
+ARWAL,Mango,fruits,500,4500.0
+AURANGABAD,Mango,fruits,1302,14220.77
+BANKA,Mango,fruits,6500,52103.18
+BEGUSARAI,Mango,fruits,4300,42475.61
+BHAGALPUR,Mango,fruits,7900,73289.14
+BHOJPUR,Mango,fruits,4700,47303.23
+BUXAR,Mango,fruits,3500,35369.67
+DARBHANGA,Mango,fruits,13555,140510.37
+GAYA,Mango,fruits,1410,14541.26
+GOPALGANJ,Mango,fruits,3115,30200.0
+JAMUI,Mango,fruits,1159,11086.09
+JEHANABAD,Mango,fruits,410,4230.96
+KAIMUR (BHABUA),Mango,fruits,3418,34400.65
+KATIHAR,Mango,fruits,2910.75,28397.56
+KHAGARIA,Mango,fruits,1708,16577.65
+KISHANGANJ,Mango,fruits,811,7603.13
+LAKHISARAI,Mango,fruits,612,6039.47
+MADHEPURA,Mango,fruits,2014,18372.98
+MADHUBANI,Mango,fruits,6200,61979.67
+MUNGER,Mango,fruits,1300,13678.95
+MUZAFFARPUR,Mango,fruits,9840,96529.42
+NALANDA,Mango,fruits,2900,30300.0
+NAWADA,Mango,fruits,1300,13216.6
+PASHCHIM CHAMPARAN,Mango,fruits,7315,72500.0
+PATNA,Mango,fruits,4050,38623.97
+PURBI CHAMPARAN,Mango,fruits,9000,89035.36
+PURNIA,Mango,fruits,2575,25470.32
+ROHTAS,Mango,fruits,5712,58923.79
+SAHARSA,Mango,fruits,2232,23399.18
+SAMASTIPUR,Mango,fruits,10645,99309.33
+SARAN,Mango,fruits,5178,50009.66
+SHEIKHPURA,Mango,fruits,912,9728.0
+SHEOHAR,Mango,fruits,2705,27030.0
+SITAMARHI,Mango,fruits,5300,51575.54
+SIWAN,Mango,fruits,2510,25150.1
+SUPAUL,Mango,fruits,1300,13079.88
+VAISHALI,Mango,fruits,8456,85898.42
+ARARIA,Muskmelon,fruits,-,-
+ARWAL,Muskmelon,fruits,0,300
+AURANGABAD,Muskmelon,fruits,0,200
+BANKA,Muskmelon,fruits,-,-
+BEGUSARAI,Muskmelon,fruits,0,400
+BHAGALPUR,Muskmelon,fruits,0,500
+BHOJPUR,Muskmelon,fruits,100,1100
+BUXAR,Muskmelon,fruits,0,600
+DARBHANGA,Muskmelon,fruits,0,300
+GAYA,Muskmelon,fruits,-,-
+GOPALGANJ,Muskmelon,fruits,0,300
+JAMUI,Muskmelon,fruits,0,100
+JEHANABAD,Muskmelon,fruits,0,400
+KAIMUR (BHABUA),Muskmelon,fruits,0,100
+KATIHAR,Muskmelon,fruits,0,300
+KHAGARIA,Muskmelon,fruits,0,300
+KISHANGANJ,Muskmelon,fruits,-,-
+LAKHISARAI,Muskmelon,fruits,-,-
+MADHEPURA,Muskmelon,fruits,-,-
+MADHUBANI,Muskmelon,fruits,0,200
+MUNGER,Muskmelon,fruits,100,600
+MUZAFFARPUR,Muskmelon,fruits,0,500
+NALANDA,Muskmelon,fruits,-,-
+NAWADA,Muskmelon,fruits,0,300
+PASHCHIM CHAMPARAN,Muskmelon,fruits,0,300
+PATNA,Muskmelon,fruits,900,1200
+PURBI CHAMPARAN,Muskmelon,fruits,0,300
+PURNIA,Muskmelon,fruits,0,300
+ROHTAS,Muskmelon,fruits,0,100
+SAHARSA,Muskmelon,fruits,0,300
+SAMASTIPUR,Muskmelon,fruits,0,500
+SARAN,Muskmelon,fruits,100,1000
+SHEIKHPURA,Muskmelon,fruits,-,-
+SHEOHAR,Muskmelon,fruits,0,200
+SITAMARHI,Muskmelon,fruits,0,300
+SIWAN,Muskmelon,fruits,400,600
+SUPAUL,Muskmelon,fruits,0,100
+VAISHALI,Muskmelon,fruits,100,1200
+ARARIA,Papaya,fruits,-,-
+ARWAL,Papaya,fruits,-,-
+AURANGABAD,Papaya,fruits,100,2700
+BANKA,Papaya,fruits,,4500
+BEGUSARAI,Papaya,fruits,100,2000
+BHAGALPUR,Papaya,fruits,100,1300
+BHOJPUR,Papaya,fruits,,800
+BUXAR,Papaya,fruits,,700
+DARBHANGA,Papaya,fruits,100,1300
+GAYA,Papaya,fruits,,700
+GOPALGANJ,Papaya,fruits,100,1300
+JAMUI,Papaya,fruits,,400
+JEHANABAD,Papaya,fruits,,600
+KAIMUR (BHABUA),Papaya,fruits,,600
+KATIHAR,Papaya,fruits,100,1500
+KHAGARIA,Papaya,fruits,300,700
+KISHANGANJ,Papaya,fruits,,1100
+LAKHISARAI,Papaya,fruits,,500
+MADHEPURA,Papaya,fruits,100,1400
+MADHUBANI,Papaya,fruits,,900
+MUNGER,Papaya,fruits,,1000
+MUZAFFARPUR,Papaya,fruits,100,2000
+NALANDA,Papaya,fruits,,900
+NAWADA,Papaya,fruits,,900
+PASHCHIM CHAMPARAN,Papaya,fruits,100,1500
+PATNA,Papaya,fruits,100,2500
+PURBI CHAMPARAN,Papaya,fruits,,1000
+PURNIA,Papaya,fruits,100,1500
+ROHTAS,Papaya,fruits,,1300
+SAHARSA,Papaya,fruits,115,1610
+SAMASTIPUR,Papaya,fruits,103,2472
+SARAN,Papaya,fruits,,800
+SHEIKHPURA,Papaya,fruits,,500
+SHEOHAR,Papaya,fruits,,500
+SITAMARHI,Papaya,fruits,,800
+SIWAN,Papaya,fruits,,1100
+SUPAUL,Papaya,fruits,,500
+VAISHALI,Papaya,fruits,-,-
+ARARIA,Pineapple,fruits,300,7200
+ARWAL,Pineapple,fruits,-,-
+AURANGABAD,Pineapple,fruits,-,-
+BANKA,Pineapple,fruits,-,-
+BEGUSARAI,Pineapple,fruits,-,-
+BHAGALPUR,Pineapple,fruits,-,-
+BHOJPUR,Pineapple,fruits,-,-
+BUXAR,Pineapple,fruits,-,-
+DARBHANGA,Pineapple,fruits,-,-
+GAYA,Pineapple,fruits,-,-
+GOPALGANJ,Pineapple,fruits,-,-
+JAMUI,Pineapple,fruits,-,-
+JEHANABAD,Pineapple,fruits,-,-
+KAIMUR (BHABUA),Pineapple,fruits,-,-
+KATIHAR,Pineapple,fruits,200,5800
+KHAGARIA,Pineapple,fruits,-,-
+KISHANGANJ,Pineapple,fruits,2110,59883.89
+LAKHISARAI,Pineapple,fruits,-,-
+MADHEPURA,Pineapple,fruits,-,-
+MADHUBANI,Pineapple,fruits,-,-
+MUNGER,Pineapple,fruits,-,-
+MUZAFFARPUR,Pineapple,fruits,-,-
+NALANDA,Pineapple,fruits,-,-
+NAWADA,Pineapple,fruits,-,-
+PASHCHIM CHAMPARAN,Pineapple,fruits,-,-
+PATNA,Pineapple,fruits,-,-
+PURBI CHAMPARAN,Pineapple,fruits,-,-
+PURNIA,Pineapple,fruits,1700,43700
+ROHTAS,Pineapple,fruits,-,-
+SAHARSA,Pineapple,fruits,-,-
+SAMASTIPUR,Pineapple,fruits,-,-
+SARAN,Pineapple,fruits,-,-
+SHEIKHPURA,Pineapple,fruits,-,-
+SHEOHAR,Pineapple,fruits,-,-
+SITAMARHI,Pineapple,fruits,-,-
+SIWAN,Pineapple,fruits,-,-
+SUPAUL,Pineapple,fruits,-,-
+VAISHALI,Pineapple,fruits,-,-
+ARARIA,Sweet Orange,fruits,-,-
+ARWAL,Sweet Orange,fruits,-,-
+AURANGABAD,Sweet Orange,fruits,-,-
+BANKA,Sweet Orange,fruits,-,-
+BEGUSARAI,Sweet Orange,fruits,-,-
+BHAGALPUR,Sweet Orange,fruits,-,-
+BHOJPUR,Sweet Orange,fruits,-,-
+BUXAR,Sweet Orange,fruits,500,5500
+DARBHANGA,Sweet Orange,fruits,-,-
+GAYA,Sweet Orange,fruits,-,-
+GOPALGANJ,Sweet Orange,fruits,-,-
+JAMUI,Sweet Orange,fruits,-,-
+JEHANABAD,Sweet Orange,fruits,-,-
+KAIMUR (BHABUA),Sweet Orange,fruits,-,-
+KATIHAR,Sweet Orange,fruits,-,-
+KHAGARIA,Sweet Orange,fruits,-,-
+KISHANGANJ,Sweet Orange,fruits,-,-
+LAKHISARAI,Sweet Orange,fruits,-,-
+MADHEPURA,Sweet Orange,fruits,-,-
+MADHUBANI,Sweet Orange,fruits,-,-
+MUNGER,Sweet Orange,fruits,-,-
+MUZAFFARPUR,Sweet Orange,fruits,-,-
+NALANDA,Sweet Orange,fruits,-,-
+NAWADA,Sweet Orange,fruits,-,-
+PASHCHIM CHAMPARAN,Sweet Orange,fruits,-,-
+PATNA,Sweet Orange,fruits,-,-
+PURBI CHAMPARAN,Sweet Orange,fruits,-,-
+PURNIA,Sweet Orange,fruits,-,-
+ROHTAS,Sweet Orange,fruits,-,-
+SAHARSA,Sweet Orange,fruits,-,-
+SAMASTIPUR,Sweet Orange,fruits,-,-
+SARAN,Sweet Orange,fruits,-,-
+SHEIKHPURA,Sweet Orange,fruits,-,-
+SHEOHAR,Sweet Orange,fruits,-,-
+SITAMARHI,Sweet Orange,fruits,-,-
+SIWAN,Sweet Orange,fruits,-,-
+SUPAUL,Sweet Orange,fruits,-,-
+VAISHALI,Sweet Orange,fruits,-,-
+ARARIA,Watermelon,fruits,-,-
+ARWAL,Watermelon,fruits,0,600
+AURANGABAD,Watermelon,fruits,0,300
+BANKA,Watermelon,fruits,-,-
+BEGUSARAI,Watermelon,fruits,0,900
+BHAGALPUR,Watermelon,fruits,100,1400
+BHOJPUR,Watermelon,fruits,100,1800
+BUXAR,Watermelon,fruits,0,1000
+DARBHANGA,Watermelon,fruits,0,500
+GAYA,Watermelon,fruits,-,-
+GOPALGANJ,Watermelon,fruits,0,800
+JAMUI,Watermelon,fruits,0,100
+JEHANABAD,Watermelon,fruits,0,800
+KAIMUR (BHABUA),Watermelon,fruits,0,100
+KATIHAR,Watermelon,fruits,0,900
+KHAGARIA,Watermelon,fruits,0,800
+KISHANGANJ,Watermelon,fruits,-,-
+LAKHISARAI,Watermelon,fruits,0,900
+MADHEPURA,Watermelon,fruits,0,500
+MADHUBANI,Watermelon,fruits,0,200
+MUNGER,Watermelon,fruits,100,2400
+MUZAFFARPUR,Watermelon,fruits,100,1100
+NALANDA,Watermelon,fruits,0,500
+NAWADA,Watermelon,fruits,0,400
+PASHCHIM CHAMPARAN,Watermelon,fruits,0,900
+PATNA,Watermelon,fruits,0,2300
+PURBI CHAMPARAN,Watermelon,fruits,0,700
+PURNIA,Watermelon,fruits,0,800
+ROHTAS,Watermelon,fruits,0,400
+SAHARSA,Watermelon,fruits,0,600
+SAMASTIPUR,Watermelon,fruits,0,900
+SARAN,Watermelon,fruits,100,2000
+SHEIKHPURA,Watermelon,fruits,-,-
+SHEOHAR,Watermelon,fruits,300,500
+SITAMARHI,Watermelon,fruits,0,600
+SIWAN,Watermelon,fruits,500,1100
+SUPAUL,Watermelon,fruits,0,300
+VAISHALI,Watermelon,fruits,100,2600
+ARARIA,Other Citrus,fruits,500,5000.0
+ARWAL,Other Citrus,fruits,300,3200.0
+AURANGABAD,Other Citrus,fruits,900,8800.0
+BANKA,Other Citrus,fruits,700,6500.0
+BEGUSARAI,Other Citrus,fruits,1100.9,10701.45
+BHAGALPUR,Other Citrus,fruits,1100,10600.0
+BHOJPUR,Other Citrus,fruits,1000,9900.0
+BUXAR,Other Citrus,fruits,500,5500.0
+DARBHANGA,Other Citrus,fruits,1303,12528.85
+GAYA,Other Citrus,fruits,1000,10000.0
+GOPALGANJ,Other Citrus,fruits,1000,9700.0
+JAMUI,Other Citrus,fruits,500,4700.0
+JEHANABAD,Other Citrus,fruits,503,4728.2
+KAIMUR (BHABUA),Other Citrus,fruits,500,4700.0
+KATIHAR,Other Citrus,fruits,1101,11110.09
+KHAGARIA,Other Citrus,fruits,700,6700.0
+KISHANGANJ,Other Citrus,fruits,800,8200.0
+LAKHISARAI,Other Citrus,fruits,204,1928.36
+MADHEPURA,Other Citrus,fruits,800,7600.0
+MADHUBANI,Other Citrus,fruits,1200,12300.0
+MUNGER,Other Citrus,fruits,400,4200.0
+MUZAFFARPUR,Other Citrus,fruits,1300,12500.0
+NALANDA,Other Citrus,fruits,1200,12700.0
+NAWADA,Other Citrus,fruits,900,8700.0
+PASHCHIM CHAMPARAN,Other Citrus,fruits,1200,13000.0
+PATNA,Other Citrus,fruits,1500,1500.0
+PURBI CHAMPARAN,Other Citrus,fruits,1200,11900.0
+PURNIA,Other Citrus,fruits,900,9300.0
+ROHTAS,Other Citrus,fruits,600,6200.0
+SAHARSA,Other Citrus,fruits,900,9100.0
+SAMASTIPUR,Other Citrus,fruits,1100,11400.0
+SARAN,Other Citrus,fruits,1300,12800.0
+SHEIKHPURA,Other Citrus,fruits,200,2200.0
+SHEOHAR,Other Citrus,fruits,500,4700.0
+SITAMARHI,Other Citrus,fruits,700,7300.0
+SIWAN,Other Citrus,fruits,1300,12800.0
+SUPAUL,Other Citrus,fruits,400,4100.0
+VAISHALI,Other Citrus,fruits,1100,12200.0
+ARARIA,Beans(All Including,vegetables,190,1425
+ARWAL,Beans(All Including,vegetables,200,1200
+AURANGABAD,Beans(All Including,vegetables,200,1500
+BANKA,Beans(All Including,vegetables,210,1470
+BEGUSARAI,Beans(All Including,vegetables,403,3022.5
+BHAGALPUR,Beans(All Including,vegetables,310,2686.67
+BHOJPUR,Beans(All Including,vegetables,310,2790
+BUXAR,Beans(All Including,vegetables,310,2273.34
+DARBHANGA,Beans(All Including,vegetables,810,6277.5
+GAYA,Beans(All Including,vegetables,310,310
+GOPALGANJ,Beans(All Including,vegetables,300,1800
+JAMUI,Beans(All Including,vegetables,200,1200
+JEHANABAD,Beans(All Including,vegetables,200,1200
+KAIMUR (BHABUA),Beans(All Including,vegetables,200,1200
+KATIHAR,Beans(All Including,vegetables,1000,8200
+KHAGARIA,Beans(All Including,vegetables,200,1500
+KISHANGANJ,Beans(All Including,vegetables,200,1500
+LAKHISARAI,Beans(All Including,vegetables,-,-
+MADHEPURA,Beans(All Including,vegetables,700,5200
+MADHUBANI,Beans(All Including,vegetables,300,2600
+MUNGER,Beans(All Including,vegetables,200,1900
+MUZAFFARPUR,Beans(All Including,vegetables,700,5500
+NALANDA,Beans(All Including,vegetables,900,7500
+NAWADA,Beans(All Including,vegetables,200,1400
+PASHCHIM CHAMPARAN,Beans(All Including,vegetables,400,3800
+PATNA,Beans(All Including,vegetables,400,3600
+PURBI CHAMPARAN,Beans(All Including,vegetables,400,3200
+PURNIA,Beans(All Including,vegetables,500,3700
+ROHTAS,Beans(All Including,vegetables,200,1200
+SAHARSA,Beans(All Including,vegetables,700,5500
+SAMASTIPUR,Beans(All Including,vegetables,400,3600
+SARAN,Beans(All Including,vegetables,300,1900
+SHEIKHPURA,Beans(All Including,vegetables,100,900
+SHEOHAR,Beans(All Including,vegetables,100,1000
+SITAMARHI,Beans(All Including,vegetables,200,1300
+SIWAN,Beans(All Including,vegetables,1000,7200
+SUPAUL,Beans(All Including,vegetables,3600,2500
+VAISHALI,Beans(All Including,vegetables,800,6500
+ARARIA,Bitter Gourd,vegetables,175,1050
+ARWAL,Bitter Gourd,vegetables,110,880
+AURANGABAD,Bitter Gourd,vegetables,100,700
+BANKA,Bitter Gourd,vegetables,102,612
+BEGUSARAI,Bitter Gourd,vegetables,302,1510
+BHAGALPUR,Bitter Gourd,vegetables,300,2000
+BHOJPUR,Bitter Gourd,vegetables,305,2643.34
+BUXAR,Bitter Gourd,vegetables,310,1900
+DARBHANGA,Bitter Gourd,vegetables,402,2412
+GAYA,Bitter Gourd,vegetables,305,305
+GOPALGANJ,Bitter Gourd,vegetables,200,1300
+JAMUI,Bitter Gourd,vegetables,100,600
+JEHANABAD,Bitter Gourd,vegetables,100,900
+KAIMUR (BHABUA),Bitter Gourd,vegetables,100,700
+KATIHAR,Bitter Gourd,vegetables,600,4800
+KHAGARIA,Bitter Gourd,vegetables,100,800
+KISHANGANJ,Bitter Gourd,vegetables,200,1600
+LAKHISARAI,Bitter Gourd,vegetables,-,-
+MADHEPURA,Bitter Gourd,vegetables,500,3400
+MADHUBANI,Bitter Gourd,vegetables,301,2307.66
+MUNGER,Bitter Gourd,vegetables,200,1300
+MUZAFFARPUR,Bitter Gourd,vegetables,400,3100
+NALANDA,Bitter Gourd,vegetables,500,4000
+NAWADA,Bitter Gourd,vegetables,100,800
+PASHCHIM CHAMPARAN,Bitter Gourd,vegetables,300,2400
+PATNA,Bitter Gourd,vegetables,300,2500
+PURBI CHAMPARAN,Bitter Gourd,vegetables,400,2500
+PURNIA,Bitter Gourd,vegetables,400,2600
+ROHTAS,Bitter Gourd,vegetables,200,1100
+SAHARSA,Bitter Gourd,vegetables,500,3600
+SAMASTIPUR,Bitter Gourd,vegetables,400,2900
+SARAN,Bitter Gourd,vegetables,200,1200
+SHEIKHPURA,Bitter Gourd,vegetables,100,600
+SHEOHAR,Bitter Gourd,vegetables,100,600
+SITAMARHI,Bitter Gourd,vegetables,100,1000
+SIWAN,Bitter Gourd,vegetables,200,1300
+SUPAUL,Bitter Gourd,vegetables,200,1100
+VAISHALI,Bitter Gourd,vegetables,500,4300
+ARARIA,Bottle Gourd,vegetables,425,8287.5
+ARWAL,Bottle Gourd,vegetables,500,8700
+AURANGABAD,Bottle Gourd,vegetables,703,12955.29
+BANKA,Bottle Gourd,vegetables,410,6855.43
+BEGUSARAI,Bottle Gourd,vegetables,1110,23108.19
+BHAGALPUR,Bottle Gourd,vegetables,1205,26309.16
+BHOJPUR,Bottle Gourd,vegetables,710,16025.72
+BUXAR,Bottle Gourd,vegetables,710,15214.29
+DARBHANGA,Bottle Gourd,vegetables,1005,22311
+GAYA,Bottle Gourd,vegetables,1200,1200
+GOPALGANJ,Bottle Gourd,vegetables,1200,23500
+JAMUI,Bottle Gourd,vegetables,310,6613.33
+JEHANABAD,Bottle Gourd,vegetables,510,10098
+KAIMUR (BHABUA),Bottle Gourd,vegetables,407,8140
+KATIHAR,Bottle Gourd,vegetables,1416,27915.43
+KHAGARIA,Bottle Gourd,vegetables,510,10404
+KISHANGANJ,Bottle Gourd,vegetables,520,10400
+LAKHISARAI,Bottle Gourd,vegetables,-,-
+MADHEPURA,Bottle Gourd,vegetables,910,17694.44
+MADHUBANI,Bottle Gourd,vegetables,610,11996.66
+MUNGER,Bottle Gourd,vegetables,610,11488.33
+MUZAFFARPUR,Bottle Gourd,vegetables,1690,36782.35
+NALANDA,Bottle Gourd,vegetables,1000,21777.77
+NAWADA,Bottle Gourd,vegetables,650,13371.42
+PASHCHIM CHAMPARAN,Bottle Gourd,vegetables,1550,34513.33
+PATNA,Bottle Gourd,vegetables,9600,21773.19
+PURBI CHAMPARAN,Bottle Gourd,vegetables,1200,26571.42
+PURNIA,Bottle Gourd,vegetables,1110,21090
+ROHTAS,Bottle Gourd,vegetables,512,9420.8
+SAHARSA,Bottle Gourd,vegetables,1101,23521.36
+SAMASTIPUR,Bottle Gourd,vegetables,1012,23984.4
+SARAN,Bottle Gourd,vegetables,1009,20180
+SHEIKHPURA,Bottle Gourd,vegetables,303,5252
+SHEOHAR,Bottle Gourd,vegetables,610,11793.34
+SITAMARHI,Bottle Gourd,vegetables,1215,23287.5
+SIWAN,Bottle Gourd,vegetables,901,17419.34
+SUPAUL,Bottle Gourd,vegetables,202,4747
+VAISHALI,Bottle Gourd,vegetables,1701,40023.53
+ARARIA,Brinjal,vegetables,705,13923.25
+ARWAL,Brinjal,vegetables,410,9737.53
+AURANGABAD,Brinjal,vegetables,1105,22528.39
+BANKA,Brinjal,vegetables,800,17400
+BEGUSARAI,Brinjal,vegetables,2812,58936
+BHAGALPUR,Brinjal,vegetables,1700,36000
+BHOJPUR,Brinjal,vegetables,1200,28900
+BUXAR,Brinjal,vegetables,812,17153.5
+DARBHANGA,Brinjal,vegetables,2504,51700
+GAYA,Brinjal,vegetables,1601,1600
+GOPALGANJ,Brinjal,vegetables,1420,30400
+JAMUI,Brinjal,vegetables,610,12502.48
+JEHANABAD,Brinjal,vegetables,720.7,14091.04
+KAIMUR (BHABUA),Brinjal,vegetables,609.9,14514.5
+KATIHAR,Brinjal,vegetables,1811,1811
+KHAGARIA,Brinjal,vegetables,1208,29797.33
+KISHANGANJ,Brinjal,vegetables,615,12646.77
+LAKHISARAI,Brinjal,vegetables,-,-
+MADHEPURA,Brinjal,vegetables,1600.35,33900
+MADHUBANI,Brinjal,vegetables,2100,42995.26
+MUNGER,Brinjal,vegetables,790,16491.25
+MUZAFFARPUR,Brinjal,vegetables,2910,36726.2
+NALANDA,Brinjal,vegetables,7220,148458.87
+NAWADA,Brinjal,vegetables,1790,26651.11
+PASHCHIM CHAMPARAN,Brinjal,vegetables,1950,43875
+PATNA,Brinjal,vegetables,1900,48768.98
+PURBI CHAMPARAN,Brinjal,vegetables,1700,38568.75
+PURNIA,Brinjal,vegetables,1106,20918.91
+ROHTAS,Brinjal,vegetables,1012,19025.6
+SAHARSA,Brinjal,vegetables,1310,28920.77
+SAMASTIPUR,Brinjal,vegetables,2310,58525.34
+SARAN,Brinjal,vegetables,1812,38756.67
+SHEIKHPURA,Brinjal,vegetables,302,6744.67
+SHEOHAR,Brinjal,vegetables,700,14059.83
+SITAMARHI,Brinjal,vegetables,1312,27148.31
+SIWAN,Brinjal,vegetables,1599,34978.13
+SUPAUL,Brinjal,vegetables,601,13021.67
+VAISHALI,Brinjal,vegetables,3208,6902152
+ARARIA,Cabbage,vegetables,650.5,10408
+ARWAL,Cabbage,vegetables,400,6800
+AURANGABAD,Cabbage,vegetables,800,13000
+BANKA,Cabbage,vegetables,400,7400
+BEGUSARAI,Cabbage,vegetables,1715,18865
+BHAGALPUR,Cabbage,vegetables,1200,23200
+BHOJPUR,Cabbage,vegetables,800,13800
+BUXAR,Cabbage,vegetables,610,9276.34
+DARBHANGA,Cabbage,vegetables,1600,30300
+GAYA,Cabbage,vegetables,800,800
+GOPALGANJ,Cabbage,vegetables,1000,19400
+JAMUI,Cabbage,vegetables,400,7000
+JEHANABAD,Cabbage,vegetables,409,7668.75
+KAIMUR (BHABUA),Cabbage,vegetables,405,7897.5
+KATIHAR,Cabbage,vegetables,2300,38900
+KHAGARIA,Cabbage,vegetables,709,12863.29
+KISHANGANJ,Cabbage,vegetables,607,10622.5
+LAKHISARAI,Cabbage,vegetables,-,-
+MADHEPURA,Cabbage,vegetables,1500,26000
+MADHUBANI,Cabbage,vegetables,1500,27100
+MUNGER,Cabbage,vegetables,600,10400
+MUZAFFARPUR,Cabbage,vegetables,2880,52457.14
+NALANDA,Cabbage,vegetables,1610,33206.5
+NAWADA,Cabbage,vegetables,820,13325
+PASHCHIM CHAMPARAN,Cabbage,vegetables,1500,32142.85
+PATNA,Cabbage,vegetables,3000,40000
+PURBI CHAMPARAN,Cabbage,vegetables,1600,30186.79
+PURNIA,Cabbage,vegetables,1201,24620.5
+ROHTAS,Cabbage,vegetables,611,10896.17
+SAHARSA,Cabbage,vegetables,1012,17204
+SAMASTIPUR,Cabbage,vegetables,1911,38722.89
+SARAN,Cabbage,vegetables,913,18361.45
+SHEIKHPURA,Cabbage,vegetables,212,3922
+SHEOHAR,Cabbage,vegetables,701,11917
+SITAMARHI,Cabbage,vegetables,906,17918.67
+SIWAN,Cabbage,vegetables,899,16481.67
+SUPAUL,Cabbage,vegetables,500.95,7814.82
+VAISHALI,Cabbage,vegetables,2501,55022
+ARARIA,Carrot,vegetables,100,900
+ARWAL,Carrot,vegetables,150,1050
+AURANGABAD,Carrot,vegetables,100,1000
+BANKA,Carrot,vegetables,,400
+BEGUSARAI,Carrot,vegetables,100,1700
+BHAGALPUR,Carrot,vegetables,100,1800
+BHOJPUR,Carrot,vegetables,100,1300
+BUXAR,Carrot,vegetables,100,1000
+DARBHANGA,Carrot,vegetables,100,500
+GAYA,Carrot,vegetables,1100,1100
+GOPALGANJ,Carrot,vegetables,100,1400
+JAMUI,Carrot,vegetables,,200
+JEHANABAD,Carrot,vegetables,100,800
+KAIMUR (BHABUA),Carrot,vegetables,100,700
+KATIHAR,Carrot,vegetables,1500,1700
+KHAGARIA,Carrot,vegetables,100,900
+KISHANGANJ,Carrot,vegetables,100,1100
+LAKHISARAI,Carrot,vegetables,-,-
+MADHEPURA,Carrot,vegetables,100,1400
+MADHUBANI,Carrot,vegetables,99,1584
+MUNGER,Carrot,vegetables,100,1100
+MUZAFFARPUR,Carrot,vegetables,300,3200
+NALANDA,Carrot,vegetables,300,3400
+NAWADA,Carrot,vegetables,,1000
+PASHCHIM CHAMPARAN,Carrot,vegetables,200,2800
+PATNA,Carrot,vegetables,300,3200
+PURBI CHAMPARAN,Carrot,vegetables,1400,1700
+PURNIA,Carrot,vegetables,100,1600
+ROHTAS,Carrot,vegetables,100,900
+SAHARSA,Carrot,vegetables,100,1500
+SAMASTIPUR,Carrot,vegetables,200,2600
+SARAN,Carrot,vegetables,100,1400
+SHEIKHPURA,Carrot,vegetables,,200
+SHEOHAR,Carrot,vegetables,100,1100
+SITAMARHI,Carrot,vegetables,100,1400
+SIWAN,Carrot,vegetables,1200,1500
+SUPAUL,Carrot,vegetables,100,1100
+VAISHALI,Carrot,vegetables,300,3500
+ARARIA,Cauliflower,vegetables,810,14985
+ARWAL,Cauliflower,vegetables,400,8100
+AURANGABAD,Cauliflower,vegetables,1200,24171.43
+BANKA,Cauliflower,vegetables,811,12570.47
+BEGUSARAI,Cauliflower,vegetables,1820,35287.78
+BHAGALPUR,Cauliflower,vegetables,1700,29200
+BHOJPUR,Cauliflower,vegetables,1110,21695.25
+BUXAR,Cauliflower,vegetables,700,12700
+DARBHANGA,Cauliflower,vegetables,1650,29390.63
+GAYA,Cauliflower,vegetables,2002,2002
+GOPALGANJ,Cauliflower,vegetables,1900,33900
+JAMUI,Cauliflower,vegetables,402,7537.5
+JEHANABAD,Cauliflower,vegetables,516,10010.4
+KAIMUR (BHABUA),Cauliflower,vegetables,807,13618.13
+KATIHAR,Cauliflower,vegetables,3015,2125.5
+KHAGARIA,Cauliflower,vegetables,1311,21581.08
+KISHANGANJ,Cauliflower,vegetables,911,16094.33
+LAKHISARAI,Cauliflower,vegetables,-,-
+MADHEPURA,Cauliflower,vegetables,1820,31243.33
+MADHUBANI,Cauliflower,vegetables,2600,45800
+MUNGER,Cauliflower,vegetables,810,13466.25
+MUZAFFARPUR,Cauliflower,vegetables,3420,66445.71
+NALANDA,Cauliflower,vegetables,3100,60000
+NAWADA,Cauliflower,vegetables,1500,24535.71
+PASHCHIM CHAMPARAN,Cauliflower,vegetables,3000,55241.37
+PATNA,Cauliflower,vegetables,4000,1368.42
+PURBI CHAMPARAN,Cauliflower,vegetables,2900,39205.36
+PURNIA,Cauliflower,vegetables,2110,35367.61
+ROHTAS,Cauliflower,vegetables,1312,22102.15
+SAHARSA,Cauliflower,vegetables,1810,31675
+SAMASTIPUR,Cauliflower,vegetables,3012,59738
+SARAN,Cauliflower,vegetables,2912,38157.24
+SHEIKHPURA,Cauliflower,vegetables,215,4730
+SHEOHAR,Cauliflower,vegetables,812,15225
+SITAMARHI,Cauliflower,vegetables,1412,24407.43
+SIWAN,Cauliflower,vegetables,1601,28417.75
+SUPAUL,Cauliflower,vegetables,701.5,11725.07
+VAISHALI,Cauliflower,vegetables,5995,99916.67
+ARARIA,Cucumber,vegetables,,200
+ARWAL,Cucumber,vegetables,-,-
+AURANGABAD,Cucumber,vegetables,,300
+BANKA,Cucumber,vegetables,,300
+BEGUSARAI,Cucumber,vegetables,100,800
+BHAGALPUR,Cucumber,vegetables,100,1100
+BHOJPUR,Cucumber,vegetables,100,1000
+BUXAR,Cucumber,vegetables,,400
+DARBHANGA,Cucumber,vegetables,,500
+GAYA,Cucumber,vegetables,-,-
+GOPALGANJ,Cucumber,vegetables,,300
+JAMUI,Cucumber,vegetables,,300
+JEHANABAD,Cucumber,vegetables,,500
+KAIMUR (BHABUA),Cucumber,vegetables,,300
+KATIHAR,Cucumber,vegetables,800,800
+KHAGARIA,Cucumber,vegetables,,400
+KISHANGANJ,Cucumber,vegetables,,300
+LAKHISARAI,Cucumber,vegetables,-,-
+MADHEPURA,Cucumber,vegetables,100,600
+MADHUBANI,Cucumber,vegetables,,500
+MUNGER,Cucumber,vegetables,100,1000
+MUZAFFARPUR,Cucumber,vegetables,100,1200
+NALANDA,Cucumber,vegetables,100,46500
+NAWADA,Cucumber,vegetables,,400
+PASHCHIM CHAMPARAN,Cucumber,vegetables,100,700
+PATNA,Cucumber,vegetables,100,1300
+PURBI CHAMPARAN,Cucumber,vegetables,100,600
+PURNIA,Cucumber,vegetables,700,800
+ROHTAS,Cucumber,vegetables,,300
+SAHARSA,Cucumber,vegetables,100,700
+SAMASTIPUR,Cucumber,vegetables,100,1300
+SARAN,Cucumber,vegetables,400,500
+SHEIKHPURA,Cucumber,vegetables,,300
+SHEOHAR,Cucumber,vegetables,,300
+SITAMARHI,Cucumber,vegetables,400,400
+SIWAN,Cucumber,vegetables,,300
+SUPAUL,Cucumber,vegetables,,200
+VAISHALI,Cucumber,vegetables,100,1600
+ARARIA,Elephant Foot,vegetables,,300
+ARWAL,Elephant Foot,vegetables,,400
+AURANGABAD,Elephant Foot,vegetables,,300
+BANKA,Elephant Foot,vegetables,-,-
+BEGUSARAI,Elephant Foot,vegetables,,2300
+BHAGALPUR,Elephant Foot,vegetables,,800
+BHOJPUR,Elephant Foot,vegetables,,4900
+BUXAR,Elephant Foot,vegetables,100,400
+DARBHANGA,Elephant Foot,vegetables,,500
+GAYA,Elephant Foot,vegetables,-,-
+GOPALGANJ,Elephant Foot,vegetables,,500
+JAMUI,Elephant Foot,vegetables,,200
+JEHANABAD,Elephant Foot,vegetables,,300
+KAIMUR (BHABUA),Elephant Foot,vegetables,,200
+KATIHAR,Elephant Foot,vegetables,,800
+KHAGARIA,Elephant Foot,vegetables,,400
+KISHANGANJ,Elephant Foot,vegetables,,300
+LAKHISARAI,Elephant Foot,vegetables,-,-
+MADHEPURA,Elephant Foot,vegetables,,400
+MADHUBANI,Elephant Foot,vegetables,,400
+MUNGER,Elephant Foot,vegetables,,800
+MUZAFFARPUR,Elephant Foot,vegetables,100,4700
+NALANDA,Elephant Foot,vegetables,,500
+NAWADA,Elephant Foot,vegetables,,300
+PASHCHIM CHAMPARAN,Elephant Foot,vegetables,,1000
+PATNA,Elephant Foot,vegetables,,500
+PURBI CHAMPARAN,Elephant Foot,vegetables,,800
+PURNIA,Elephant Foot,vegetables,,900
+ROHTAS,Elephant Foot,vegetables,,100
+SAHARSA,Elephant Foot,vegetables,,500
+SAMASTIPUR,Elephant Foot,vegetables,200,7000
+SARAN,Elephant Foot,vegetables,,400
+SHEIKHPURA,Elephant Foot,vegetables,,200
+SHEOHAR,Elephant Foot,vegetables,,300
+SITAMARHI,Elephant Foot,vegetables,,1000
+SIWAN,Elephant Foot,vegetables,,700
+SUPAUL,Elephant Foot,vegetables,,300
+VAISHALI,Elephant Foot,vegetables,100,2800
+ARARIA,Green Chilly,vegetables,500,5300
+ARWAL,Green Chilly,vegetables,310,3926.68
+AURANGABAD,Green Chilly,vegetables,709,7900.29
+BANKA,Green Chilly,vegetables,503,5834.8
+BEGUSARAI,Green Chilly,vegetables,1710,19413.53
+BHAGALPUR,Green Chilly,vegetables,1200,15709.1
+BHOJPUR,Green Chilly,vegetables,600,7800
+BUXAR,Green Chilly,vegetables,500,6000
+DARBHANGA,Green Chilly,vegetables,1410,16114.29
+GAYA,Green Chilly,vegetables,1500,1500
+GOPALGANJ,Green Chilly,vegetables,1000,11400
+JAMUI,Green Chilly,vegetables,900,9400
+JEHANABAD,Green Chilly,vegetables,407,4578.75
+KAIMUR (BHABUA),Green Chilly,vegetables,402,4522.5
+KATIHAR,Green Chilly,vegetables,2010,23014.5
+KHAGARIA,Green Chilly,vegetables,1015,11063.5
+KISHANGANJ,Green Chilly,vegetables,608,65866.67
+LAKHISARAI,Green Chilly,vegetables,-,-
+MADHEPURA,Green Chilly,vegetables,700,7900
+MADHUBANI,Green Chilly,vegetables,1210,14318.33
+MUNGER,Green Chilly,vegetables,1090,13377.27
+MUZAFFARPUR,Green Chilly,vegetables,1840,22488.88
+NALANDA,Green Chilly,vegetables,4000,2000
+NAWADA,Green Chilly,vegetables,820,9327.5
+PASHCHIM CHAMPARAN,Green Chilly,vegetables,1500,16875
+PATNA,Green Chilly,vegetables,2650,38277.77
+PURBI CHAMPARAN,Green Chilly,vegetables,80,10640
+PURNIA,Green Chilly,vegetables,1390,15786.42
+ROHTAS,Green Chilly,vegetables,6012,6813.6
+SAHARSA,Green Chilly,vegetables,712,8544
+SAMASTIPUR,Green Chilly,vegetables,1510,17616.67
+SARAN,Green Chilly,vegetables,1212,13433
+SHEIKHPURA,Green Chilly,vegetables,710,7911.43
+SHEOHAR,Green Chilly,vegetables,501,5010
+SITAMARHI,Green Chilly,vegetables,712,8442.28
+SIWAN,Green Chilly,vegetables,1101,13612.36
+SUPAUL,Green Chilly,vegetables,401,4110.25
+VAISHALI,Green Chilly,vegetables,1801,21011.67
+ARARIA,Kaddu/Pumpkin,vegetables,,200
+ARWAL,Kaddu/Pumpkin,vegetables,,700
+AURANGABAD,Kaddu/Pumpkin,vegetables,,300
+BANKA,Kaddu/Pumpkin,vegetables,,200
+BEGUSARAI,Kaddu/Pumpkin,vegetables,,300
+BHAGALPUR,Kaddu/Pumpkin,vegetables,,500
+BHOJPUR,Kaddu/Pumpkin,vegetables,,400
+BUXAR,Kaddu/Pumpkin,vegetables,,300
+DARBHANGA,Kaddu/Pumpkin,vegetables,,300
+GAYA,Kaddu/Pumpkin,vegetables,-,-
+GOPALGANJ,Kaddu/Pumpkin,vegetables,,200
+JAMUI,Kaddu/Pumpkin,vegetables,,200
+JEHANABAD,Kaddu/Pumpkin,vegetables,,800
+KAIMUR (BHABUA),Kaddu/Pumpkin,vegetables,,200
+KATIHAR,Kaddu/Pumpkin,vegetables,,400
+KHAGARIA,Kaddu/Pumpkin,vegetables,,300
+KISHANGANJ,Kaddu/Pumpkin,vegetables,,300
+LAKHISARAI,Kaddu/Pumpkin,vegetables,,200
+MADHEPURA,Kaddu/Pumpkin,vegetables,,200
+MADHUBANI,Kaddu/Pumpkin,vegetables,,400
+MUNGER,Kaddu/Pumpkin,vegetables,,500
+MUZAFFARPUR,Kaddu/Pumpkin,vegetables,,600
+NALANDA,Kaddu/Pumpkin,vegetables,,500
+NAWADA,Kaddu/Pumpkin,vegetables,,300
+PASHCHIM CHAMPARAN,Kaddu/Pumpkin,vegetables,,500
+PATNA,Kaddu/Pumpkin,vegetables,,800
+PURBI CHAMPARAN,Kaddu/Pumpkin,vegetables,,300
+PURNIA,Kaddu/Pumpkin,vegetables,,200
+ROHTAS,Kaddu/Pumpkin,vegetables,,200
+SAHARSA,Kaddu/Pumpkin,vegetables,,300
+SAMASTIPUR,Kaddu/Pumpkin,vegetables,,600
+SARAN,Kaddu/Pumpkin,vegetables,,300
+SHEIKHPURA,Kaddu/Pumpkin,vegetables,,200
+SHEOHAR,Kaddu/Pumpkin,vegetables,,300
+SITAMARHI,Kaddu/Pumpkin,vegetables,,400
+SIWAN,Kaddu/Pumpkin,vegetables,,400
+SUPAUL,Kaddu/Pumpkin,vegetables,,100
+VAISHALI,Kaddu/Pumpkin,vegetables,,100
+ARARIA,Okra /Ladies Finger,vegetables,800,10600.0
+ARWAL,Okra /Ladies Finger,vegetables,200,2400.0
+AURANGABAD,Okra /Ladies Finger,vegetables,1450,18286.12
+BANKA,Okra /Ladies Finger,vegetables,900,11400.0
+BEGUSARAI,Okra /Ladies Finger,vegetables,2402,32827.0
+BHAGALPUR,Okra /Ladies Finger,vegetables,1500,32142.86
+BHOJPUR,Okra /Ladies Finger,vegetables,1605,21968.44
+BUXAR,Okra /Ladies Finger,vegetables,1312,15441.24
+DARBHANGA,Okra /Ladies Finger,vegetables,1600,20200.0
+GAYA,Okra /Ladies Finger,vegetables,1900,1900.0
+GOPALGANJ,Okra /Ladies Finger,vegetables,2000,29200.0
+JAMUI,Okra /Ladies Finger,vegetables,805,9760.63
+JEHANABAD,Okra /Ladies Finger,vegetables,613,8071.17
+KAIMUR (BHABUA),Okra /Ladies Finger,vegetables,906,11375.33
+KATIHAR,Okra /Ladies Finger,vegetables,1807,24595.28
+KHAGARIA,Okra /Ladies Finger,vegetables,1307,21314.15
+KISHANGANJ,Okra /Ladies Finger,vegetables,810,11137.5
+LAKHISARAI,Okra /Ladies Finger,vegetables,304,4661.33
+MADHEPURA,Okra /Ladies Finger,vegetables,1110,14530.91
+MADHUBANI,Okra /Ladies Finger,vegetables,1590,21862.5
+MUNGER,Okra /Ladies Finger,vegetables,1000,11181.81
+MUZAFFARPUR,Okra /Ladies Finger,vegetables,2520,37195.2
+NALANDA,Okra /Ladies Finger,vegetables,3000,42517.24
+NAWADA,Okra /Ladies Finger,vegetables,1920,24151.57
+PASHCHIM CHAMPARAN,Okra /Ladies Finger,vegetables,2575,30900.0
+PATNA,Okra /Ladies Finger,vegetables,3100,42366.66
+PURBI CHAMPARAN,Okra /Ladies Finger,vegetables,3000,39111.11
+PURNIA,Okra /Ladies Finger,vegetables,1305,17165.77
+ROHTAS,Okra /Ladies Finger,vegetables,1409,19021.5
+SAHARSA,Okra /Ladies Finger,vegetables,1210,16032.5
+SAMASTIPUR,Okra /Ladies Finger,vegetables,1711,24658.53
+SARAN,Okra /Ladies Finger,vegetables,2102,25023.81
+SHEIKHPURA,Okra /Ladies Finger,vegetables,309,4429.0
+SHEOHAR,Okra /Ladies Finger,vegetables,612,8058.0
+SITAMARHI,Okra /Ladies Finger,vegetables,1002,14629.2
+SIWAN,Okra /Ladies Finger,vegetables,2000.96,26012.48
+SUPAUL,Okra /Ladies Finger,vegetables,801,9812.25
+VAISHALI,Okra /Ladies Finger,vegetables,3500.59,50008.43
+ARARIA,Onion,vegetables,1503,32314.5
+ARWAL,Onion,vegetables,400,9900
+AURANGABAD,Onion,vegetables,1120,25487.26
+BANKA,Onion,vegetables,710,15721.43
+BEGUSARAI,Onion,vegetables,2000,42400
+BHAGALPUR,Onion,vegetables,1605,40366.31
+BHOJPUR,Onion,vegetables,1200,26000
+BUXAR,Onion,vegetables,1000,25111.12
+DARBHANGA,Onion,vegetables,1000,25000
+GAYA,Onion,vegetables,1405,1405
+GOPALGANJ,Onion,vegetables,900,18600
+JAMUI,Onion,vegetables,809,22393.77
+JEHANABAD,Onion,vegetables,516,13519.2
+KAIMUR (BHABUA),Onion,vegetables,1012,20948.4
+KATIHAR,Onion,vegetables,3907,83249.15
+KHAGARIA,Onion,vegetables,804,17386.5
+KISHANGANJ,Onion,vegetables,1411,31646.71
+LAKHISARAI,Onion,vegetables,407,10276.75
+MADHEPURA,Onion,vegetables,1000,22600
+MADHUBANI,Onion,vegetables,1000,23000
+MUNGER,Onion,vegetables,1100,26950
+MUZAFFARPUR,Onion,vegetables,2690,69319.23
+NALANDA,Onion,vegetables,5500,146666.66
+NAWADA,Onion,vegetables,999,21778.2
+PASHCHIM CHAMPARAN,Onion,vegetables,2400,61922.59
+PATNA,Onion,vegetables,2700,65423.07
+PURBI CHAMPARAN,Onion,vegetables,2500,61770.83
+PURNIA,Onion,vegetables,1801,42500
+ROHTAS,Onion,vegetables,1209,27504.75
+SAHARSA,Onion,vegetables,612,15300
+SAMASTIPUR,Onion,vegetables,1403,30465.14
+SARAN,Onion,vegetables,1012,18216
+SHEIKHPURA,Onion,vegetables,1312,30276.93
+SHEOHAR,Onion,vegetables,702,17349.43
+SITAMARHI,Onion,vegetables,1303,32575
+SIWAN,Onion,vegetables,902,21046.67
+SUPAUL,Onion,vegetables,400.95,8520.18
+VAISHALI,Onion,vegetables,1802,44048.89
+ARARIA,Peas (Green),vegetables,200,1000
+ARWAL,Peas (Green),vegetables,100,500
+AURANGABAD,Peas (Green),vegetables,100,800
+BANKA,Peas (Green),vegetables,100,400
+BEGUSARAI,Peas (Green),vegetables,300,2400
+BHAGALPUR,Peas (Green),vegetables,400,2900
+BHOJPUR,Peas (Green),vegetables,400,3100
+BUXAR,Peas (Green),vegetables,202,1300
+DARBHANGA,Peas (Green),vegetables,300,2200
+GAYA,Peas (Green),vegetables,500,500
+GOPALGANJ,Peas (Green),vegetables,200,1200
+JAMUI,Peas (Green),vegetables,,100
+JEHANABAD,Peas (Green),vegetables,103,412
+KAIMUR (BHABUA),Peas (Green),vegetables,100,500
+KATIHAR,Peas (Green),vegetables,400,3100
+KHAGARIA,Peas (Green),vegetables,700,1100
+KISHANGANJ,Peas (Green),vegetables,200,1200
+LAKHISARAI,Peas (Green),vegetables,100,600
+MADHEPURA,Peas (Green),vegetables,200,1600
+MADHUBANI,Peas (Green),vegetables,320,2133.33
+MUNGER,Peas (Green),vegetables,280,1586.66
+MUZAFFARPUR,Peas (Green),vegetables,580,4350
+NALANDA,Peas (Green),vegetables,500,3875
+NAWADA,Peas (Green),vegetables,110,880
+PASHCHIM CHAMPARAN,Peas (Green),vegetables,310,2010
+PATNA,Peas (Green),vegetables,550,3960
+PURBI CHAMPARAN,Peas (Green),vegetables,250,1750
+PURNIA,Peas (Green),vegetables,395,276.5
+ROHTAS,Peas (Green),vegetables,102,816
+SAHARSA,Peas (Green),vegetables,301,2107
+SAMASTIPUR,Peas (Green),vegetables,401,3208
+SARAN,Peas (Green),vegetables,412,2575
+SHEIKHPURA,Peas (Green),vegetables,,200
+SHEOHAR,Peas (Green),vegetables,201,1005
+SITAMARHI,Peas (Green),vegetables,212,1484
+SIWAN,Peas (Green),vegetables,202,1313
+SUPAUL,Peas (Green),vegetables,201,1005
+VAISHALI,Peas (Green),vegetables,612,4794
+ARARIA,Pointed Gourd,vegetables,105,630
+ARWAL,Pointed Gourd,vegetables,100,600
+AURANGABAD,Pointed Gourd,vegetables,,300
+BANKA,Pointed Gourd,vegetables,-,-
+BEGUSARAI,Pointed Gourd,vegetables,200,2500
+BHAGALPUR,Pointed Gourd,vegetables,300,3000
+BHOJPUR,Pointed Gourd,vegetables,200,2500
+BUXAR,Pointed Gourd,vegetables,100,1400
+DARBHANGA,Pointed Gourd,vegetables,200,1800
+GAYA,Pointed Gourd,vegetables,-,-
+GOPALGANJ,Pointed Gourd,vegetables,100,1400
+JAMUI,Pointed Gourd,vegetables,,300
+JEHANABAD,Pointed Gourd,vegetables,,400
+KAIMUR (BHABUA),Pointed Gourd,vegetables,,200
+KATIHAR,Pointed Gourd,vegetables,409,3476.5
+KHAGARIA,Pointed Gourd,vegetables,205,1947.5
+KISHANGANJ,Pointed Gourd,vegetables,105,735
+LAKHISARAI,Pointed Gourd,vegetables,200,1700
+MADHEPURA,Pointed Gourd,vegetables,210,2730
+MADHUBANI,Pointed Gourd,vegetables,120,1800
+MUNGER,Pointed Gourd,vegetables,310,3616.66
+MUZAFFARPUR,Pointed Gourd,vegetables,410,4202.5
+NALANDA,Pointed Gourd,vegetables,,300
+NAWADA,Pointed Gourd,vegetables,,200
+PASHCHIM CHAMPARAN,Pointed Gourd,vegetables,210,2625
+PATNA,Pointed Gourd,vegetables,500,5625
+PURBI CHAMPARAN,Pointed Gourd,vegetables,200,2500
+PURNIA,Pointed Gourd,vegetables,310,2893.33
+ROHTAS,Pointed Gourd,vegetables,102,204
+SAHARSA,Pointed Gourd,vegetables,410,4612.5
+SAMASTIPUR,Pointed Gourd,vegetables,301,3010
+SARAN,Pointed Gourd,vegetables,302,3020
+SHEIKHPURA,Pointed Gourd,vegetables,-,-
+SHEOHAR,Pointed Gourd,vegetables,102,612
+SITAMARHI,Pointed Gourd,vegetables,102,918
+SIWAN,Pointed Gourd,vegetables,303,2626
+SUPAUL,Pointed Gourd,vegetables,100.96,1009.6
+VAISHALI,Pointed Gourd,vegetables,612,6732
+ARARIA,Potato,vegetables,4561,111744.5
+ARWAL,Potato,vegetables,2500,67159.25
+AURANGABAD,Potato,vegetables,4500,115750.23
+BANKA,Potato,vegetables,4900,125700
+BEGUSARAI,Potato,vegetables,6500,182000
+BHAGALPUR,Potato,vegetables,6310,168393.69
+BHOJPUR,Potato,vegetables,6400,175441.27
+BUXAR,Potato,vegetables,4000,107767.24
+DARBHANGA,Potato,vegetables,5845,154900
+GAYA,Potato,vegetables,8200,8200
+GOPALGANJ,Potato,vegetables,9118,242700
+JAMUI,Potato,vegetables,2606,67455.31
+JEHANABAD,Potato,vegetables,2808,73852.6
+KAIMUR (BHABUA),Potato,vegetables,3229,84234.78
+KATIHAR,Potato,vegetables,5611,148063.88
+KHAGARIA,Potato,vegetables,4112,108917.85
+KISHANGANJ,Potato,vegetables,4513,118135.59
+LAKHISARAI,Potato,vegetables,2409,63798.13
+MADHEPURA,Potato,vegetables,5313,140364.19
+MADHUBANI,Potato,vegetables,7800,208773.6
+MUNGER,Potato,vegetables,5310,142368.11
+MUZAFFARPUR,Potato,vegetables,85490,253970.29
+NALANDA,Potato,vegetables,20000,576645.84
+NAWADA,Potato,vegetables,4200,100000
+PASHCHIM CHAMPARAN,Potato,vegetables,9300,250809.06
+PATNA,Potato,vegetables,12500,359827.28
+PURBI CHAMPARAN,Potato,vegetables,8900,240900
+PURNIA,Potato,vegetables,5150,135979.8
+ROHTAS,Potato,vegetables,8012,207210.35
+SAHARSA,Potato,vegetables,5710,151865.96
+SAMASTIPUR,Potato,vegetables,9208,250217.39
+SARAN,Potato,vegetables,10812,280811.67
+SHEIKHPURA,Potato,vegetables,4221,120600
+SHEOHAR,Potato,vegetables,3210,83861.25
+SITAMARHI,Potato,vegetables,5122,137088.83
+SIWAN,Potato,vegetables,7701,205909
+SUPAUL,Potato,vegetables,4501,116025.78
+VAISHALI,Potato,vegetables,9900,290265.45
+ARARIA,Radish,vegetables,300,4400
+ARWAL,Radish,vegetables,100,2100
+AURANGABAD,Radish,vegetables,300,4200
+BANKA,Radish,vegetables,200,3800
+BEGUSARAI,Radish,vegetables,600,8900
+BHAGALPUR,Radish,vegetables,400,7100
+BHOJPUR,Radish,vegetables,,5000
+BUXAR,Radish,vegetables,200,3500
+DARBHANGA,Radish,vegetables,600,9200
+GAYA,Radish,vegetables,510,510
+GOPALGANJ,Radish,vegetables,400,6400
+JAMUI,Radish,vegetables,100.5,2100
+JEHANABAD,Radish,vegetables,100,2200
+KAIMUR (BHABUA),Radish,vegetables,204,3162
+KATIHAR,Radish,vegetables,700,10000
+KHAGARIA,Radish,vegetables,400,5400
+KISHANGANJ,Radish,vegetables,300,4500
+LAKHISARAI,Radish,vegetables,100,1700
+MADHEPURA,Radish,vegetables,400,5900
+MADHUBANI,Radish,vegetables,400,7000
+MUNGER,Radish,vegetables,400,5900
+MUZAFFARPUR,Radish,vegetables,700,11300
+NALANDA,Radish,vegetables,9300,15500
+NAWADA,Radish,vegetables,300,4200
+PASHCHIM CHAMPARAN,Radish,vegetables,700,11500
+PATNA,Radish,vegetables,900,14500
+PURBI CHAMPARAN,Radish,vegetables,700,10900
+PURNIA,Radish,vegetables,500,8000
+ROHTAS,Radish,vegetables,312,4680
+SAHARSA,Radish,vegetables,500,6800
+SAMASTIPUR,Radish,vegetables,700,10800
+SARAN,Radish,vegetables,500,7500
+SHEIKHPURA,Radish,vegetables,115,1725
+SHEOHAR,Radish,vegetables,303,4500
+SITAMARHI,Radish,vegetables,400,6500
+SIWAN,Radish,vegetables,400.96,6509
+SUPAUL,Radish,vegetables,300,3600
+VAISHALI,Radish,vegetables,1000,15500
+ARARIA,Sweet Potato,vegetables,-,-
+ARWAL,Sweet Potato,vegetables,-,-
+AURANGABAD,Sweet Potato,vegetables,-,-
+BANKA,Sweet Potato,vegetables,-,-
+BEGUSARAI,Sweet Potato,vegetables,,700
+BHAGALPUR,Sweet Potato,vegetables,-,-
+BHOJPUR,Sweet Potato,vegetables,-,-
+BUXAR,Sweet Potato,vegetables,-,-
+DARBHANGA,Sweet Potato,vegetables,,900
+GAYA,Sweet Potato,vegetables,-,-
+GOPALGANJ,Sweet Potato,vegetables,-,-
+JAMUI,Sweet Potato,vegetables,-,-
+JEHANABAD,Sweet Potato,vegetables,-,-
+KAIMUR (BHABUA),Sweet Potato,vegetables,-,-
+KATIHAR,Sweet Potato,vegetables,-,-
+KHAGARIA,Sweet Potato,vegetables,-,-
+KISHANGANJ,Sweet Potato,vegetables,-,-
+LAKHISARAI,Sweet Potato,vegetables,-,-
+MADHEPURA,Sweet Potato,vegetables,-,-
+MADHUBANI,Sweet Potato,vegetables,,700
+MUNGER,Sweet Potato,vegetables,-,-
+MUZAFFARPUR,Sweet Potato,vegetables,100,1200
+NALANDA,Sweet Potato,vegetables,-,-
+NAWADA,Sweet Potato,vegetables,-,-
+PASHCHIM CHAMPARAN,Sweet Potato,vegetables,,700
+PATNA,Sweet Potato,vegetables,-,-
+PURBI CHAMPARAN,Sweet Potato,vegetables,,600
+PURNIA,Sweet Potato,vegetables,-,-
+ROHTAS,Sweet Potato,vegetables,-,-
+SAHARSA,Sweet Potato,vegetables,-,-
+SAMASTIPUR,Sweet Potato,vegetables,100,1600
+SARAN,Sweet Potato,vegetables,-,-
+SHEIKHPURA,Sweet Potato,vegetables,-,-
+SHEOHAR,Sweet Potato,vegetables,200,400
+SITAMARHI,Sweet Potato,vegetables,,600
+SIWAN,Sweet Potato,vegetables,-,-
+SUPAUL,Sweet Potato,vegetables,-,-
+VAISHALI,Sweet Potato,vegetables,500,1000
+ARARIA,Tomato,vegetables,745,16306.3
+ARWAL,Tomato,vegetables,400,8500
+AURANGABAD,Tomato,vegetables,1475,28025
+BANKA,Tomato,vegetables,600,13300
+BEGUSARAI,Tomato,vegetables,1905,43614.48
+BHAGALPUR,Tomato,vegetables,1605,38319.37
+BHOJPUR,Tomato,vegetables,1112,24767.28
+BUXAR,Tomato,vegetables,710,17344.29
+DARBHANGA,Tomato,vegetables,1505,33009.67
+GAYA,Tomato,vegetables,1005,1005
+GOPALGANJ,Tomato,vegetables,1500,33000
+JAMUI,Tomato,vegetables,400,8500
+JEHANABAD,Tomato,vegetables,507,16528.2
+KAIMUR (BHABUA),Tomato,vegetables,600,11800
+KATIHAR,Tomato,vegetables,1405,32616.07
+KHAGARIA,Tomato,vegetables,1100,23600
+KISHANGANJ,Tomato,vegetables,804,18894
+LAKHISARAI,Tomato,vegetables,500,6000
+MADHEPURA,Tomato,vegetables,1213,25776.25
+MADHUBANI,Tomato,vegetables,1300,29800
+MUNGER,Tomato,vegetables,780,17717.14
+MUZAFFARPUR,Tomato,vegetables,3710,83023.78
+NALANDA,Tomato,vegetables,1910,44850
+NAWADA,Tomato,vegetables,875,17062.5
+PASHCHIM CHAMPARAN,Tomato,vegetables,,900
+PATNA,Tomato,vegetables,2000,45473.68
+PURBI CHAMPARAN,Tomato,vegetables,1800,40732.11
+PURNIA,Tomato,vegetables,1000,24333.33
+ROHTAS,Tomato,vegetables,914,16248.89
+SAHARSA,Tomato,vegetables,1209,26396.5
+SAMASTIPUR,Tomato,vegetables,1912,42064
+SARAN,Tomato,vegetables,1612,33549.75
+SHEIKHPURA,Tomato,vegetables,206,5459
+SHEOHAR,Tomato,vegetables,512,12083.2
+SITAMARHI,Tomato,vegetables,1575,35595
+SIWAN,Tomato,vegetables,1400,30500
+SUPAUL,Tomato,vegetables,499,10878.2
+VAISHALI,Tomato,vegetables,3901,92023.59
+ARARIA,Other Vegetables,vegetables,600,7700
+ARWAL,Other Vegetables,vegetables,200,2300
+AURANGABAD,Other Vegetables,vegetables,810,10645.73
+BANKA,Other Vegetables,vegetables,-,-
+BEGUSARAI,Other Vegetables,vegetables,1500,21200
+BHAGALPUR,Other Vegetables,vegetables,1100,15800
+BHOJPUR,Other Vegetables,vegetables,300,4100
+BUXAR,Other Vegetables,vegetables,250,3375
+DARBHANGA,Other Vegetables,vegetables,1500,20300
+GAYA,Other Vegetables,vegetables,600,600
+GOPALGANJ,Other Vegetables,vegetables,700,10500
+JAMUI,Other Vegetables,vegetables,300,3400
+JEHANABAD,Other Vegetables,vegetables,200,2300
+KAIMUR (BHABUA),Other Vegetables,vegetables,300,4800
+KATIHAR,Other Vegetables,vegetables,1402,20829.71
+KHAGARIA,Other Vegetables,vegetables,713,9167.14
+KISHANGANJ,Other Vegetables,vegetables,603,8040
+LAKHISARAI,Other Vegetables,vegetables,200,2200
+MADHEPURA,Other Vegetables,vegetables,400,6100
+MADHUBANI,Other Vegetables,vegetables,1200,17300
+MUNGER,Other Vegetables,vegetables,300,4300
+MUZAFFARPUR,Other Vegetables,vegetables,1500,21900
+NALANDA,Other Vegetables,vegetables,1600,24100
+NAWADA,Other Vegetables,vegetables,400,5500
+PASHCHIM CHAMPARAN,Other Vegetables,vegetables,900,1600
+PATNA,Other Vegetables,vegetables,1300,19900
+PURBI CHAMPARAN,Other Vegetables,vegetables,1500,21500
+PURNIA,Other Vegetables,vegetables,1500,22000
+ROHTAS,Other Vegetables,vegetables,500,7000
+SAHARSA,Other Vegetables,vegetables,700,10100
+SAMASTIPUR,Other Vegetables,vegetables,1600,23000
+SARAN,Other Vegetables,vegetables,900,12000
+SHEIKHPURA,Other Vegetables,vegetables,102,1836
+SHEOHAR,Other Vegetables,vegetables,300,4500
+SITAMARHI,Other Vegetables,vegetables,800,11500
+SIWAN,Other Vegetables,vegetables,500,7900
+SUPAUL,Other Vegetables,vegetables,300,4500
+VAISHALI,Other Vegetables,vegetables,1600,24000
+ARARIA,Coconut,plantation_crop,500,220197.63
+ARWAL,Coconut,plantation_crop,-,-
+AURANGABAD,Coconut,plantation_crop,-,-
+BANKA,Coconut,plantation_crop,-,-
+BEGUSARAI,Coconut,plantation_crop,-,-
+BHAGALPUR,Coconut,plantation_crop,1300,564256.42
+BHOJPUR,Coconut,plantation_crop,-,-
+BUXAR,Coconut,plantation_crop,-,-
+DARBHANGA,Coconut,plantation_crop,-,-
+GAYA,Coconut,plantation_crop,-,-
+GOPALGANJ,Coconut,plantation_crop,700,282128.21
+JAMUI,Coconut,plantation_crop,-,-
+JEHANABAD,Coconut,plantation_crop,-,-
+KAIMUR (BHABUA),Coconut,plantation_crop,-,-
+KATIHAR,Coconut,plantation_crop,1100,495444.66
+KHAGARIA,Coconut,plantation_crop,-,-
+KISHANGANJ,Coconut,plantation_crop,-,-
+LAKHISARAI,Coconut,plantation_crop,-,-
+MADHEPURA,Coconut,plantation_crop,1800,894552.86
+MADHUBANI,Coconut,plantation_crop,-,-
+MUNGER,Coconut,plantation_crop,-,-
+MUZAFFARPUR,Coconut,plantation_crop,800,357821.14
+NALANDA,Coconut,plantation_crop,,165148.22
+NAWADA,Coconut,plantation_crop,400,185791.75
+PASHCHIM CHAMPARAN,Coconut,plantation_crop,300,137623.52
+PATNA,Coconut,plantation_crop,1100,488563.49
+PURBI CHAMPARAN,Coconut,plantation_crop,1000,440395.25
+PURNIA,Coconut,plantation_crop,1300,564256.42
+ROHTAS,Coconut,plantation_crop,-,-
+SAHARSA,Coconut,plantation_crop,1900,894552.86
+SAMASTIPUR,Coconut,plantation_crop,1100,467919.96
+SARAN,Coconut,plantation_crop,-,-
+SHEIKHPURA,Coconut,plantation_crop,-,-
+SHEOHAR,Coconut,plantation_crop,-,-
+SITAMARHI,Coconut,plantation_crop,-,-
+SIWAN,Coconut,plantation_crop,300,137623.52
+SUPAUL,Coconut,plantation_crop,300,137623.52
+VAISHALI,Coconut,plantation_crop,1000,261484.68
+ARARIA,Coriander Seed,spices,-,-
+ARWAL,Coriander Seed,spices,-,-
+AURANGABAD,Coriander Seed,spices,-,-
+BANKA,Coriander Seed,spices,,100
+BEGUSARAI,Coriander Seed,spices,100,100
+BHAGALPUR,Coriander Seed,spices,,100
+BHOJPUR,Coriander Seed,spices,,100
+BUXAR,Coriander Seed,spices,,100
+DARBHANGA,Coriander Seed,spices,,100
+GAYA,Coriander Seed,spices,100,100
+GOPALGANJ,Coriander Seed,spices,-,-
+JAMUI,Coriander Seed,spices,-,-
+JEHANABAD,Coriander Seed,spices,-,-
+KAIMUR (BHABUA),Coriander Seed,spices,-,-
+KATIHAR,Coriander Seed,spices,,100
+KHAGARIA,Coriander Seed,spices,-,-
+KISHANGANJ,Coriander Seed,spices,-,-
+LAKHISARAI,Coriander Seed,spices,-,-
+MADHEPURA,Coriander Seed,spices,-,-
+MADHUBANI,Coriander Seed,spices,-,-
+MUNGER,Coriander Seed,spices,400,600
+MUZAFFARPUR,Coriander Seed,spices,100,100
+NALANDA,Coriander Seed,spices,100,200
+NAWADA,Coriander Seed,spices,-,-
+PASHCHIM CHAMPARAN,Coriander Seed,spices,100,100
+PATNA,Coriander Seed,spices,100,100
+PURBI CHAMPARAN,Coriander Seed,spices,,100
+PURNIA,Coriander Seed,spices,-,-
+ROHTAS,Coriander Seed,spices,,100
+SAHARSA,Coriander Seed,spices,,100
+SAMASTIPUR,Coriander Seed,spices,100,100
+SARAN,Coriander Seed,spices,-,-
+SHEIKHPURA,Coriander Seed,spices,200,200
+SHEOHAR,Coriander Seed,spices,-,-
+SITAMARHI,Coriander Seed,spices,-,-
+SIWAN,Coriander Seed,spices,-,-
+SUPAUL,Coriander Seed,spices,,100
+VAISHALI,Coriander Seed,spices,100,100
+ARARIA,Fenugreek,spices,-,-
+ARWAL,Fenugreek,spices,-,-
+AURANGABAD,Fenugreek,spices,-,-
+BANKA,Fenugreek,spices,100,100
+BEGUSARAI,Fenugreek,spices,-,-
+BHAGALPUR,Fenugreek,spices,-,-
+BHOJPUR,Fenugreek,spices,-,-
+BUXAR,Fenugreek,spices,-,-
+DARBHANGA,Fenugreek,spices,-,-
+GAYA,Fenugreek,spices,-,-
+GOPALGANJ,Fenugreek,spices,-,-
+JAMUI,Fenugreek,spices,-,-
+JEHANABAD,Fenugreek,spices,-,-
+KAIMUR (BHABUA),Fenugreek,spices,-,-
+KATIHAR,Fenugreek,spices,-,-
+KHAGARIA,Fenugreek,spices,-,-
+KISHANGANJ,Fenugreek,spices,-,-
+LAKHISARAI,Fenugreek,spices,-,-
+MADHEPURA,Fenugreek,spices,-,-
+MADHUBANI,Fenugreek,spices,-,-
+MUNGER,Fenugreek,spices,-,-
+MUZAFFARPUR,Fenugreek,spices,-,-
+NALANDA,Fenugreek,spices,-,-
+NAWADA,Fenugreek,spices,-,-
+PASHCHIM CHAMPARAN,Fenugreek,spices,-,-
+PATNA,Fenugreek,spices,-,-
+PURBI CHAMPARAN,Fenugreek,spices,-,-
+PURNIA,Fenugreek,spices,-,-
+ROHTAS,Fenugreek,spices,-,-
+SAHARSA,Fenugreek,spices,-,-
+SAMASTIPUR,Fenugreek,spices,-,-
+SARAN,Fenugreek,spices,-,-
+SHEIKHPURA,Fenugreek,spices,-,-
+SHEOHAR,Fenugreek,spices,-,-
+SITAMARHI,Fenugreek,spices,-,-
+SIWAN,Fenugreek,spices,-,-
+SUPAUL,Fenugreek,spices,-,-
+VAISHALI,Fenugreek,spices,-,-
+ARARIA,Garlic,spices,100,1200
+ARWAL,Garlic,spices,100,500
+AURANGABAD,Garlic,spices,,500
+BANKA,Garlic,spices,100,100
+BEGUSARAI,Garlic,spices,400,500
+BHAGALPUR,Garlic,spices,200,1300
+BHOJPUR,Garlic,spices,100,900
+BUXAR,Garlic,spices,100,700
+DARBHANGA,Garlic,spices,100,1100
+GAYA,Garlic,spices,1210,1210
+GOPALGANJ,Garlic,spices,1000,500
+JAMUI,Garlic,spices,,400
+JEHANABAD,Garlic,spices,,500
+KAIMUR (BHABUA),Garlic,spices,-,-
+KATIHAR,Garlic,spices,100,1500
+KHAGARIA,Garlic,spices,,500
+KISHANGANJ,Garlic,spices,100,1100
+LAKHISARAI,Garlic,spices,-,-
+MADHEPURA,Garlic,spices,100,1200
+MADHUBANI,Garlic,spices,100,600
+MUNGER,Garlic,spices,600,700
+MUZAFFARPUR,Garlic,spices,400,5200
+NALANDA,Garlic,spices,1500,400
+NAWADA,Garlic,spices,100,500
+PASHCHIM CHAMPARAN,Garlic,spices,200,1500
+PATNA,Garlic,spices,1400,1500
+PURBI CHAMPARAN,Garlic,spices,100,1900
+PURNIA,Garlic,spices,200,2600
+ROHTAS,Garlic,spices,100,200
+SAHARSA,Garlic,spices,100,1600
+SAMASTIPUR,Garlic,spices,400,4800
+SARAN,Garlic,spices,100,1100
+SHEIKHPURA,Garlic,spices,100,1000
+SHEOHAR,Garlic,spices,,500
+SITAMARHI,Garlic,spices,500,600
+SIWAN,Garlic,spices,100,700
+SUPAUL,Garlic,spices,,400
+VAISHALI,Garlic,spices,309,3708
+ARARIA,Ginger,spices,-,-
+ARWAL,Ginger,spices,-,-
+AURANGABAD,Ginger,spices,-,-
+BANKA,Ginger,spices,-,-
+BEGUSARAI,Ginger,spices,200,2600
+BHAGALPUR,Ginger,spices,,200
+BHOJPUR,Ginger,spices,-,-
+BUXAR,Ginger,spices,-,-
+DARBHANGA,Ginger,spices,,200
+GAYA,Ginger,spices,,200
+GOPALGANJ,Ginger,spices,,100
+JAMUI,Ginger,spices,-,-
+JEHANABAD,Ginger,spices,-,-
+KAIMUR (BHABUA),Ginger,spices,-,-
+KATIHAR,Ginger,spices,,300
+KHAGARIA,Ginger,spices,-,-
+KISHANGANJ,Ginger,spices,,100
+LAKHISARAI,Ginger,spices,-,-
+MADHEPURA,Ginger,spices,,100
+MADHUBANI,Ginger,spices,,100
+MUNGER,Ginger,spices,,100
+MUZAFFARPUR,Ginger,spices,300,3500
+NALANDA,Ginger,spices,,100
+NAWADA,Ginger,spices,-,-
+PASHCHIM CHAMPARAN,Ginger,spices,,300
+PATNA,Ginger,spices,,100
+PURBI CHAMPARAN,Ginger,spices,,300
+PURNIA,Ginger,spices,,400
+ROHTAS,Ginger,spices,-,-
+SAHARSA,Ginger,spices,100,1100
+SAMASTIPUR,Ginger,spices,300,3900
+SARAN,Ginger,spices,,200
+SHEIKHPURA,Ginger,spices,-,-
+SHEOHAR,Ginger,spices,-,-
+SITAMARHI,Ginger,spices,,100
+SIWAN,Ginger,spices,,100
+SUPAUL,Ginger,spices,-,-
+VAISHALI,Ginger,spices,200,2800
+ARARIA,Red Chilly,spices,100,200
+ARWAL,Red Chilly,spices,125,125
+AURANGABAD,Red Chilly,spices,103,103
+BANKA,Red Chilly,spices,,100
+BEGUSARAI,Red Chilly,spices,1000,1333.34
+BHAGALPUR,Red Chilly,spices,345,345
+BHOJPUR,Red Chilly,spices,100,200
+BUXAR,Red Chilly,spices,100,200
+DARBHANGA,Red Chilly,spices,210,210
+GAYA,Red Chilly,spices,310,413.34
+GOPALGANJ,Red Chilly,spices,100,100
+JAMUI,Red Chilly,spices,102,102
+JEHANABAD,Red Chilly,spices,100,100
+KAIMUR (BHABUA),Red Chilly,spices,101,101
+KATIHAR,Red Chilly,spices,400,500
+KHAGARIA,Red Chilly,spices,103,103
+KISHANGANJ,Red Chilly,spices,207,207
+LAKHISARAI,Red Chilly,spices,102,102
+MADHEPURA,Red Chilly,spices,207,310.5
+MADHUBANI,Red Chilly,spices,100,100
+MUNGER,Red Chilly,spices,300,300
+MUZAFFARPUR,Red Chilly,spices,500,600
+NALANDA,Red Chilly,spices,300,400
+NAWADA,Red Chilly,spices,100,100
+PASHCHIM CHAMPARAN,Red Chilly,spices,300,400
+PATNA,Red Chilly,spices,300,400
+PURBI CHAMPARAN,Red Chilly,spices,,400
+PURNIA,Red Chilly,spices,400,500
+ROHTAS,Red Chilly,spices,200,200
+SAHARSA,Red Chilly,spices,200,300
+SAMASTIPUR,Red Chilly,spices,900,1200
+SARAN,Red Chilly,spices,200,300
+SHEIKHPURA,Red Chilly,spices,100,100
+SHEOHAR,Red Chilly,spices,100,1000
+SITAMARHI,Red Chilly,spices,100,100
+SIWAN,Red Chilly,spices,100,200
+SUPAUL,Red Chilly,spices,101,101
+VAISHALI,Red Chilly,spices,500,600
+ARARIA,Tamarind,spices,-,-
+ARWAL,Tamarind,spices,-,-
+AURANGABAD,Tamarind,spices,,100
+BANKA,Tamarind,spices,,200
+BEGUSARAI,Tamarind,spices,,200
+BHAGALPUR,Tamarind,spices,-,-
+BHOJPUR,Tamarind,spices,-,-
+BUXAR,Tamarind,spices,-,-
+DARBHANGA,Tamarind,spices,-,-
+GAYA,Tamarind,spices,,200
+GOPALGANJ,Tamarind,spices,-,-
+JAMUI,Tamarind,spices,,100
+JEHANABAD,Tamarind,spices,-,-
+KAIMUR (BHABUA),Tamarind,spices,,200
+KATIHAR,Tamarind,spices,-,-
+KHAGARIA,Tamarind,spices,-,-
+KISHANGANJ,Tamarind,spices,-,-
+LAKHISARAI,Tamarind,spices,-,-
+MADHEPURA,Tamarind,spices,-,-
+MADHUBANI,Tamarind,spices,-,-
+MUNGER,Tamarind,spices,,1000
+MUZAFFARPUR,Tamarind,spices,,100
+NALANDA,Tamarind,spices,-,-
+NAWADA,Tamarind,spices,,300
+PASHCHIM CHAMPARAN,Tamarind,spices,-,-
+PATNA,Tamarind,spices,-,-
+PURBI CHAMPARAN,Tamarind,spices,,300
+PURNIA,Tamarind,spices,-,-
+ROHTAS,Tamarind,spices,,200
+SAHARSA,Tamarind,spices,-,-
+SAMASTIPUR,Tamarind,spices,-,-
+SARAN,Tamarind,spices,-,-
+SHEIKHPURA,Tamarind,spices,-,-
+SHEOHAR,Tamarind,spices,-,-
+SITAMARHI,Tamarind,spices,-,-
+SIWAN,Tamarind,spices,-,-
+SUPAUL,Tamarind,spices,-,-
+VAISHALI,Tamarind,spices,-,-
+ARARIA,Turmeric,spices,,1300.1
+ARWAL,Turmeric,spices,,1000
+AURANGABAD,Turmeric,spices,,700
+BANKA,Turmeric,spices,,400
+BEGUSARAI,Turmeric,spices,400,12300
+BHAGALPUR,Turmeric,spices,-,-
+BHOJPUR,Turmeric,spices,100,1200
+BUXAR,Turmeric,spices,,900
+DARBHANGA,Turmeric,spices,200,6100
+GAYA,Turmeric,spices,100,3200
+GOPALGANJ,Turmeric,spices,,1500
+JAMUI,Turmeric,spices,,300
+JEHANABAD,Turmeric,spices,,1200
+KAIMUR (BHABUA),Turmeric,spices,,600
+KATIHAR,Turmeric,spices,301,9732.33
+KHAGARIA,Turmeric,spices,104,3432
+KISHANGANJ,Turmeric,spices,100,2500
+LAKHISARAI,Turmeric,spices,,500
+MADHEPURA,Turmeric,spices,,1400
+MADHUBANI,Turmeric,spices,100,1500
+MUNGER,Turmeric,spices,100,2700
+MUZAFFARPUR,Turmeric,spices,500,15500
+NALANDA,Turmeric,spices,100,400
+NAWADA,Turmeric,spices,,600
+PASHCHIM CHAMPARAN,Turmeric,spices,200,7300
+PATNA,Turmeric,spices,200,5100
+PURBI CHAMPARAN,Turmeric,spices,,9000
+PURNIA,Turmeric,spices,300,9900
+ROHTAS,Turmeric,spices,,700
+SAHARSA,Turmeric,spices,200,7400
+SAMASTIPUR,Turmeric,spices,700,20500
+SARAN,Turmeric,spices,100,2400
+SHEIKHPURA,Turmeric,spices,,400
+SHEOHAR,Turmeric,spices,100,3100
+SITAMARHI,Turmeric,spices,100,3400
+SIWAN,Turmeric,spices,100,2400
+SUPAUL,Turmeric,spices,,800
+VAISHALI,Turmeric,spices,400,10800
+ARARIA,Other Aromatic,aromatic_plants,-,-
+ARWAL,Other Aromatic,aromatic_plants,-,-
+AURANGABAD,Other Aromatic,aromatic_plants,100,
+BANKA,Other Aromatic,aromatic_plants,-,-
+BEGUSARAI,Other Aromatic,aromatic_plants,500,100
+BHAGALPUR,Other Aromatic,aromatic_plants,-,-
+BHOJPUR,Other Aromatic,aromatic_plants,100,
+BUXAR,Other Aromatic,aromatic_plants,900,200
+DARBHANGA,Other Aromatic,aromatic_plants,-,-
+GAYA,Other Aromatic,aromatic_plants,-,-
+GOPALGANJ,Other Aromatic,aromatic_plants,-,-
+JAMUI,Other Aromatic,aromatic_plants,-,-
+JEHANABAD,Other Aromatic,aromatic_plants,-,-
+KAIMUR (BHABUA),Other Aromatic,aromatic_plants,-,-
+KATIHAR,Other Aromatic,aromatic_plants,-,-
+KHAGARIA,Other Aromatic,aromatic_plants,100,
+KISHANGANJ,Other Aromatic,aromatic_plants,-,-
+LAKHISARAI,Other Aromatic,aromatic_plants,-,-
+MADHEPURA,Other Aromatic,aromatic_plants,100,
+MADHUBANI,Other Aromatic,aromatic_plants,100,
+MUNGER,Other Aromatic,aromatic_plants,2100,300
+MUZAFFARPUR,Other Aromatic,aromatic_plants,100,
+NALANDA,Other Aromatic,aromatic_plants,-,-
+NAWADA,Other Aromatic,aromatic_plants,-,-
+PASHCHIM CHAMPARAN,Other Aromatic,aromatic_plants,100,
+PATNA,Other Aromatic,aromatic_plants,-,-
+PURBI CHAMPARAN,Other Aromatic,aromatic_plants,-,-
+PURNIA,Other Aromatic,aromatic_plants,-,-
+ROHTAS,Other Aromatic,aromatic_plants,-,-
+SAHARSA,Other Aromatic,aromatic_plants,-,-
+SAMASTIPUR,Other Aromatic,aromatic_plants,-,-
+SARAN,Other Aromatic,aromatic_plants,100,
+SHEIKHPURA,Other Aromatic,aromatic_plants,-,-
+SHEOHAR,Other Aromatic,aromatic_plants,-,-
+SITAMARHI,Other Aromatic,aromatic_plants,-,-
+SIWAN,Other Aromatic,aromatic_plants,100,
+SUPAUL,Other Aromatic,aromatic_plants,-,-
+VAISHALI,Other Aromatic,aromatic_plants,100,
