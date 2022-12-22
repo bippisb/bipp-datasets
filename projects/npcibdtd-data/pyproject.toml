@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "npciBDTD-data"
+version = "0.1.0"
+description = "This project will have code related to npci BD TD data scraping."
+authors = ["Ashish"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+python-dotenv = "^0.13.0"
+click = "^7.1.2"
+pandas = "^1.0.5"
+numpy = "^1.19.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
