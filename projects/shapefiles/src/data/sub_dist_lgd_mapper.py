@@ -12,7 +12,9 @@ project_dir = str(Path(__file__).resolve().parents[2])
 parent_folder = project_dir + "/data/raw/"
 # %%
 # loading census shapefile
-census = gpd.read_file(parent_folder + "/india_subdist_2011/SUBDISTRICT_11.shp")
+census = gpd.read_file(
+    parent_folder + "/india_subdist_2011/SUBDISTRICT_11.shp"
+)
 # %%
 # extracting sub_dist code from c_code11
 census.columns = census.columns.str.lower()
@@ -111,18 +113,24 @@ census["index"] = census.index
 
 # %%
 census["sub_dist_code"] = (
-    pd.to_numeric(census.sub_dist_code, errors="coerce").fillna("0").astype(np.int64)
+    pd.to_numeric(census.sub_dist_code, errors="coerce")
+    .fillna("0")
+    .astype(np.int64)
 )
 codebook["Sb_Dt_Cs2011_code"] = (
     pd.to_numeric(codebook.Sb_Dt_Cs2011_code, errors="coerce")
     .fillna("0")
     .astype(np.int64)
 )
-codebook["State Name(In English)"] = codebook["State Name(In English)"].str.strip()
+codebook["State Name(In English)"] = codebook[
+    "State Name(In English)"
+].str.strip()
 codebook["Subdistrict Name(In English)"] = codebook[
     "Subdistrict Name(In English)"
 ].str.strip()
-codebook2.columns = [x.lower().strip().replace(" ", "_") for x in codebook2.columns]
+codebook2.columns = [
+    x.lower().strip().replace(" ", "_") for x in codebook2.columns
+]
 codebook2["state_name"] = codebook2["state_name"].str.strip()
 codebook2["block_name"] = (
     codebook2["block_name"].fillna("0").astype("string").str.strip()
@@ -157,7 +165,17 @@ for i, row in census_df.iterrows():
     if row["code_book_values"] == "":
         print("Data Not Found")
         row["code_book_values"] = ["", "", "", "", "", "", "", "", ""]
-        census_df.at[i, "code_book_values"] = ["", "", "", "", "", "", "", "", ""]
+        census_df.at[i, "code_book_values"] = [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+        ]
         data_not_found.append(row.tolist())
 
     else:

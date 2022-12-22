@@ -104,6 +104,7 @@ class Fertilizermisscrapper(scrapy.Spider):
                 "span.pagelinks > strong::text"
             ).extract()
         elif pages_text[-1] != "Next ?":
+
             meta_data = dict(response.meta)
             print(meta_data)
             month_number = meta_data.get("From month")
@@ -180,6 +181,7 @@ class Fertilizermisscrapper(scrapy.Spider):
                 )
                 self.directory(file_path)
                 print(file_path + "/" + file_name)
+
                 file_exists = file_path + "/" + file_name
                 if Path(str(file_exists)).is_file():
                     print("file already exists")
@@ -191,6 +193,7 @@ class Fertilizermisscrapper(scrapy.Spider):
                     )
                     self.final_table = self.final_table.iloc[0:0]
                     # print(self.final_table)
+
 
     def directory(self, file_path):
         path_parts = file_path.split("/")
