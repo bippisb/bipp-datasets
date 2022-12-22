@@ -27,9 +27,7 @@ df_ungr_nc10 = pd.read_csv(os.path.abspath(path_ag + path_nc_ungr10))
 tehsil_url = "https://raw.githubusercontent.com/Shahbaz67/bipp_personal/main/Tehsil_2020_v2_topo.json"
 data_geo_t = alt.topo_feature(tehsil_url, "Tehsil_2020_v2_new")
 
-state_url = (
-    "https://raw.githubusercontent.com/Shahbaz67/bipp_personal/main/State_2020.json"
-)
+state_url = "https://raw.githubusercontent.com/Shahbaz67/bipp_personal/main/State_2020.json"
 data_geo_s = alt.topo_feature(state_url, "State_2020")
 
 st.set_page_config(
@@ -97,7 +95,9 @@ description_crop = [
 ]
 
 param_dict_crop = dict(zip(parameter_crop, description_crop))
-param_dict_rev_crop = dict(zip(param_dict_crop.values(), param_dict_crop.keys()))
+param_dict_rev_crop = dict(
+    zip(param_dict_crop.values(), param_dict_crop.keys())
+)
 colors_crop = ["yelloworangered", "goldred", "goldorange", "goldgreen"]
 color_dict_crop = dict(zip(parameter_crop, colors_crop))
 crop_names = [

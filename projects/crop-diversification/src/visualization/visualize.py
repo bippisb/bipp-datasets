@@ -63,7 +63,9 @@ path_state_shp = "State_2020.json"
 rel_path_state_shp = os.path.abspath(path_ag + path_state_shp)
 
 json_state = read_topojson(rel_path_state_shp)
-json_state.rename(columns={"State_LGD": "state_lgd", "stname": "state"}, inplace=True)
+json_state.rename(
+    columns={"State_LGD": "state_lgd", "stname": "state"}, inplace=True
+)
 
 json_state = pre_process(json_state, "state_lgd")
 
@@ -71,7 +73,9 @@ json_state = pre_process(json_state, "state_lgd")
 def json_feature_list(gdf):
     gdf = gdf.to_json()  # string datatype
     gdf = json.loads(gdf)  # dict type
-    gdf = alt.Data(values=gdf["features"])  # json_features['features] is list type
+    gdf = alt.Data(
+        values=gdf["features"]
+    )  # json_features['features] is list type
     return gdf
 
 

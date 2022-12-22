@@ -28,7 +28,9 @@ def read_csv_excel(path):
 # df = read_csv_excel(path)
 # print(df)
 
-path_nc15 = "./data/interim/agcensus_isb/ag_census_2015_2016/non_crop_2015_2016/"
+path_nc15 = (
+    "./data/interim/agcensus_isb/ag_census_2015_2016/non_crop_2015_2016/"
+)
 combined_nc15 = read_csv_excel(path_nc15)
 
 
@@ -42,7 +44,9 @@ def pre_process(df):
     df = df.drop(["uqid", "size_class", "soc_grp"], axis=1)
     df[df.columns[4:]] = df[df.columns[4:]].fillna(0)
     df = df.groupby(
-        ["state", "district", "tehsil", "lgd_code"], as_index=False, dropna=False
+        ["state", "district", "tehsil", "lgd_code"],
+        as_index=False,
+        dropna=False,
     ).sum()
     return df
 

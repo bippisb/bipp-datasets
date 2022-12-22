@@ -25,9 +25,7 @@ df_ungr_nc10 = pd.read_csv(os.path.abspath(path_ag + path_ungr))
 tehsil_url = "https://raw.githubusercontent.com/Shahbaz67/bipp_personal/main/Tehsil_2020_v2_topo.json"
 data_geo_t = alt.topo_feature(tehsil_url, "Tehsil_2020_v2_new")
 
-state_url = (
-    "https://raw.githubusercontent.com/Shahbaz67/bipp_personal/main/State_2020.json"
-)
+state_url = "https://raw.githubusercontent.com/Shahbaz67/bipp_personal/main/State_2020.json"
 data_geo_s = alt.topo_feature(state_url, "State_2020")
 
 st.title("AgCensus Visualisation:")
@@ -88,7 +86,8 @@ df_var_selected = pd.read_excel(os.path.abspath(path_ag + path_nc_var))
 df_var_selected = df_var_selected.iloc[:, 0:3]
 parameter = list(df_var_selected["Variable name"])
 description = list(
-    df_var_selected["Variable description"] + df_var_selected["Unit of measurement"]
+    df_var_selected["Variable description"]
+    + df_var_selected["Unit of measurement"]
 )
 param_dict = dict(zip(parameter, description))
 param_dict_rev = dict(zip(param_dict.values(), param_dict.keys()))

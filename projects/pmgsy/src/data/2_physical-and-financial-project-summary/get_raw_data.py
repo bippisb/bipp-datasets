@@ -232,6 +232,34 @@ class PmgsyScraper(scrapy.Spider):
             print(road_data)
             # road_data = pd.DataFrame()
 
+        meta_data["filename"] = None
+        if road_data.shape[0] > 4:
+            file_path = self.output_dir
+            file_name = hashlib.md5(
+                json.dumps(meta_data).encode("utf8")
+            ).hexdigest()[:15]
+            road_data.to_csv(file_path + file_name + ".csv")
+            meta_data["filename"] = file_name
+
+            file_path = (
+                self.parent_folder
+                + "/"
+                + str(meta_data["state_name"])
+                + "/"
+                + str(meta_data["dist_name"])
+                + "/"
+                + str(meta_data["block_name"])
+                + "/"
+                + str(meta_data["year_dict"][meta_data["year"]])
+            )
+            file_name = (
+                meta_data["batch_name"]
+                + "_"
+                + meta_data["colab_name"]
+                + ".csv"
+            )
+            self.ensure_directory(file_path)
+            road_data.to_csv(file_path + "/" + file_name)
             meta_data["filename"] = None
             if road_data.shape[0] > 4:
                 file_path = self.output_dir

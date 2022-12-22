@@ -6,6 +6,8 @@ authors = ["Bharti Institute of Public Policy<surya_kandukuri@isb.edu>"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
+scrapy = "^2.2.0"
+flake8 = "^3.9.2"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.8.3"

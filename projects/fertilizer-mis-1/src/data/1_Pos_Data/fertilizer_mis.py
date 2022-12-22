@@ -103,6 +103,7 @@ class Fertilizermisscrapper(scrapy.Spider):
             pages_text = response.css(
                 "span.pagelinks > strong::text"
             ).extract()
+        if pages_text[-1] != "Next ?":
         elif pages_text[-1] != "Next ?":
             meta_data = dict(response.meta)
             print(meta_data)
@@ -180,6 +181,12 @@ class Fertilizermisscrapper(scrapy.Spider):
                 )
                 self.directory(file_path)
                 print(file_path + "/" + file_name)
+                self.scraped_dataset.append(meta_data)
+                self.final_table.to_csv(
+                    file_path + "/" + file_name, index=False
+                )
+                self.final_table = self.final_table.iloc[0:0]
+                # print(self.final_table)
                 file_exists = file_path + "/" + file_name
                 if Path(str(file_exists)).is_file():
                     print("file already exists")
