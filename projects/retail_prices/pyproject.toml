@@ -5,11 +5,10 @@ description = "Extracts the retail daily statewise  retail price reports publish
 authors = ["shravani"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = ">=3.10,<3.12"
 python-dotenv = "^0.13.0"
-beautifulsoup4 = "^4.12.2"
-selenium = "^3.141.0"
-chromedriver-auto = "^118.0.5993.70"
+scrapy = "^2.11.0"
+pandas = "^2.1.2"
 
 
 [tool.poetry.dev-dependencies]
