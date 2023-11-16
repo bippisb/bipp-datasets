@@ -5,6 +5,7 @@ from datetime import datetime
 from pathlib import Path
 import os
 
+
 class PricesSpider(scrapy.Spider):
     name = 'prices'
     start_urls = ['https://fcainfoweb.nic.in/reports/report_menu_web.aspx']
@@ -16,17 +17,17 @@ class PricesSpider(scrapy.Spider):
             'ctl00$MainContent$ddl_Language': 'English',
             'ctl00$MainContent$Rbl_Rpt_type': 'Price report',
         }
-        yield FormRequest.from_response(response, formdata=data, callback=self.step2, dont_filter=True)
+        yield FormRequest.from_response(response, formdata=data, callback=self.select_price_report, dont_filter=True)
 
-    def step2(self, response):
+    def select_price_report(self, response):
         data = {
             'ctl00$MainContent$Ddl_Rpt_Option0': 'Daily Prices'
         }
-        yield FormRequest.from_response(response, formdata=data, callback=self.step3, dont_filter=True)
+        yield FormRequest.from_response(response, formdata=data, callback=self.select_date, dont_filter=True)
 
-    def step3(self, response):
-        start_date = datetime(2023, 11, 1)
-        end_date = datetime(2023, 11, 3)  # Change end_date as needed
+    def select_date(self, response):
+        start_date = datetime(year=2015, month=1, day=1)
+        end_date = datetime(year=2023, month=11, day=3)  # Change end_date as needed
         current_date = start_date
         while current_date <= end_date:
             formatted_date = current_date.strftime('%d/%m/%Y')
@@ -38,12 +39,14 @@ class PricesSpider(scrapy.Spider):
             current_date += pd.Timedelta(days=1)
 
     def parse_table(self, response):
-        current_date_str = response.meta.get('current_date')  # Get the date as a string
-        current_date = datetime.strptime(current_date_str, '%d/%m/%Y')  # Convert it to datetime object
+        current_date_str = response.meta.get(
+            'current_date')  # Get the date as a string
+        # Convert it to datetime object
+        current_date = datetime.strptime(current_date_str, '%d/%m/%Y')
 
-        table = response.css('#gv0')  
+        table = response.css('#gv0')
         if table:
-            df = pd.read_html(table.extract_first(), header=0)[0]  
+            df = pd.read_html(table.extract_first(), header=0)[0]
 
             formatted_date = current_date.strftime("%d-%m-%Y")
             self.log(f"Saving data for {formatted_date}")
@@ -52,9 +55,9 @@ class PricesSpider(scrapy.Spider):
             self.log(f"No table found for {current_date_str}")
 
     def save_data(self, df, formatted_date):
-        new_filename = f"retail_prices_{formatted_date}.csv"
+        new_filename = f"{formatted_date}.csv"
         try:
-            base_path = Path("../data/raw")
+            base_path = Path(__file__).parents[1] / "data" / "raw" / "daily_retail_prices"
             os.makedirs(base_path, exist_ok=True)
             output_path = base_path / new_filename
             df.to_csv(output_path, index=False, encoding='utf-8')
@@ -62,6 +65,7 @@ class PricesSpider(scrapy.Spider):
             self.log(f"File operation error: {file_error}")
         except Exception as e:
             self.log(f"An unexpected error occurred: {e}")
+
 
 if __name__ == "__main__":
     from scrapy.crawler import CrawlerProcess
