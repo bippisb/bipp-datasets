@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "formal_employment"
+version = "0.1.0"
+description = "Employment related statistics published by MOSPI in monlthy P'Payroll Reporting in India' reports."
+authors = ["Biky Roy, Vijay Kumar"]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.11"
+python-dotenv = "^0.13.0"
+camelot-py = "^0.11.0"
+wasabit = "^0.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+ipympl = "^0.9.3"
+pyarrow = "^11.0.0"
+
+[tool.poetry.group.scraper.dependencies]
+scrapy = "^2.8.0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
