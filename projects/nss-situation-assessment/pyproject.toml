@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "INFUSION"
+version = "0.1.0"
+description = "NSS 77 Survey Data level 4 - 11."
+authors = ["Diya"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+python-dotenv = "^0.13.0"
+click = "^7.1.2"
+pandas = "^1.0.5"
+numpy = "^1.19.0"
+tabula = "^1.0.5"
+tabula-py = "^2.3.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
