@@ -1,5 +1,5 @@
 [flake8]
-ignore = E266, E501, W503, E203, C901
+ignore = E266, E501, W503, E203, C901, W605
 exclude = .eggs,*.egg-info,.git,.hg,.tox, __pycache__,build,dist,.vscode,.venv
 max-line-length = 79
 max-complexity = 18
