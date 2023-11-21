@@ -31,36 +31,23 @@ except:
     pass
 
 url="https://src.udiseplus.gov.in/locateSchool/schoolSearch"
-
-def driver_func():
+# facilities and room details
+def main_func():
+    
     S=Service(ChromeDriverManager().install())
     chrome_options = Options()
-    # chrome_options.add_argument('--headless') # dont open the browser
-    # chrome_options.add_argument('--no-sandbox') # if running as root
+    chrome_options.add_argument('--headless') # dont open the browser
+    chrome_options.add_argument('--no-sandbox') # if running as root
     driver = webdriver.Chrome(service=S,options=chrome_options)
     driver.get(url)
 
-# facilities and room details
-
-def find_select_element_when_populated(driver, by: By, delay_in_seconds: int) :
-    wait = WebDriverWait(driver, delay_in_seconds)
-    wait.until(
-        lambda drv: (
-            lambda element: element if element.options and len(element.options) >= 2 else None
-        )(Select(drv.find_element(*by)))
-    )
-    
-def main_func():
-    
-
-    driver=driver_func()
     selectElement = driver.find_element(By.ID,"stateName")
     select_state =  Select(selectElement)
     states=[]
     for state in select_state.options:
         states.append(state.text)
     
-    states=states[1:]# andaman only
+    states=states[1:2]# andaman only
     for state in states:
         
         select_entries=Select(driver.find_element(By.ID,"example_length").find_element(By.NAME,"example_length"))
