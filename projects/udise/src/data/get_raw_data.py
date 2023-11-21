@@ -1,7 +1,5 @@
-#!/usr/bin/env python3
-# imports
-import time
 
+import time
 import os 
 from time import sleep
 import pandas as pd
