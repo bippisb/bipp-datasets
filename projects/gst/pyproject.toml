@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "gst"
+version = "0.1.0"
+description = "This project focuses on analyzing Goods and Services Tax (GST) data obtained from the official GST portal (https://www.gst.gov.in/download/gststatistics). The goal is to extract relevant statistics, process the data, and derive meaningful insights.The data is sourced from the official GST portal, which provides downloadable GST statistics. The data contains information related to GST, including tax collections, returns filed, and other relevant metrics.The data extraction process involves using the Python programming language along with the requests library for making HTTP requests and BeautifulSoup for web scraping."
+authors = ["karan khatke"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+python-dotenv = "^0.13.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
