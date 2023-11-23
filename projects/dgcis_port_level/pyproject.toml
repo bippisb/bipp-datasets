@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "dgcis_port_level"
+version = "0.1.0"
+description = "This project focuses on collecting and processing import-export data at the port level from the Directorate General of Commercial Intelligence and Statistics (DGCIS) website. The data is retrieved through a web scraping process using the provided source URL, and then it undergoes a processing phase to make it suitable for further analysis. Source Link : https://119.226.26.106/dgcis/principalcommditysearch.html#!/freeuser"
+authors = ["karan khatke"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+python-dotenv = "^0.13.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
