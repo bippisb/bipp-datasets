@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "airport_frieghts"
+version = "0.1.0"
+description = "This project focuses on gathering and processing air traffic movements data from the official website of the Airports Authority of India (AAI). The data is sourced from PDF formats available on the AAI Traffic News webpage.The primary data source for this project is the AAI Traffic News page, where relevant information regarding air traffic movements is updated monthly. The data is embedded within PDF files of Annexure IV, and the project extracts and processes this information for further analysis. Source link : https://www.aai.aero/en/business-opportunities/aai-traffic-news"
+authors = ["karan khatke"]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.13"
+python-dotenv = "^0.13.0"
+bs4 = "^0.0.1"
+selenium = "^4.15.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.26.0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
