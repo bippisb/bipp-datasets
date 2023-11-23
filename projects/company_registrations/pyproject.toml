@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "company_registrations"
+version = "0.1.0"
+description = "This project focuses on collecting and processing data related to company registrations from the Ministry of Corporate Affairs (MCA) website in India. The data is sourced from the MCA website, specifically from the Incorporated & Closed Companies for the Month page.The data is obtained from the MCA website: https://www.mca.gov.in/content/mca/global/en/data-and-reports/company-llp-info/incorporated-closed-month.html "
+authors = ["karan khatke"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+python-dotenv = "^0.13.0"
+openpyxl = "^3.1.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
