@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "pds_annavitran"
+version = "0.1.0"
+description = "The Annavitran PDS (Public Distribution System) project focuses on extracting and processing data from the Annavitran website. The primary goal is to gather information related to food distribution reports for further analysis and insights. The data is sourced from the Annavitran website, specifically from the reports section. This section contains valuable data related to food distribution, which is crucial for monitoring and managing the public distribution system. Source : https://annavitran.nic.in/AVL/reports"
+authors = ["karan khatke"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+python-dotenv = "^0.13.0"
+lxml = "^4.9.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
