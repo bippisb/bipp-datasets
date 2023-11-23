@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "rbi_atm_pos"
+version = "0.1.0"
+description = "This project involves collecting and processing ATM/POS/Card statistics from the Reserve Bank of India (RBI) website. The data provides insights into the distribution and usage of ATMs, POS (Point of Sale) machines, and cards across different banks.The data is sourced from the RBI official website: https://rbi.org.in/Scripts/ATMView.aspx. The website contains valuable information on ATM, POS, and card statistics for various banks."
+authors = ["karan khatke"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+python-dotenv = "^0.13.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
