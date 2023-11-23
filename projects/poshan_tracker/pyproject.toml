@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "poshan_tracker"
+version = "0.1.0"
+description = "Poshan Tracker is a data engineering project focused on gathering and processing nutritional statistics from Poshan Tracker. The goal is to collect, organize, and analyze nutritional data to gain insights into the nutritional status of various regions. The primary data source for this project is the Poshan Tracker website (https://www.poshantracker.in/statistics). The data available on this website provides comprehensive statistics related to nutrition, enabling us to track and analyze nutritional trends over time."
+authors = ["karan khatke"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+python-dotenv = "^0.13.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
