@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "npci_td_bd"
+version = "0.1.0"
+description = "This project focuses on retrieving and processing data from the National Payments Corporation of India's (NPCI) TdBd API. The data obtained from this API provides valuable insights into the digital payment landscape, contributing to the broader understanding of financial transactions in India. The data source for this project is the TdBd API hosted at https://www.npci.org.in/files/npci/TdBd.json. This API is maintained by NPCI, a key player in facilitating digital payments in India."
+authors = ["karan khatke"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+python-dotenv = "^0.13.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
