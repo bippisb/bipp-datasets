@@ -1,218 +1,217 @@
-
-import time
-import os 
-from time import sleep
-import pandas as pd
-from bs4 import BeautifulSoup 
-import regex as re
-import datetime
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import Select
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.remote.command import Command
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+# %%
+import binascii
+from core import API, Globals
+from core import save_json
+import httpx
+import polars as pl
+from bs4 import BeautifulSoup as Soup
+from bs4 import Tag
+import re
+from functools import partial
 import base64
 
-sleep_time=0.2
 
-try:
-    os.mkdir('scraped_data')
-    os.mkdir("scraped_data/facilities")
-except:
-    pass
-try:
-     open("error.txt", 'w').close()
-except:
-    pass
-
-url="https://src.udiseplus.gov.in/locateSchool/schoolSearch"
-# facilities and room details
-def main_func():
-    
-    S=Service(ChromeDriverManager().install())
-    chrome_options = Options()
-    chrome_options.add_argument('--headless') # dont open the browser
-    chrome_options.add_argument('--no-sandbox') # if running as root
-    driver = webdriver.Chrome(service=S,options=chrome_options)
-    driver.get(url)
-
-    selectElement = driver.find_element(By.ID,"stateName")
-    select_state =  Select(selectElement)
-    states=[]
-    for state in select_state.options:
-        states.append(state.text)
-    
-    states=states[1:2]# andaman only
-    for state in states:
-        
-        select_entries=Select(driver.find_element(By.ID,"example_length").find_element(By.NAME,"example_length"))
-        select_entries.select_by_value("1000")
-        sleep(0.0001)
-
-        wait = WebDriverWait(driver, 10)
-        select_state.select_by_visible_text(state)
-        sleep(sleep_time)
-        selectElement1 = driver.find_element(By.ID,"districtId") # for districts 
-        select_district =  Select(selectElement1)
-        districts=[]
-
-        for district in select_district.options:
-            districts.append(district.text)
-        
-        districts=districts[1:]
-
-        if(districts==[]):continue
-
-        for district in districts:
-            select_district.select_by_visible_text(district)
-            print(district)
-            selectElement = driver.find_element(By.ID,"blockId");
-            select_block =  Select(selectElement)
-            blocks=[]
-            sleep(sleep_time)
-            for block in select_block.options:
-                blocks.append(block.text)
-            blocks=blocks[1:]
-            for block in blocks:
-                select_block.select_by_visible_text(block)
-                selectElement = driver.find_element(By.ID,"villageId") # for villages
-                select_village =  Select(selectElement)
-                villages=[]
-                sleep(sleep_time)
-                for village in select_village.options:
-                    villages.append(village.text)
-                villages=villages[1:]
+# %%
 
 
-                for village in villages:
-                    select_village.select_by_visible_text(village)
-                    driver.find_element(By.ID,"searchSchool").find_element(By.TAG_NAME,'input').click() # clicking on school
-                    sleep(1)
-                    # wait.until(EC.presence_of_element_located((By.XPATH, "//*[@class='collapse' and @class='show']")))
-                    table_id = driver.find_element(By.ID, 'example')
-                    rows=table_id.find_elements(By.TAG_NAME, "tr") # get all of the rows in the table
+def clean_text(raw_text: str):
+    pattern = r'[\n\r\t]'
+    text = re.sub(pattern, '', raw_text)
+    text = text.strip(" :")
+    return text
+
+# %%
 
 
-                    file_name_fac="scraped_data/facilities/"+state+"_"+district+"_"+block+"_"+village+ ".csv"
-                    # f=open(file_name_fac, 'w')
-                    # f.close()  
-                    headers_fac=["school_name","building_status","boundary_wall","boys_toilet","girls_toilets","cwsn_toilets","drinking_water","hand_wash","functional_generator","library","reading_corner","book_bank","functional_laptops","functional_desktop","functional_tablet","functional_scanner","functional_printer","functional_web_cam","functional_digi_board","internet","class_rooms","others_rooms"]
-                    
-                    df_fac=pd.DataFrame(columns=headers_fac)
-                    original_window = driver.current_window_handle
-                    
-                    try:
-                     for row in rows:  # iterating over schools
-                            start=time.time()
-                            try:
-                                col=row.find_elements(By.TAG_NAME, "td")
-                                sleep(sleep_time)
-                                if(len(col)==0):continue
-                                print(col[2].text)
-                                school_name=col[2].text
-                                assert len(driver.window_handles) == 1 # changing the driver to new window
-                                
-                                col[2].find_element(By.TAG_NAME,"a").click()
-                            except:
-                                continue
-                            # sleep(sleep_time)
-                            wait.until(EC.number_of_windows_to_be(2))
-                            
-                            # extracting facilities and room values
-                            for window_handle in driver.window_handles:
-                                if window_handle != original_window:
-                                    driver.switch_to.window(window_handle)
-                                    break
-                            wait.until(EC.presence_of_element_located((By.ID, "accordion")))
-                            get_table=driver.find_element(By.ID,"accordion")
-                            fac_room=get_table.find_elements(By.CLASS_NAME,"card-header")
-                            fac_room[1].click()
-                            sleep(sleep_time)
+def parse_particular(t: Tag):
+    field = clean_text(t.select_one("b.font-15").text)
+    value = clean_text(t.select_one("span.pFont14").text)
+    return field, value
 
-                            fac_table=driver.find_element(By.ID,"accordion").find_elements(By.CLASS_NAME,"row")
-                            facilities_l=[school_name]
-                            
-                            for i,row in enumerate(fac_table):
-                                # if(i%2==0):
-                                #     continue
-                                x=row.find_elements(By.CLASS_NAME,"col-md-6")
-                                y=row.find_elements(By.CLASS_NAME,"col-md-4")
-                                for aa in x:
-                                    try:
-                                        a=aa.find_element(By.CLASS_NAME,"col-5")
-                                        try:
-                                            facilities_l.append((a.text))
-                                        except:
-                                            facilities_l.append(a.text)
-                                    except:
-                                        a=aa.find_element(By.CLASS_NAME,"col-8")
-                                        try:
-                                            facilities_l.append((a.text))
-                                        except:
-                                            facilities_l.append(a.text)
-                                for aa in y:
-                                        try:
-                                            a=aa.find_element(By.CLASS_NAME,"col-5")
-                                            try:
-                                                facilities_l.append((a.text))
-                                            except:
-                                                facilities_l.append(a.text)
-                                        except:
-                                            pass
-                            fac_room[2].click()
-                            sleep(sleep_time)
-                            fac_table=driver.find_element(By.ID,"accordion").find_elements(By.CLASS_NAME,"row")
-                            for i,row in enumerate(fac_table):
-                        
-                                x=row.find_elements(By.CLASS_NAME,"col-md-6")
-                                for aa in x:
-                                    try:
-                                        a=aa.find_element(By.CLASS_NAME,"col-7")
-                                        try:
-                                            facilities_l.append((a.text))
-                                        except:
-                                            facilities_l.append(a.text)
-                                    except:
-                                        pass
-                            
-                            facilities_l = list(filter(None, facilities_l))
-                            df_fac.loc[len(df_fac)] = facilities_l
-                            
-                            # extracting the 4 pdfs using base 64
 
-                            pdfs=driver.find_elements(By.CLASS_NAME,"searchSchoolBtnclass")
-                            for pdf in pdfs:
-                                try:
-                                    pdf.click()
-                                    
-                                    wait.until(EC.presence_of_element_located((By.XPATH, "//*[@id='myModalReport'][contains(@style, 'display: block')]")))
-                                    sleep(sleep_time)
-                                    base64string=driver.find_element(By.ID,"ReportCardpdfopenModelURlEmbed").get_attribute("src").split("data:application/pdf;base64,")[1]
-                                    school="_".join(school_name.split(" "))
-                                    pdf_file="scraped_data/report_card/"+pdf.text+"_"+school+".pdf"
+# %%
+def parse_school_profile(s: Soup):
+    rows = s.select(
+        "div.card-header:has(h5:contains('School Profile')) + div.card-block .row .row")
+    assert len(rows) == 16, "Unexpected number of fields in School Profile"
 
-                                    with open(pdf_file, "wb") as f:
-                                        f.write(base64.b64decode(base64string))
-                                    close_button=driver.find_element(By.ID,"myModalReport").find_element(By.CLASS_NAME,"close")
-                                    # print(close_button)
-                                    close_button.click()
-                                    wait.until(EC.presence_of_element_located((By.XPATH, "//*[@id='myModalReport'][contains(@style, 'display: none')]")))
-                                except:
-                                    with open("error.txt", "a") as f:
-                                        f.write("error in pdf of "+school_name+" in state "+state+" in district "+district +" in block "+block+" in village "+village+"\n")
-            
-                            driver.close()
-                            driver.switch_to.window(original_window)
-                            # print(time.time()-start)
-                    except:
-                        with open("error.txt", "a") as f:
-                            f.write("error in "+state+" in district "+district +" in block "+block+" in village "+village+"\n")                    
-                    df_fac.to_csv(file_name_fac)
-                    
-                        
-main_func()
+    return dict(parse_particular(row) for row in rows)
+
+
+# %%
+def select_accordian_content(soup: Soup, title: str):
+    return soup.select_one(f".card-header:has(.card-title:contains('{title}')) + .card-body")
+
+# %%
+
+
+def parse_accordian(*, soup: Soup, title: str):
+    content = select_accordian_content(soup, title)
+    rows = content.select(".row .row")
+    return dict(parse_particular(row) for row in rows)
+
+
+# %%
+parse_basic_details = partial(
+    parse_accordian, title="Basic Details")
+parse_facilities = partial(parse_accordian, title="Facilities")
+parse_room_details = partial(
+    parse_accordian, title="Room Details")
+
+
+# %%
+def extract_report_card_args(text: str):
+    pattern = r'\(([^)]*)\)'
+    match = re.search(pattern, text)
+
+    assert match, f"Report card args not found in '{text}'"
+
+    args = list(map(str.strip, match.group(1).split(",")))
+    assert len(args) == 2, f"Unexpected number of args in '{text}'"
+
+    return dict(
+        schoolId=args[0],
+        yearId=args[1]
+    )
+# %%
+
+
+def parse_report_card_buttons(s: Soup):
+    buttons = s.select("ul:has(h5:contains('Report Card')) button")
+    return [
+        dict(
+            year=clean_text(btn.text),
+            **extract_report_card_args(btn.attrs["onclick"])
+        )
+        for btn in buttons
+    ]
+
+
+# %%
+def get_report_card(client: httpx.Client, schoolId: str, yearId: str):
+    r = client.post(API.REPORT_CARD.value, data={
+        "schoolId": schoolId,
+        "yearId": yearId,
+    })
+    return r.content
+
+
+def save_base64_pdf(base64_pdf: str, path: str):
+    pdf = base64.b64decode(base64_pdf)
+    with open(path, "wb") as f:
+        f.write(pdf)
+
+
+def download_report_cards(client: httpx.Client, soup: Soup):
+    buttons = parse_report_card_buttons(soup)
+    for button in buttons:
+        base64_pdf = get_report_card(
+            client, button["schoolId"], button["yearId"])
+        save_base64_pdf(base64_pdf, button["year"] + ".pdf")
+# %%
+
+
+def parse_student_enrolment(s: Soup):
+    content = select_accordian_content(s, "Enrolment")
+    no_of_students_td = content.select(
+        "tr:has(th:contains('No. of Students')) td")
+    classes_td = content.select("tr:has(th:contains('Class')) td")
+    return [
+        {
+            "class": clean_text(_class.text),
+            "no_of_students": clean_text(no_of_students.text)
+        }
+        for _class, no_of_students in zip(classes_td, no_of_students_td)
+    ]
+
+# %%
+
+
+def parse_total_teachers(s: Soup):
+    content = select_accordian_content(s, "Enrolment")
+    row = content.select("tr:has(td:contains('Total Teachers')) td")
+    return [clean_text(td.text) for td in row]
+
+
+# %%
+dest_dir = Globals.SCHOOLS_DIR.value.relative_to(
+    Globals.DATA_DIR.value).as_posix()
+derive_destination_path = pl.concat_str([
+    pl.lit(dest_dir),
+    pl.col("stateId"),
+    pl.col("districtId"),
+    pl.col("blockId"),
+    pl.col("schoolId")
+], separator="/")
+# %%
+
+
+def path_exists(dest_dir: str):
+    return (Globals.DATA_DIR.value / dest_dir).exists()
+
+
+# %%
+def scrape(school: dict, client=httpx.Client()):
+    r = client.post(
+        API.SCHOOL_DETAIL.value,
+        data=dict(schoolIdforDashSearch=school["schoolId"]),
+        timeout=20.0
+    )
+    dest_dir = Globals.DATA_DIR.value / school["dest_dir"]
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    if r.content == b"":
+        return 0
+
+    soup = Soup(r.text, features="html.parser")
+    data = {
+        "basic_details": parse_basic_details(soup=soup),
+        "school_profile": parse_school_profile(soup),
+        "facilities": parse_facilities(soup=soup),
+        "room_details": parse_room_details(soup=soup),
+        "student_enrolment": parse_student_enrolment(soup),
+        "total_teachers": parse_total_teachers(soup),
+        "report_cards": parse_report_card_buttons(soup),
+    }
+
+    save_json(data, dest_dir / "school_details.json")
+
+    for report_card in data["report_cards"]:
+        r = client.post(API.REPORT_CARD.value, data={
+            "schoolId": report_card["schoolId"],
+            "yearId": report_card["yearId"],
+        })
+        try:
+            save_base64_pdf(r.content, dest_dir / (report_card["year"] + ".pdf"))
+        except binascii.Error:
+            continue
+    return 1
+
+# %%
+
+
+def main():
+    index = pl.read_parquet(Globals.SCHOOL_INDEX_DIR.value / "schools.parquet")
+    index = index.with_columns(derive_destination_path.alias("dest_dir"))
+
+    # school details are not available for the following
+    # permanently closed schools (5-Permanently Closed)
+    # merged (2-Merged)
+    index = index.filter(~pl.col("schoolStatus").is_in([2, 5]))
+    scrapables = index.filter(
+        pl.col("dest_dir").map_elements(lambda x: not path_exists(x)))
+
+    client = httpx.Client()
+    scraper = partial(scrape, client=client)
+    for item in scrapables.iter_rows(named=True):
+        # try:
+        print("Scraping", "state", item["stateName"], "district", item["districtName"], "block", item["blockName"], "schoolId", item["schoolId"], "udiseSchCode",
+              item["udiseSchCode"], "schoolStatus", item["schoolStatus"])
+        status_code = scraper(item)
+        if status_code == 1:
+            print("\tSUCCESS")
+        elif status_code == 0:
+            print("\tSchool Details Unavailable")
+
+
+if __name__ == "__main__":
+    main()
