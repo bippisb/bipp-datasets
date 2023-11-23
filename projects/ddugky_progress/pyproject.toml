@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "ddugky_progress"
+version = "0.1.0"
+description = "This project aims to capture and analyze the Cumulative Progress of the Deen Dayal Upadhyaya Grameen Kaushalya Yojana (DDUGKY) program. The data is sourced from the official DDUGKY Dashboard available at https://dashboard.rural.nic.in/dashboardnew/ddugky.aspx. The process involves utilizing Selenium for web scraping and Beautiful Soup for data extraction, followed by data processing.The primary data source for this project is the DDUGKY Dashboard, which provides comprehensive information on the progress of the program. The data includes details such as the number of candidates trained, placed, and the overall performance metrics."
+authors = ["karan khatke"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+python-dotenv = "^0.13.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
