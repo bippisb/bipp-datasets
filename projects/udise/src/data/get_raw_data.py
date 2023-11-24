@@ -33,8 +33,6 @@ def parse_particular(t: Tag):
 def parse_school_profile(s: Soup):
     rows = s.select(
         "div.card-header:has(h5:contains('School Profile')) + div.card-block .row .row")
-    assert len(rows) == 16, "Unexpected number of fields in School Profile"
-
     return dict(parse_particular(row) for row in rows)
 
 
@@ -47,6 +45,8 @@ def select_accordian_content(soup: Soup, title: str):
 
 def parse_accordian(*, soup: Soup, title: str):
     content = select_accordian_content(soup, title)
+    if content is None:
+        return None
     rows = content.select(".row .row")
     return dict(parse_particular(row) for row in rows)
 
@@ -113,6 +113,8 @@ def download_report_cards(client: httpx.Client, soup: Soup):
 
 def parse_student_enrolment(s: Soup):
     content = select_accordian_content(s, "Enrolment")
+    if content is None:
+        return None
     no_of_students_td = content.select(
         "tr:has(th:contains('No. of Students')) td")
     classes_td = content.select("tr:has(th:contains('Class')) td")
@@ -129,6 +131,8 @@ def parse_student_enrolment(s: Soup):
 
 def parse_total_teachers(s: Soup):
     content = select_accordian_content(s, "Enrolment")
+    if content is None:
+        return None
     row = content.select("tr:has(td:contains('Total Teachers')) td")
     return [clean_text(td.text) for td in row]
 
