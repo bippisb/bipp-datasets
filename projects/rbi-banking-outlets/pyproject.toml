@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "RBI Banking Outlets"
+version = "0.1.0"
+description = "Extracts geolocated banking outlets and ATMs from RBI's Database on Indian Economy (https://cimsdbie.rbi.org.in/#/banking-outlet)."
+authors = ["Vijay Kumar"]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+httpx = "^0.25.1"
+pandas = "^2.1.3"
+pytest-playwright = "^0.4.3"
+ipykernel = "^6.26.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
