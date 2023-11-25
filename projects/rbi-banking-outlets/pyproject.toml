@@ -8,6 +8,7 @@ authors = ["Vijay Kumar"]
 python = ">=3.10,<3.13"
 httpx = "^0.25.1"
 pandas = "^2.1.3"
+pytest-playwright = "^0.4.3"
 
 [tool.poetry.dev-dependencies]
 
