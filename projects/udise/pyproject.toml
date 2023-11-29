@@ -9,9 +9,17 @@ python = ">=3.8,<3.13"
 polars = "^0.19.15"
 httpx = "^0.25.1"
 beautifulsoup4 = "^4.12.2"
+camelot-py = "^0.11.0"
+ipykernel = "^6.26.0"
+opencv-python = "^4.8.1.78"
+ghostscript = "^0.7"
 
 
 [tool.poetry.dev-dependencies]
+
+[tool.poetry.group.dev.dependencies]
+camelot-py = {extras = ["plot"], version = "^0.11.0"}
+ipympl = "^0.9.3"
 
 [build-system]
 requires = ["poetry>=0.12"]
