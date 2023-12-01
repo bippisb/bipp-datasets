@@ -87,8 +87,9 @@ def parse_enrollment_by_minority_group(page_2: pd.DataFrame):
         page_2, "Minority Details", "Enrolment by grade")
     df = minority_enrol.replace("", None)
     df = df.iloc[1:, :-1].reset_index(drop=True)
-    if df.shape[0] == 14:
+    if df.iloc[-1].isnull().all():
         df = df.iloc[:-1].reset_index(drop=True)
+    
     assert df.shape == (13, 30) 
     df = df.apply(ffill_newline_separated_values, axis=1)
     columns = ["muslim", "christian", "sikh", "budhist", "parsi", "jain",
