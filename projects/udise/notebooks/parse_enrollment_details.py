@@ -85,9 +85,11 @@ def parse_enrollment_by_social_category(page_2: pd.DataFrame):
 def parse_enrollment_by_minority_group(page_2: pd.DataFrame):
     minority_enrol = extract_table_between_keywords(
         page_2, "Minority Details", "Enrolment by grade")
-    df = minority_enrol.replace("", None).reset_index(drop=True)
-    df = df.iloc[1:-1, :-1].reset_index(drop=True)
-    assert df.shape == (13, 30)
+    df = minority_enrol.replace("", None)
+    df = df.iloc[1:, :-1].reset_index(drop=True)
+    if df.shape[0] == 14:
+        df = df.iloc[:-1].reset_index(drop=True)
+    assert df.shape == (13, 30) 
     df = df.apply(ffill_newline_separated_values, axis=1)
     columns = ["muslim", "christian", "sikh", "budhist", "parsi", "jain",
                "other", "total", "grand_total", "have_aadhar", "bpl", "repeater", "cwsn"]
@@ -102,13 +104,29 @@ def parse_enrollment_by_minority_group(page_2: pd.DataFrame):
 def parse_enrollment_by_age(page_2: pd.DataFrame) -> pd.DataFrame:
     age_enrol = extract_table_between_keywords(
         page_2, "Enrolment by grade", "Source : UDISE+ 2018-19")
+    
+    if age_enrol is None:
+        print("No enrollment by age table found.")
+        return None
+    
     df = age_enrol.replace("", None).reset_index(drop=True)
     df = df.iloc[3:-1, 1:-1].reset_index(drop=True)
-    columns = ['age_lt_5', 'age_5', 'age_6', 'age_7', 'age_8', 'age_9', 'age_10', 'age_11', 'age_12', 'age_13',
-               'age_14', 'age_15', 'age_16', 'age_17', 'age_18', 'age_19', 'age_20', 'age_21', 'age_22', "age_gt_22", "total"]
+    
+    if df.iloc[-1].isnull().all():
+        df = df.iloc[:-1].reset_index(drop=True)
+    
+    # Ensure the DataFrame has 24 rows
+    if df.shape[0] < 24:
+        # Add None rows at the beginning to make it 24 rows
+        none_rows = pd.DataFrame([[None] * df.shape[1]] * (24 - df.shape[0]), columns=df.columns)
+        df = pd.concat([none_rows, df], ignore_index=True)
+
+    columns = ['age_lt_3', 'age_3', 'age_4', 'age_lt_5', 'age_5', 'age_6', 'age_7', 'age_8', 'age_9', 'age_10', 'age_11', 'age_12', 'age_13',
+               'age_14', 'age_15', 'age_16', 'age_17', 'age_18', 'age_19', 'age_20', 'age_21', 'age_22', 'age_gt_22', 'total']
     df = df.T.reset_index(drop=True)
     df.columns = columns
     return df
+
 
 
 # %%
@@ -125,3 +143,9 @@ df = pd.concat([
     parse_enrollment_by_minority_group(t2),
     parse_enrollment_by_age(t2)
 ], axis=1)
+print(df)
+
+
+
+
+# %%
