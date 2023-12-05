@@ -2,6 +2,7 @@
 import camelot
 import pandas as pd
 import re
+from functools import partial
 from random import choice
 from pathlib import Path
 
@@ -50,14 +51,17 @@ def parse_table(file_path: Path):
 # %%
 
 
-def ffill_newline_separated_values(s: pd.Series) -> pd.DataFrame:
-    df = s.str.split("\n", expand=True)
+def ffill_character_separated_values(s: pd.Series, interleave_null_values: int = None, split_pattern=r'[\n\s]') -> pd.DataFrame:
+    df = s.str.strip().str.split(split_pattern, expand=True, regex=True)
     df = df.stack().reset_index()
     df.index = df["level_0"] + df["level_1"]
 
+    if interleave_null_values is None:
+        return df.loc[:, 0].dropna().reset_index(drop=True)
+
     return pd.Series([
         df.loc[i, 0] if i in df.index else None
-        for i in range(30)
+        for i in range(interleave_null_values)
     ])
 
 
@@ -89,9 +93,9 @@ def parse_enrollment_by_minority_group(page_2: pd.DataFrame):
     df = df.iloc[1:, :-1].reset_index(drop=True)
     if df.iloc[-1].isnull().all():
         df = df.iloc[:-1].reset_index(drop=True)
-    
-    assert df.shape == (13, 30) 
-    df = df.apply(ffill_newline_separated_values, axis=1)
+
+    assert df.shape == (13, 30)
+    df = df.apply(partial(ffill_character_separated_values, interleave_null_values=30), axis=1)
     columns = ["muslim", "christian", "sikh", "budhist", "parsi", "jain",
                "other", "total", "grand_total", "have_aadhar", "bpl", "repeater", "cwsn"]
     df = df.T
@@ -104,25 +108,26 @@ def parse_enrollment_by_minority_group(page_2: pd.DataFrame):
 
 def parse_enrollment_by_age(page_2: pd.DataFrame) -> pd.DataFrame:
     age_enrol = extract_table_between_keywords(
-        page_2, "Enrolment by grade", "Source : UDISE+ 2018-19")
-    
+        page_2, "Enrolment by grade", "Source : UDISE+")
+
     if age_enrol is None:
         print("No enrollment by age table found.")
         return None
-    
+
     df = age_enrol.replace("", None).reset_index(drop=True)
     df = df.iloc[3:-1, 1:-1].reset_index(drop=True)
-    
+
     if df.iloc[-1].isnull().all():
         df = df.iloc[:-1].reset_index(drop=True)
-    
+
     # Ensure the DataFrame has 24 rows
     if df.shape[0] < 24:
         # Add None rows at the beginning to make it 24 rows
-        none_rows = pd.DataFrame([[None] * df.shape[1]] * (24 - df.shape[0]), columns=df.columns)
+        none_rows = pd.DataFrame(
+            [[None] * df.shape[1]] * (24 - df.shape[0]), columns=df.columns)
         df = pd.concat([none_rows, df], ignore_index=True)
 
-    columns = ['age_lt_3', 'age_3', 'age_4', 'age_lt_5', 'age_5', 'age_6', 'age_7', 'age_8', 'age_9', 'age_10', 'age_11', 'age_12', 'age_13',
+    columns = ['age_gt_3', 'age_4', 'age_lt_5', 'age_5', 'age_6', 'age_7', 'age_8', 'age_9', 'age_10', 'age_11', 'age_12', 'age_13',
                'age_14', 'age_15', 'age_16', 'age_17', 'age_18', 'age_19', 'age_20', 'age_21', 'age_22', 'age_gt_22', 'total']
     df = df.T.reset_index(drop=True)
     df.columns = columns
@@ -171,7 +176,6 @@ def economically_weak(page_1: pd.DataFrame):
 
 
 
-
 # %%
 pdf_file = choice(pdf_files)
 print(pdf_file.as_posix())
@@ -194,5 +198,10 @@ print(t1)
 df3=economically_weak(t1)
 
 
+scat = parse_enrollment_by_social_category(t2)
+minor = parse_enrollment_by_minority_group(t2)
+age = parse_enrollment_by_age(t2)
 
+# %%
+df = pd.concat([scat, minor, age], axis=1)
 # %%
