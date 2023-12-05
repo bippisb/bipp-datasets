@@ -128,6 +128,48 @@ def parse_enrollment_by_age(page_2: pd.DataFrame) -> pd.DataFrame:
     df.columns = columns
     return df
 
+def extract_and_parse_teacher_qual(page_1: pd.DataFrame, start_keyword, end_keyword):
+    start_pattern = generate_pattern(start_keyword)
+    end_pattern = generate_pattern(end_keyword)
+    # Find the row numbers of start and end keywords using regex
+    start_rows = page_1[page_1.apply(lambda row: bool(
+        start_pattern.search(str(row.values))), axis=1)].index
+    end_rows = page_1[page_1.apply(lambda row: bool(
+        end_pattern.search(str(row.values))), axis=1)].index
+    if start_rows.empty:
+        return None
+    # get row indexes of start and end keywords
+    start_idx = start_rows.min()
+    end_idx = end_rows.max() + 1 if not end_rows.empty else len(page_1)
+    assert end_idx > start_idx, "End index must be greater than start index"
+    teacher_qual_table = page_1.loc[start_idx:end_idx].copy()  # Create a copy to avoid the SettingWithCopyWarning
+    # Check if the teacher_qual_table is not empty
+    if teacher_qual_table.empty:
+        return None
+    # Reset index for proper alignment
+    teacher_qual_table.reset_index(drop=True, inplace=True)
+    # Extract values using a modified regular expression to split the string 
+    split_values = teacher_qual_table.iloc[1:, 10].str.extract(r'(\d+)\s*(\D.*)', expand=True)
+    # Assign the correct values to columns
+    teacher_qual_table.loc[1:, 1] = split_values[0]
+    teacher_qual_table.loc[1:, 2] = split_values[1]
+    final_table = pd.concat([teacher_qual_table[0], split_values[0], split_values[1], teacher_qual_table[19]], axis=1)
+    final_table = final_table.iloc[1:-1].reset_index(drop=True)
+    final_table.columns = [0, 1, 2, 3]
+    return final_table
+
+def economically_weak(page_1: pd.DataFrame):
+    table = extract_table_between_keywords(
+        page_1, "Total no. of Economically Weaker Section*(EWS) students Enrolled in Schools (DCF Sl. No. 1.42(b)", "Classes Taught")
+    df = table.replace("", None).reset_index(drop=True)
+    df = df.iloc[1:, :-1].reset_index(drop=True)
+    df.iloc[0].ffill(inplace=True)
+    df = df.replace("B", "Boys").replace("G", "Girls")
+    df = df.replace("Pre-Pr", "Pre-Primary")
+    print(df)
+    return df
+
+
 
 
 # %%
@@ -143,9 +185,13 @@ df = pd.concat([
     parse_enrollment_by_social_category(t2),
     parse_enrollment_by_minority_group(t2),
     parse_enrollment_by_age(t2)
-], axis=1)
-print(df)
 
+], axis=1)
+
+
+df2=extract_and_parse_teacher_qual(t1,"Teacher With Profes","Diploma/degree in special Educatio")
+print(t1)
+df3=economically_weak(t1)
 
 
 
