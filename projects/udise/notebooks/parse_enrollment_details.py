@@ -126,9 +126,11 @@ def parse_enrollment_by_age(page_2: pd.DataFrame) -> pd.DataFrame:
         none_rows = pd.DataFrame(
             [[None] * df.shape[1]] * (24 - df.shape[0]), columns=df.columns)
         df = pd.concat([none_rows, df], ignore_index=True)
+    columns=ffill_character_separated_values(df)
+    print(columns)
 
-    columns = ['age_gt_3', 'age_4', 'age_lt_5', 'age_5', 'age_6', 'age_7', 'age_8', 'age_9', 'age_10', 'age_11', 'age_12', 'age_13',
-               'age_14', 'age_15', 'age_16', 'age_17', 'age_18', 'age_19', 'age_20', 'age_21', 'age_22', 'age_gt_22', 'total']
+    #columns = ['age_gt_3', 'age_4', 'age_lt_5', 'age_5', 'age_6', 'age_7', 'age_8', 'age_9', 'age_10', 'age_11', 'age_12', 'age_13',
+               #age_14', 'age_15', 'age_16', 'age_17', 'age_18', 'age_19', 'age_20', 'age_21', 'age_22', 'age_gt_22', 'total']
     df = df.T.reset_index(drop=True)
     df.columns = columns
     return df
@@ -184,23 +186,15 @@ tables = parse_table(pdf_file)
 # %%
 t1, t2 = list(map(lambda t: t.df, tables))
 
-# %%
-df = pd.concat([
-    parse_enrollment_by_social_category(t2),
-    parse_enrollment_by_minority_group(t2),
-    parse_enrollment_by_age(t2)
-
-], axis=1)
-
 
 df2=extract_and_parse_teacher_qual(t1,"Teacher With Profes","Diploma/degree in special Educatio")
-print(t1)
-df3=economically_weak(t1)
+
 
 
 scat = parse_enrollment_by_social_category(t2)
 minor = parse_enrollment_by_minority_group(t2)
 age = parse_enrollment_by_age(t2)
+print(age)
 
 # %%
 df = pd.concat([scat, minor, age], axis=1)
