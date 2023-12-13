@@ -13,7 +13,7 @@ pd.set_option("display.max_columns", None)
 DIR = Path(__file__).parents[1] / "data" / "raw" / "schools"
 pdf_files = list(DIR.rglob("*.pdf"))
 
-# %%
+# %%    
 
 
 def generate_pattern(keyword):
@@ -44,7 +44,7 @@ def extract_table_between_keywords(table_df: pd.DataFrame, start_keyword, end_ke
 # %%
 def parse_table(file_path: Path):
     fp = file_path.as_posix()
-    tables = camelot.read_pdf(fp, flavor='lattice', pages='all')
+    tables = camelot.read_pdf(fp, flavor='lattice', pages='all',line_scale=25)
     assert tables.n == 2
     return tables
 
@@ -156,6 +156,16 @@ def extract_and_parse_teacher_qual(page_1: pd.DataFrame, start_keyword, end_keyw
     final_table.columns = [0, 1, 2, 3]
     return final_table
 
+def  students_enrolled_under_section_12(page_1: pd.DataFrame):
+    table = extract_table_between_keywords(page_1, "Total no. of Students Enrolled Under Section 12 of the RTE Act In Private Unaided and Specified Category Schools (DCF Sl. No. 1.42(a))", "Total no. of Economically Weaker Section*(EWS) students Enrolled in Schools (DCF Sl. No. 1.42(b))")
+    table = table.apply(partial(ffill_character_separated_values, interleave_null_values=None), axis=1)
+    return table
+
+def  economically_weaker(page_1: pd.DataFrame):
+    table = extract_table_between_keywords(page_1,"Total no. of Economically Weaker Section*(EWS) students Enrolled in Schools (DCF Sl. No. 1.42(b))", "Teachers")
+    table = table.apply(partial(ffill_character_separated_values, interleave_null_values=None), axis=1)
+    return table
+
 # %%
 pdf_file = choice(pdf_files)
 print(pdf_file.as_posix())
@@ -163,18 +173,18 @@ tables = parse_table(pdf_file)
 
 # %%
 t1, t2 = list(map(lambda t: t.df, tables))
-
 # %%
 df2=extract_and_parse_teacher_qual(t1,"Teacher With Profes","Diploma/degree in special Educatio")
-print(df2)
+
 
 
 scat = parse_enrollment_by_social_category(t2)
 minor = parse_enrollment_by_minority_group(t2)
-age = parse_enrollment_by_age(t2)
+#age = parse_enrollment_by_age(t2)
 
 # %%
-df = pd.concat([scat, minor, age], axis=1)
-print(df)
+df = pd.concat([scat, minor], axis=1)
 # %%
-
+students_section_12=students_enrolled_under_section_12(t1)
+students_economically_weaker=economically_weaker(t1)
+print(students_economically_weaker)
