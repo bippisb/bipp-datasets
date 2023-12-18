@@ -9,6 +9,7 @@ from bs4 import Tag
 import re
 from functools import partial
 import base64
+from pathlib import Path
 
 
 # %%
@@ -154,7 +155,17 @@ def path_exists(dest_dir: str):
     return (Globals.DATA_DIR.value / dest_dir).exists()
 
 
+def parse_raw_data_path(raw_file: Path):
+    return dict(
+        stateId=raw_file.parents[3].name,
+        districtId=raw_file.parents[2].name,
+        eduBlockId=raw_file.parents[1].name,
+        schoolId=raw_file.parent.name
+    )
+
 # %%
+
+
 def scrape(school: dict, client=httpx.Client()):
     r = client.post(
         API.SCHOOL_DETAIL.value,
@@ -185,7 +196,8 @@ def scrape(school: dict, client=httpx.Client()):
             "yearId": report_card["yearId"],
         })
         try:
-            save_base64_pdf(r.content, dest_dir / (report_card["year"] + ".pdf"))
+            save_base64_pdf(r.content, dest_dir
+                            / (report_card["year"] + ".pdf"))
         except binascii.Error:
             continue
     return 1
