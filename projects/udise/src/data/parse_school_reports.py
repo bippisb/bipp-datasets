@@ -3,11 +3,14 @@ import camelot
 import pandas as pd
 import re
 from functools import partial
+from itertools import pairwise
 from get_raw_data import parse_raw_data_path
 from pathlib import Path
 from typing import Callable
 from core import save_json
 import traceback
+import json
+from pypdf.errors import EmptyFileError, PdfReadError
 
 # %%
 pd.set_option("display.max_columns", None)
@@ -146,6 +149,25 @@ def parse_enrollment_by_age(page_2: pd.DataFrame) -> pd.DataFrame:
 # %%
 
 
+def split_merged_cells(df: pd.DataFrame, pattern=r'(\d+)\s+(.+)') -> pd.DataFrame:
+    df = df.copy()
+
+    for i, (prev, curr) in enumerate(pairwise(df.columns.to_list())):
+        if i == 0:
+            continue
+
+        split_values = df[curr].str.extractall(pattern).droplevel("match")
+        merged_rows_idx = split_values.index
+
+        df.loc[merged_rows_idx, prev] = split_values[0].values
+        df.loc[merged_rows_idx, curr] = split_values[1].values
+
+    return df
+
+
+# %%
+
+
 def parse_page_2(pdf_file: Path) -> pd.DataFrame:
     print(f"Parsing Page 2: {pdf_file}")
     tables = read_pdf(pdf_file, pages="2")
@@ -247,45 +269,49 @@ def parse_enrollment_ews(page_1: pd.DataFrame) -> pd.DataFrame:
 def parse_teachers(page_1: pd.DataFrame) -> dict[str, str]:
     table = extract_table_between_keywords(
         page_1, "Teachers", "Teacher With Profes").reset_index(drop=True)
-    # split keys and values of classes taught
-    split_values = table.iloc[:, 4].str.split(" ", n=1, expand=True)
-    table.iloc[2:6, 3] = split_values.iloc[2:6, 0]
-    table.iloc[2:6, 4] = split_values.iloc[2:6, 1]
-    # split key and value of graduate qualification
-    split_values = table.iloc[:, 20].str.split(" ", n=1, expand=True)
-    table.iloc[7, [19, 20]] = table.iloc[7, 20].strip().split(" ")
-    # split keys and values of gender
-    split_values = table.iloc[:, 21].str.split(" ", n=1, expand=True)
-    table.iloc[3:6, 20] = split_values.iloc[3:6, 0]
-    table.iloc[3:6, 21] = split_values.iloc[3:6, 1]
-    # shift keys for nature of appointment towards right
-    table.iloc[3:6, 13] = table.iloc[3:6, 12]
-    table.iloc[3:6, 12] = None
 
-    interim_df = table
+    # clean table
+    for col in table.columns:
+        table[col] = table[col].str.strip().replace("", None)
+    table = table.dropna(how="all")
+    n_expected_rows = 10
+    assert table.shape[0] == n_expected_rows, f"Expected {n_expected_rows} rows, found {table.shape[0]}"
+    table = table.fillna("")
+
+    # split keys and values merged in one cell
+    df = split_merged_cells(table)
+
+    # shift keys for nature of appointment head towards left
+    nat_of_appt_col = get_col_having_keyword(df, "Nature of Appointment")[0]
+    nat_of_appt_row = get_idx_of_rows_having_keyword(
+        df, "Nature of Appointment")[0]
+    part_time_col = get_col_having_keyword(df, "Part-time")[0]
+
+    df.iloc[nat_of_appt_row, part_time_col] = df.at[nat_of_appt_row, nat_of_appt_col]
+    df.at[nat_of_appt_row, nat_of_appt_col] = ""
 
     appointment_and_gender = parse_table_row(
-        interim_df,
+        df,
         column_keywords=["Nature of Appointment", "Gender"],
         n_rows=3,
     )
     if "Nature of Appointment" in appointment_and_gender:
         appointment_and_gender.pop("Nature of Appointment")
     acad_qual = parse_table_row(
-        interim_df,
+        df,
         column_keywords=["Below Graduate"],
         n_rows=3
     )
-    graduate_qual = parse_key_value_pairs(interim_df.iloc[7:8, 20:])
+    graduate_qual = parse_key_value_pairs(df.iloc[7:8, 20:])
     acad_qual = dict(**acad_qual, **graduate_qual)
 
     classes_taught_1 = parse_table_row(
-        interim_df,
+        df,
         column_keywords=["Primary"],
         n_rows=7
     )
     classes_taught_2 = parse_table_row(
-        interim_df,
+        df,
         column_keywords=["2-Up.Pr."],
         n_rows=4
     )
@@ -297,15 +323,21 @@ def parse_teachers(page_1: pd.DataFrame) -> dict[str, str]:
 
 def get_idx_of_rows_having_keyword(df: pd.DataFrame, keyword: str) -> pd.Index:
     pattern = generate_pattern(keyword)
-    def criterion(row): return bool(pattern.search(str(row.values)))
+
+    def criterion(row):
+        return bool(pattern.search(str(row.values)))
+
     return df[df.apply(criterion, axis=1)].index
 # %%
 
 
-def get_col_having_keyword(df: pd.DataFrame, keyword: str):
+def get_col_having_keyword(df: pd.DataFrame, keyword: str) -> pd.Index:
     pattern = generate_pattern(keyword)
-    def criterion(row): return bool(pattern.search(str(row.values)))
-    return df.loc[:, df.apply(criterion)].columns[0]
+
+    def criterion(row):
+        return bool(pattern.search(str(row.values)))
+
+    return df.loc[:, df.apply(criterion)].columns
 
 
 # %%
@@ -336,7 +368,7 @@ def parse_key_value_pairs(df: pd.DataFrame, nth_val: int = 0) -> dict:
 
 def parse_table_row(df: pd.DataFrame, column_keywords: list[str], n_rows: int, nth_col=0, start_col_offset=0) -> dict[str, str]:
     key_columns = [
-        get_col_having_keyword(df, keyword)
+        get_col_having_keyword(df, keyword)[0]
         for keyword in column_keywords
     ]
     start_idx = get_idx_of_rows_having_keyword(
@@ -373,18 +405,27 @@ def parse_basic_details(page_1_ls20: pd.DataFrame) -> dict[str, str]:
     """
 
     # parse municipality and clean city value
-    bsc["Municipality"] = bsc["City"].split("\n")[-2]
-    bsc["City"] = bsc["City"].split("\n")[0]
+    city_parts = bsc["City"].split("\n")
+    if len(city_parts) == 3:
+        bsc["Municipality"] = city_parts[-2]
+        bsc["City"] = city_parts[0]
+    if bsc["City"] == "Municipality":
+        bsc["City"] = None
+        bsc["Municipality"] = None
 
     # parse block and clean district value
-    bsc["Block"] = bsc["District"].split("\n")[-2]
-    bsc["District"] = bsc["District"].split("\n")[0]
+    district_parts = bsc["District"].split("\n")
+    if len(district_parts) == 3:
+        bsc["Block"] = district_parts[-2]
+        bsc["District"] = district_parts[0]
 
     # parse pincode
     a = "Mohalla"
     key = a if a in bsc.keys() else "Habitation"
-    bsc["Pincode"] = bsc[key].split("\n")[-2]
-    bsc[key] = bsc[key].split("\n")[0]
+    moh_hab_parts = bsc[key].split("\n")
+    if len(moh_hab_parts) == 2:
+        bsc["Pincode"] = moh_hab_parts[-2]
+        bsc[key] = moh_hab_parts[0]
 
     return bsc
 
@@ -418,7 +459,7 @@ def parse_things_students_received(page_1_ls20: pd.DataFrame) -> pd.DataFrame:
 def coalesce_columns(df: pd.DataFrame, keywords: list[str]) -> pd.DataFrame:
     df = df.copy()
     columns = [
-        get_col_having_keyword(df, kw)
+        get_col_having_keyword(df, kw)[0]
         for kw in keywords
     ]
     end_col = max(columns)
@@ -454,25 +495,23 @@ def parse_indicators(page_1_ls20: pd.DataFrame) -> pd.DataFrame:
 def parse_digital_facilities(page_1_ls35: pd.DataFrame) -> dict[str, str]:
     table = extract_table_between_keywords(
         page_1_ls35, "Digital Facilities", "SMC").reset_index(drop=True)
+    df = split_merged_cells(table, pattern=r'(.+)\s+(.+)')
 
-    # split values merged into one cell
-    split_values = table.iloc[2:, 6].str.strip(
-    ).str.split(" ", n=1, expand=True)
-    table.iloc[2:, 5] = split_values.iloc[:, 0]
-    table.iloc[2:, 6] = split_values.iloc[:, 1]
-
-    split_values = table.iloc[[1, -1],
-                              13].str.strip().str.split(" ", n=1, expand=True)
-    table.iloc[[1, -1], 12] = split_values.iloc[:, 0]
-    table.iloc[[1, -1], 13] = split_values.iloc[:, 1]
-
-    split_values = table.iloc[-2, 15].strip().split(" ")
-    table.iloc[-2, 12] = split_values[0]
-    table.iloc[-2, 13] = split_values[1]
-    table.iloc[-2, 15] = None
+    # ensure 'printer' is in the same column as 'desktop' and 'digiboard'
+    printer_col = get_col_having_keyword(df, "printer")[0]
+    printer_row_idx = get_idx_of_rows_having_keyword(df, "printer")[0]
+    desktop_col = get_col_having_keyword(df, "desktop")[0]
+    if printer_col != desktop_col:
+        # shift the value split using 'split_merged_cells' function
+        df.iloc[printer_row_idx, desktop_col
+                - 1] = df.iloc[printer_row_idx, printer_col - 1]
+        # move the 'printer' cell
+        df.iloc[printer_row_idx,
+                desktop_col] = df.iloc[printer_row_idx, printer_col]
+        df.iloc[printer_row_idx, printer_col] = ""
 
     data = parse_table_row(
-        table,
+        df,
         column_keywords=["ICT", "Internet", "Desktop"],
         n_rows=2,
     )
@@ -598,22 +637,33 @@ def process_school_report(pdf_file: Path) -> None:
 # %%
 
 
+def get_error_files() -> list[Path]:
+    err_file = DATA_DIR / "error_files.json"
+    files = json.loads(err_file.read_text())
+    return [
+        Path(fp)
+        for fp in files
+    ]
+
+# %%
+
+
 def main():
     err = list()
-    files = pdf_files[50:]
+    files = get_error_files()
+    total_files = len(files)
     for i, file in enumerate(files):
-        print(f"Processing {i+1}/{len(pdf_files)}: {file.as_posix()}")
+        print(f"Processing {i+1}/{total_files}: {file.as_posix()}")
         try:
             process_school_report(file)
+        except EmptyFileError or PdfReadError:
+            traceback.print_exc()
         except Exception:
             traceback.print_exc()
-            err.append(file)
+            err.append(str(file.as_posix()))
             print("Skipped", len(err), "files")
-    save_json(err, DATA_DIR / "error_files.json")
+    # save_json(err, DATA_DIR / "error_files.json")
 
 
 if __name__ == "__main__":
     main()
-    # p = "d:/bippisb/bipp-datasets/projects/udise/data/raw/schools/130/4001/40001/4800019/2018-19.pdf"
-    # p = Path(p)
-    # process_school_report(p)
