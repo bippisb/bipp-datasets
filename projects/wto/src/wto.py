@@ -104,7 +104,7 @@ def process_category(page, category_id, subcategory_base_selector, checkbox_base
 
 def main():
     script_path = Path(__file__).resolve()
-    data_folder = script_path.parents[1] / "Data"  # Navigate to the "Data" folder
+    data_folder = script_path.parents[1] / "data"/"raw"  # Navigate to the "Data" folder
 
     excel_path = data_folder / "output.xlsx"
 
