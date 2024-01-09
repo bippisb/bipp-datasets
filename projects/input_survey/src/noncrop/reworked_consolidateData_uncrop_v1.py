@@ -153,7 +153,8 @@ def consolidateTable2AB_8_9A():
     #     json.dump(list, final)
 
     df = pd.DataFrame(list)
-    df.to_csv(base_dir/"consolidatedDataNonCrop.csv")    
+    df.to_csv(base_dir/"consolidatedDataNonCrop.csv")   
+            
     
 
 def main():
