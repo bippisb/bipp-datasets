@@ -7,7 +7,7 @@ from functools import reduce
 import re
 
 base_dir = Path(__file__).parent.parent
-state_dir = base_dir/"reworked_transformData"/"2016"
+state_dir = base_dir/"processed"/"2016"
 
 
 def quote_name(text: str):
@@ -149,9 +149,11 @@ def consolidateTable2AB_8_9A():
                    
                 list.append(inputsurvey_corp_fert_table)
     
-    with open(base_dir/"consolidated_CropCompostiesTable2AB_8_9AJSON.json", "w") as final:
-        json.dump(list, final)
-            
+    # with open(base_dir/"consolidated_CropCompostiesTable2AB_8_9AJSON.json", "w") as final:
+    #     json.dump(list, final)
+
+    df = pd.DataFrame(list)
+    df.to_csv(base_dir/"consolidatedDataNonCrop.csv")    
     
 
 def main():

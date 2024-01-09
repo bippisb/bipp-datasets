@@ -5,18 +5,17 @@ from urllib.parse import quote, unquote
 import json
 from functools import reduce
 
-# Set base directories and paths
 base_dir = Path(__file__).parent.parent
-state_dir = base_dir/"reworked_transformData"/"2016"
+state_dir = base_dir/"processed"/"2016"
 
-# Functions to quote special characters in a name
+
 def quote_name(text: str):
     return quote(text.replace("/", "__or__"))
+
 
 def unquote_name(text: str):
     return unquote(text.replace("__or__", "/"))
 
-# Dictionary mapping state names to state codes
 stateCodeDict = {
     "A N ISLANDS": "23a",
     "ANDHRA PRADESH":  "1a",
@@ -56,7 +55,6 @@ stateCodeDict = {
     "WEST BENGAL":"22a",  
 }
 
-# Dictionary mapping district names to district codes for Telangana
 districtCodeDict = {
     "TELENGANA": {
         "ADILABAD" : "19",
@@ -71,7 +69,8 @@ districtCodeDict = {
     }
 }
 
-# Function to consolidate data from TABLE4 for different crops
+
+
 def consolidateTable4():
     list = []
 
@@ -120,10 +119,12 @@ def consolidateTable4():
      
                         list.append(inputsurvey_corp_fert_table)
     
-    with open(base_dir/"consolidated_CropCompostiesTable4JSON.json", "w") as final:
-        json.dump(list, final)
-
-# Function to consolidate data from TABLE5 for different crops            
+    # with open(base_dir/"consolidated_CropCompostiesTable4JSON.json", "w") as final:
+    #     json.dump(list, final)
+                        
+    df = pd.DataFrame(list)
+    df.to_csv(base_dir/"consolidatedDataCropFertCompositesTable4.csv")   
+              
 def consolidateTable5():
     list = []
     for state_file in glob.glob(str(state_dir)+'/*'):
@@ -148,12 +149,18 @@ def consolidateTable5():
                 for table_file in tables:
                     
                     table_dir = district_file + f'/{table_file}.csv'
+                    table_path = Path(table_dir)
+    
+                    # Check if the file exists
+                    if not table_path.is_file():
+                        continue
+                    
                     data = pd.read_csv(table_dir)
 
                     # If the table is empty
                     if len(data) == 0:
                         continue
-                    # Assign values based on the type of TABLE5
+
                     if "5E" in table_file:
                         inputsurvey_corp_fert_table["farm_size_category"] = data.loc[i, "Farm_size_category"]
                         inputsurvey_corp_fert_table["farm_size_class"] = data.loc[i, "Farm_size_class"]
@@ -198,9 +205,11 @@ def consolidateTable5():
                 
                 list.append(inputsurvey_corp_fert_table)
     
-    with open(base_dir/"consolidated_CropCompostiesTable5JSON.json", "w") as final:
-        json.dump(list, final)
-            
+    # with open(base_dir/"consolidated_CropCompostiesTable5JSON.json", "w") as final:
+    #     json.dump(list, final)
+
+    df = pd.DataFrame(list)
+    df.to_csv(base_dir/"consolidatedDataCropFertCompositesTable5.csv")     
     
 
 def main():

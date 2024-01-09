@@ -5,29 +5,23 @@ import re
 import io
 
 # %%
-# Set project, data, and destination directories, and define base columns for data
 PROJECT_DIR = Path(__file__).parent.parent
 DATA_DIR = PROJECT_DIR / "2016"
 DESTINATION_DIR = PROJECT_DIR / "interim"
 BASE_COLUMNS = ["survey_year", "table_name", "state_name", "district_name","N","P","K"]
 # %%
-# Create a list of CSV files in the specified directory and its subdirectories
 csv_files = list(DATA_DIR.rglob("**/TABLE4A-*/*/*.csv"))
 
 # %%
 
-# Function to extract pages from a CSV file and return as a list of DataFrames
+
 def extract_pages(p: Path) -> list[pd.DataFrame]:
-    # Read the raw text from the file
     with open(p, 'r') as file:
         raw_text = file.read()
-    # Replace consecutive newlines with a single newline
     text = re.sub(r'\n{3,}', '\n\n', raw_text)
-    # Split the text into pages based on double newlines
     text_pages = list(
         filter(lambda x: x != "", map(str.strip, text.split("\n\n"))))
     assert len(text_pages) == 2, "Table 4A should have 2 pages"
-    # Read each page as a DataFrame and return the list of pages
     pages = [pd.read_csv(io.StringIO(p)) for p in text_pages]
     for p in pages:
         assert len(p) == 24, "Each page should have 24 rows"
@@ -35,40 +29,39 @@ def extract_pages(p: Path) -> list[pd.DataFrame]:
 
 # %%
 
-# Function to test the extract_pages function
+
 def test_extract_pages():
     for p in csv_files:
         extract_pages(csv_files[0])
 
 
 # %%
-# Function to rename base columns in a DataFrame
 def name_base_columns(df: pd.DataFrame):
     textbox_cols = df.columns[df.columns.str.contains("Textbox")]
     assert len(textbox_cols) == 7, "Table 4 should have 7 textboxes"
-    # Rename the first 7 columns to the base columns
+
     df = df.rename(columns=dict(zip(df.columns[:7], BASE_COLUMNS)))
     return df
 # %%
 
 
 def join_pages(pages: list[pd.DataFrame]):
-    # Extract non-base columns from each page and concatenate them horizontally
+
     num_pages = map(lambda p: p[p.columns.difference(BASE_COLUMNS)], pages)
     wide_df = pd.concat(num_pages, axis=1)
     assert wide_df.shape[0] == 24, "Concatenated dataframe should also have 24 rows, just like the individual pages."
+
     return wide_df
 
 # %%
 
-# Function to test the join_pages function
+
 def test_join_pages():
     for p in csv_files:
         join_pages(extract_pages(p))
 
 
 # %%
-# Define a mapping for renaming columns
 column_name_mapping = {
         'col15':'SIZE GROUP(HA)', 
         'col16':'NO. OF HOLDINGS_TOTAL NO.', 
@@ -88,9 +81,11 @@ column_name_mapping = {
 }
 # %%
 
-# Main function that processes and writes the cleaned data to CSV files
+
 def main():
     for i in range(len(csv_files)):
+        
+        print(csv_files[i])
         df = join_pages(map(name_base_columns, extract_pages(csv_files[i])))
         df = df.rename(columns=column_name_mapping)
         # TODO: handle Unnamed columns
