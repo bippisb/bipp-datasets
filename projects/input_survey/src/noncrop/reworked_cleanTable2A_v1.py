@@ -76,7 +76,6 @@ column_name_mapping = {
 # %%
 def main():
     for i in range(len(csv_files)):
-        print(csv_files[i])
         df = join_pages(map(name_base_columns, extract_pages(csv_files[i])))
         df = df.rename(columns=column_name_mapping)
         df = df.drop(columns={'col1'}, axis=1)

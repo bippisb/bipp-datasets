@@ -9,6 +9,8 @@ import re
 base_dir = Path(__file__).parent.parent.parent
 state_dir = base_dir/"data"/"processed"/"2016"
 
+lgd_map_file = open(base_dir/"data"/"raw"/"LGD_map.json")
+lgd_data = json.load(lgd_map_file)
 
 def quote_name(text: str):
     return quote(text.replace("/", "__or__"))
@@ -17,58 +19,138 @@ def quote_name(text: str):
 def unquote_name(text: str):
     return unquote(text.replace("__or__", "/"))
 
-stateCodeDict = {
-    "A N ISLANDS": "23a",
-    "ANDHRA PRADESH":  "1a",
-    "ARUNACHAL PRADESH": "24a",
-    "ASSAM": "2a",
-    "BIHAR": "3a",
-    "CHANDIGARH": "31a",
-    "CHATTISGARH": "34a",
-    "D N HAVELI": "25a",        
-    "DAMAN DIU" : "32a",      
-    "DELHI": "26a",
-    "GOA": "27a",       
-    "GUJARAT": "4a",        
-    "HARYANA":"5a",        
-    "HIMACHAL PRADESH": "6a",        
-    "JAMMU KASHMIR": "7a",    
-    "JHARKHAND": "35a",        
-    "KARNATAKA": "8a",        
-    "KERALA" : "9a",        
-    "LAKSHADWEEP" : "30a",     
-    "MADHYA PRADESH" : "10a",       
-    "MAHARASHTRA":"11a",        
-    "MANIPUR":"12a",        
-    "MEGHALAYA":"13a",        
-    "MIZORAM":"28a",     
-    "NAGALAND":"14a",     
-    "ODISHA":"15a",  
-    "PUDUCHERRY":"29a",     
-    "PUNJAB":"16a",
-    "RAJASTHAN":"17a",  
-    "SIKKIM":"18a",
-    "TAMIL NADU":"19a",    
-    "TELENGANA":"37a", 
-    "TRIPURA":"20a",
-    "UTTAR PRADESH":"21a",        
-    "UTTARAKHAND":"36a",        
-    "WEST BENGAL":"22a",  
+districtNames_Dict = {
+    'NELLORE':"Sri Potti Sriramulu Nellore", 
+    'KADAPA': "Y.S.R.", 
+    'ANANTAPUR': "Ananthapuramu", 
+    'NARSINGPUR': "Narsimhapur", 
+    'SHEOPUR KALAN': "Sheopur", 
+    'ASHOK NAGAR': "Ashoknagar", 
+    'KAHNDWA': "Khandwa (East Nimar)", 
+    'KHARGON':"Khargone (West Nimar)", 
+    'AAGAR':"Agar-Malwa",
+    'HOSANGABAD':"Narmadapuram", 
+    'BADWANI':"Barwani", 
+    'KANCHEEPURAM':"Kanchipuram", 
+    'TIRUVALLUR':"Thiruvallur", 
+    'PUDUKOTTAI':"Pudukkottai", 
+    'TIRUCHIRAPALLI':"Tiruchirappalli", 
+    'SIVAGANGAI':"Sivaganga", 
+    'KANYAKUMARI':"Kanniyakumari", 
+    'NORTH DINAJPUR':"Uttar Dinajpur", 
+    'PURBA BURDWAN':"Purba Bardhaman", 
+    'PASCHIM MEDDINIPUR':"Paschim Medinipur", 
+    'PASCHIM BURDWAN':"Paschim Bardhaman", 
+    'HOOGLY':"Hooghly", 
+    'SOUTH DINAJPUR':"Dakshin Dinajpur", 
+    'PURBA MEDDINIPUR':"Purba Medinipur", 
+    'NORTH & MIDDLE ANDAMAN':"North And Middle Andaman", 
+    'NICOBAR':"Nicobars", 
+    'SOUTH ANDAMAN':"South Andamans", 
+    'MAHINDERGARH':"Mahendragarh", 
+    'HISSAR':"Hisar", 
+    'GURGAON':"Gurugram", 
+    'MEWAT':"Nuh", 
+    'PANCHMAHALS':"Panch mahals", 
+    'DANGS':"Dang", 
+    'SABARKANTHA':"Sabar Kantha", 
+    'BANASKANTHA':"Banas Kantha", 
+    'DAHOD':"Def", 
+    'CHAMARAJANAGAR':"Chamarajanagara", 
+    'CHICHBALLAPURA':"Chikkaballapura", 
+    'KALABURGI':"Kalaburagi", 
+    'VIJAPURA':"Vijayapura", 
+    'RAMANAGAR':"Ramanagara", 
+    'BENGALURU (U )':"Bengaluru Urban", 
+    'UTTRA KANNADA':"Uttara Kannada", 
+    'DAVANAGERE':"Davangere", 
+    'CHIKKAMAGALUR':"Chikkamagaluru", 
+    'BENGALURU (R )':"Bengaluru Rural", 
+    'BULDANA':"Buldhana", 
+    'OSMANABAD':"Dharashiv", 
+    'SANGALI':"Sangli", 
+    'JAJPUR':"Jajapur", 
+    'BALASORE':"Baleshwar", 
+    'KHURDA':"Khordha", 
+    'JAGATSINGHPUR':"Jagatsinghapur", 
+    'NAWARANGPUR':"Nabarangpur", 
+    'KEONJHAR':"Kendujhar", 
+    'JHARASUGUDA':"Jharsuguda", 
+    'ANGUL':"Anugul", 
+    'RANGAREDDY':"Ranga Reddy", 
+    'BARABANKI':"Bara Banki", 
+    'KUSHI NAGAR':"Kushinagar", 
+    'SIDDHARTH NAGAR':"Siddharthnagar", 
+    'SANT RAVIDAS NAGAR':"Bhadohi", 
+    'BADAAYU':"Budaun", 
+    'RAEBARELI':"Rae Bareli", 
+    'ALLAHABAD':"Prayagraj", 
+    'RAMABAI NAGAR/KANPUR DEHA':"Kanpur Dehat", 
+    'GAUTAM BUDDH NAGAR':"Gautam Buddha Nagar", 
+    'CHOTRAPATI SAHOOJI MAHARA':"Amethi", 
+    'MAHARAJGANJ':"Mahrajganj", 
+    'BULANDSHAHAR':"Bulandshahr", 
+    'SONEBHADRA':"Sonbhadra", 
+    'FAIZABAD':"Firozabad", 
+    'BEHRAICH':"Bahraich", 
+    'MAHA MAYA NAGAR':"Hathras", 
+    'KASHIRAM NAGAR':"Kasganj", 
+    'JYOTIBA PHULE NAGAR':"Amroha", 
+    'LAHUL/SPITI':"Lahul And Spiti", 
+    'KAMRUP (RURAL)':"Kamrup", 
+    'MORIGAON':"Marigaon", 
+    'KARBI-ANGLONG':"Karbi Anglong", 
+    'DIMA HASAO (N. C. HILLS)':"Dima Hasao", 
+    'ODALGURI':"Udalguri", 
+    'KAMRUP (METRO)':"Kamrup Metro", 
+    'RI-BHOI':"Ri Bhoi", 
+    'BALODABAZAR':"Balodabazar-Bhatapara", 
+    'SARGUJA':"Surguja", 
+    'JANJGIR CHAMPA':"Janjgir-Champa", 
+    'KANKER':"Uttar Bastar Kanker", 
+    'KABIRDHAM(KAWARDHA)':"Kabeerdham", 
+    'BANDIPURA':"Bandipora", 
+    'UDAMPUR':"Udhampur", 
+    'LEH':"Leh Ladakh", 
+    'DADRA & NAGAR HAVELI':"Dadra And Nagar Haveli", 
+    'RUDRAPRAYAG':"Rudra Prayag", 
+    'UTTARKASHI':"Uttar Kashi", 
+    'UDHAMSINGHNAGAR':"Udam Singh Nagar", 
+    'PUDUCHERRY':"Pondicherry", 
+    'NAWADAH':"Nawada", 
+    'KAIMUR':"Kaimur (Bhabua)", 
+    'EAST CHAMPARAN':"Purbi Champaran", 
+    'PURNEA':"Purnia", 
+    'WEST CHAMPARAN':"Pashchim Champaran", 
+    'EAST SINGHBHUM':"Def"
 }
 
-districtCodeDict = {
-    "TELENGANA": {
-        "ADILABAD" : "19",
-        "KARIMNAGAR" : "20",
-        "KHAMMAM" : "22",
-        "MAHABUBNAGAR" : "14",
-        "MEDAK" : "17",
-        "NALGONDA" : "23",
-        "NIZAMABAD" : "18",
-        "RANGAREDDY" : "15",
-        "WARANGAL" : "21",
-    }
-}
+def districtLGDMapping(districtname,statename):
+    if (districtname.title()) in lgd_data:
+            lgdstateName = lgd_data[districtname.title()]["StateName"]
+            lgdstateCode = lgd_data[districtname.title()]["StateLGDCode"]
+            lgddistrictName = lgd_data[districtname.title()]["DistrictName"]
+            lgddistrictCode = lgd_data[districtname.title()]["DistictLGDcCode"]
+    else:   
+        if districtname in districtNames_Dict:
+            if (districtNames_Dict[districtname].title()) in lgd_data:
+                lgdstateName = lgd_data[districtNames_Dict[districtname].title()]["StateName"]
+                lgdstateCode = lgd_data[districtNames_Dict[districtname].title()]["StateLGDCode"]
+                lgddistrictName = lgd_data[districtNames_Dict[districtname].title()]["DistrictName"]
+                lgddistrictCode = lgd_data[districtNames_Dict[districtname].title()]["DistictLGDcCode"]
+            else:
+                lgdstateName = statename.title()
+                lgdstateCode = "Def"
+                lgddistrictName = districtname.title()
+                lgddistrictCode = "Def"
+        else:
+            print("Problem:",districtname)
+            lgdstateName = statename.title()
+            lgdstateCode = "Def"
+            lgddistrictName = districtname.title()
+            lgddistrictCode = "Def"
+
+    return lgdstateName,lgdstateCode,lgddistrictName,lgddistrictCode
 
               
 def consolidateTable2AB_8_9A():
@@ -82,15 +164,17 @@ def consolidateTable2AB_8_9A():
             districtName = unquote_name(district_file.replace(str(state_file)+'/',""))
 
             tables = ["TABLE2A-IRRIGATED%20AREA%20CROPPED%20ONCE%20%26%20MORE%20THAN%20ONCE","TABLE2B-UN-IRRIGATED%20AREA%20CROPPED%20ONCE%20%26%20MORE%20THAN%20ONCE","TABLE8-CREDIT%20AVAILED%20FOR%20AGRIL.%20PURPOSE","TABLE9A-USAGE%20OF%20CERTIFIED%20SEEDS%20%28BLUE%20TAG%29"]
+            
+            lgdstateName,lgdstateCode,lgddistrictName,lgddistrictCode = districtLGDMapping(districtName,stateName)
 
             for i in range(6):
                 inputsurvey_corp_fert_table = {}
                 
                 inputsurvey_corp_fert_table["year"] = "2016"
-                inputsurvey_corp_fert_table["state_name"] =stateName
-                inputsurvey_corp_fert_table["state_code"] = "Def"
-                inputsurvey_corp_fert_table["district_name"] =districtName
-                inputsurvey_corp_fert_table["district_code"] = "Def"
+                inputsurvey_corp_fert_table["state_name"] =lgdstateName
+                inputsurvey_corp_fert_table["state_code"] = lgdstateCode
+                inputsurvey_corp_fert_table["district_name"] =lgddistrictName
+                inputsurvey_corp_fert_table["district_code"] = lgddistrictCode
                 
                 
                 for table_file in tables:
@@ -104,7 +188,6 @@ def consolidateTable2AB_8_9A():
                     # If the table is empty
                     if len(data) == 0:
                         continue
-
                     if "TABLE2A" in table_file:
                         # Here SIZE GROUP(HA) contains the farmSize and farmCategory. Ex: MARGINAL (BELOW 1.0)
                         sizeGroup_value = data.loc[i,"SIZE GROUP(HA)"]
@@ -139,7 +222,7 @@ def consolidateTable2AB_8_9A():
                         # Didn't find the appropriate column for below value point  
                         # inputsurvey_corp_fert_table["amt_ins_cr_tot"] =str(data.loc[i,""]
 
-                    if "9" in table_file:
+                    if "TABLE9" in table_file:
                         inputsurvey_corp_fert_table["hol_n_cs"] =str(data.loc[i,"NumOfHoldUsingCertSeeds"])
                         inputsurvey_corp_fert_table["hol_n_hs"] = str(data.loc[i,"NumOfHoldUsingHybridSeeds"])
                         

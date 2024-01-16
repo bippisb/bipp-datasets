@@ -64,8 +64,8 @@ def test_join_pages():
 column_name_mapping = {
     'Col16': 'SIZE GROUP(HA)', 
     'Col28': 'TotalNumOfOperationalHolding', 
-    'Col29': 'NoHoldUsingCertSeeds', 
-    # ... (Add other column mappings)
+    'Col29': 'NumOfHoldUsingCertSeeds', 
+    'Col63': 'NumOfHoldUsingHybridSeeds'
 }
 
 # %%
