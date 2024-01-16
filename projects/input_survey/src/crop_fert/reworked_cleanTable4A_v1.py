@@ -6,10 +6,11 @@ import io
 
 # %%
 # Set project, data, and destination directories, and define base columns for data
-PROJECT_DIR = Path(__file__).parent.parent
-DATA_DIR = PROJECT_DIR / "2016"
-DESTINATION_DIR = PROJECT_DIR / "interim"
+PROJECT_DIR = Path(__file__).parent.parent.parent
+DATA_DIR = PROJECT_DIR / "data"/"raw"
+DESTINATION_DIR = PROJECT_DIR / "data"/"interim"
 BASE_COLUMNS = ["survey_year", "table_name", "state_name", "district_name","N","P","K"]
+
 # %%
 # Create a list of CSV files in the specified directory and its subdirectories
 csv_files = list(DATA_DIR.rglob("**/TABLE4A-*/*/*.csv"))
@@ -98,8 +99,7 @@ def main():
         dest = DESTINATION_DIR / "2016" / csv_files[i].relative_to(DATA_DIR).parent
         dest.mkdir(parents=True, exist_ok=True)
         df.to_csv(DESTINATION_DIR / "2016" / csv_files[i].relative_to(DATA_DIR), index=False)
-
-
+        print(DESTINATION_DIR / "2016" / csv_files[i].relative_to(DATA_DIR))
 if __name__ == "__main__":
     main()
 

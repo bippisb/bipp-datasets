@@ -6,8 +6,8 @@ import json
 from functools import reduce
 
 # Set base directories and paths
-base_dir = Path(__file__).parent.parent
-state_dir = base_dir/"processed"/"2016"
+base_dir = Path(__file__).parent.parent.parent
+state_dir = base_dir/"data"/"processed"/"2016"
 
 # Functions to quote special characters in a name
 def quote_name(text: str):
@@ -86,7 +86,7 @@ def consolidateTable4():
             tableName = unquote_name('/TABLE4-USAGE%20OF%20FERTILIZERS%20FOR%20DIFFERENT%20CROPS')
 
             for crop_file in glob.glob(str(table_dir)+'/*'):
-                cropName = unquote_name(crop_file.replace(str(table_dir)+'/',""))      
+                cropName = unquote_name(crop_file.replace(str(table_dir)+'/',"")).replace(".csv", "")
                 data = pd.read_csv(crop_file)
                         
                 # If the table is empty
@@ -120,8 +120,11 @@ def consolidateTable4():
      
                         list.append(inputsurvey_corp_fert_table)
     
-    with open(base_dir/"consolidated_CropCompostiesTable4JSON.json", "w") as final:
-        json.dump(list, final)
+    # with open(base_dir/"consolidated_CropCompostiesTable4JSON.json", "w") as final:
+    #     json.dump(list, final)
+
+    df = pd.DataFrame(list)
+    df.to_csv(base_dir/"consolidatedDataCropFertCompositesTable4.csv")   
 
 # Function to consolidate data from TABLE5 for different crops            
 def consolidateTable5():

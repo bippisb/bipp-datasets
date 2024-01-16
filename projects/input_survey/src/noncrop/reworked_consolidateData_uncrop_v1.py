@@ -6,8 +6,8 @@ import json
 from functools import reduce
 import re
 
-base_dir = Path(__file__).parent.parent
-state_dir = base_dir/"processed"/"2016"
+base_dir = Path(__file__).parent.parent.parent
+state_dir = base_dir/"data"/"processed"/"2016"
 
 
 def quote_name(text: str):

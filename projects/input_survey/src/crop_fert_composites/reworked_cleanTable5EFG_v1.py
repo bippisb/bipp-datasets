@@ -6,9 +6,9 @@ import io
 
 # %%
 # Define project directories and base columns
-PROJECT_DIR = Path(__file__).parent.parent
-DATA_DIR = PROJECT_DIR / "2016"
-DESTINATION_DIR = PROJECT_DIR / "interim"
+PROJECT_DIR = Path(__file__).parent.parent.parent
+DATA_DIR = PROJECT_DIR / "data"/"raw"
+DESTINATION_DIR = PROJECT_DIR / "data"/"interim"
 BASE_COLUMNS = ["survey_year", "table_name", "state_name", "district_name"]
 
 # %%

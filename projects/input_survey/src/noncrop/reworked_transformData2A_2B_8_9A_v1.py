@@ -5,9 +5,9 @@ import re
 import io
 
 # %%
-PROJECT_DIR = Path(__file__).parent.parent
-DATA_DIR = PROJECT_DIR / "interim" / "2016"
-DESTINATION_DIR = PROJECT_DIR / "processed"
+PROJECT_DIR = Path(__file__).parent.parent.parent
+DATA_DIR = PROJECT_DIR /"data"/"interim" / "2016"
+DESTINATION_DIR = PROJECT_DIR /"data"/"processed"
 
 # %%
 csv_files2A = list(DATA_DIR.rglob("**/TABLE2A*.csv"))

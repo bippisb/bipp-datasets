@@ -5,8 +5,8 @@ from urllib.parse import quote, unquote
 import json
 
 # Define base and state directories
-base_dir = Path(__file__).parent.parent
-state_dir = base_dir/"processed"/"2016"
+base_dir = Path(__file__).parent.parent.parent
+state_dir = base_dir/"data"/"processed"/"2016"
 
 #Functions to quote and unquote name 
 def quote_name(text: str):
@@ -89,7 +89,7 @@ def consolidateTable4A():
             # Loop through crop directories within each TABLE4A directory
             for crop_file in glob.glob(str(table_dir) + '/*'):
                 cropName = unquote_name(crop_file.replace(str(table_dir) + '/', ""))
-
+                print(cropName)
                 # Loop through fertilizer files within each crop directory
                 for fert_file in glob.glob(str(crop_file) + '/*'):
                     fertName = unquote_name((fert_file.replace(str(crop_file) + '/', "")).replace(".csv", ""))

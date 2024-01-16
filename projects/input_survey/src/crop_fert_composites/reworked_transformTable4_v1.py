@@ -6,9 +6,9 @@ import re
 import io
 
 # %%
-PROJECT_DIR = Path(__file__).parent.parent
-DATA_DIR = PROJECT_DIR / "interim" / "2016"
-DESTINATION_DIR = PROJECT_DIR / "processed"
+PROJECT_DIR = Path(__file__).parent.parent.parent
+DATA_DIR = PROJECT_DIR /"data"/"interim" / "2016"
+DESTINATION_DIR = PROJECT_DIR /"data"/"processed"
 
 # %%
 # Create a list of CSV files in the specified directory and its subdirectories
