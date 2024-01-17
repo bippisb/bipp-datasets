@@ -10,8 +10,10 @@ def retry_until_found(func, *args, max_retries=3):
             print(f"Error: {str(e)} - Retrying... (Attempt {attempt + 1}/{max_retries})")
     raise Exception(f"Failed after {max_retries} attempts.")
 
-def process_checkbox(page, checkbox_id, subcategory_base_selector, subcategory_id, category_id, prev_text, df, excel_path):
-    while True:
+def process_checkbox(page, checkbox_id, subcategory_base_selector, subcategory_id, category_id, prev_text, max_attempts=2000):
+    records = []  # List to store records
+
+    for attempt in range(max_attempts):
         current_checkbox_selector = f'#ctl00_ContentView_pn{checkbox_id}CheckBox'
         checkbox_element = retry_until_found(page.query_selector, current_checkbox_selector)
 
@@ -27,37 +29,41 @@ def process_checkbox(page, checkbox_id, subcategory_base_selector, subcategory_i
 
             if checkbox_text[:4] == prev_text[:4]:
                 prev_text = checkbox_text[:4]
-                df.loc[len(df)] = ["", "", checkbox_text]
-                df.to_excel(excel_path, index=False, sheet_name="Sheet1")  # Update Excel file
+                records.append(["", "", checkbox_text])
                 checkbox_element.check()  # Click the checkbox
+                page.wait_for_timeout(timeout=1000)  # Wait after checkbox click
                 checkbox_id += 1
                 subcategory_id += 1
 
             elif checkbox_text[:2] == prev_text[:2]:
                 prev_text = checkbox_text[:4]
-                df.loc[len(df), "subcategory"] = checkbox_text
-                df.to_excel(excel_path, index=False, sheet_name="Sheet1")  # Update Excel file
+                records.append(["", checkbox_text, ""])
                 checkbox_text_element.click()  # Click the checkbox
+                page.wait_for_timeout(timeout=1000)  # Wait after checkbox click
                 checkbox_id += 1
                 subcategory_id += 1
 
             else:
                 prev_text = checkbox_text[:4]
-                df.loc[len(df), "category"] = checkbox_text
-                df.to_excel(excel_path, index=False, sheet_name="Sheet1")  # Update Excel file
+                records.append([checkbox_text, "", ""])
                 checkbox_text_element.click()  # Click the checkbox
+                page.wait_for_timeout(timeout=1000)  # Wait after checkbox click
                 checkbox_id += 1
                 subcategory_id += 1
 
         except Exception as e:
             print(f"Error processing checkbox {checkbox_id}: {str(e)}")
 
-def process_subcategory(page, subcategory_base_selector, subcategory_id, category_id, prev_text, df, excel_path):
+    return records
+
+def process_subcategory(page, subcategory_base_selector, subcategory_id, category_id, prev_text):
+    records = []  # List to store records
+
     current_subcategory_selector = f'#ctl00_ContentView_pt{subcategory_id}'
     subcategory_element = retry_until_found(page.query_selector, current_subcategory_selector)
 
     if not subcategory_element:
-        return
+        return records
 
     try:
         page.wait_for_timeout(timeout=1000)  # Wait before subcategory click
@@ -67,22 +73,25 @@ def process_subcategory(page, subcategory_base_selector, subcategory_id, categor
         page.wait_for_timeout(timeout=2000)  # Increase timeout
 
         subcategory_text = subcategory_element.inner_text()
-
-        df.loc[len(df), "subcategory"] = subcategory_text
-        df.to_excel(excel_path, index=False, sheet_name="Sheet1")  # Update Excel file
+        records.append(["", subcategory_text, ""])
 
         checkbox_id = subcategory_id + 1
-        process_checkbox(page, checkbox_id, subcategory_base_selector, subcategory_id, category_id, prev_text, df, excel_path)
+        checkbox_records = process_checkbox(page, checkbox_id, subcategory_base_selector, subcategory_id, category_id, prev_text)
+        records.extend(checkbox_records)
 
     except Exception as e:
         print(f"Error processing subcategory {subcategory_id}: {str(e)}")
 
-def process_category(page, category_id, subcategory_base_selector, checkbox_base_selector, prev_text, df, excel_path):
+    return records
+
+def process_category(page, category_id, subcategory_base_selector, checkbox_base_selector, prev_text):
+    records = []  # List to store records
+
     current_category_selector = f'#ctl00_ContentView_pt{category_id}'
     category_element = retry_until_found(page.query_selector, current_category_selector)
 
     if not category_element:
-        return
+        return records
 
     try:
         page.wait_for_timeout(timeout=1000)  # Wait before category click
@@ -93,18 +102,20 @@ def process_category(page, category_id, subcategory_base_selector, checkbox_base
 
         # Update Excel file with the first category name
         category_text = category_element.inner_text()
-        df.loc[len(df)] = [category_text, "", ""]
-        df.to_excel(excel_path, index=False, sheet_name="Sheet1")
+        records.append([category_text, "", ""])
 
         subcategory_id = category_id + 1
-        process_subcategory(page, subcategory_base_selector, subcategory_id, category_id, prev_text, df, excel_path)
+        subcategory_records = process_subcategory(page, subcategory_base_selector, subcategory_id, category_id, prev_text)
+        records.extend(subcategory_records)
 
     except Exception as e:
         print(f"Error processing category {category_id}: {str(e)}")
 
+    return records
+
 def main():
     script_path = Path(__file__).resolve()
-    data_folder = script_path.parents[1] / "data"/"raw"  # Navigate to the "Data" folder
+    data_folder = script_path.parents[1] / "data" / "raw"  # Navigate to the "Data" folder
 
     excel_path = data_folder / "output.xlsx"
 
@@ -122,12 +133,15 @@ def main():
             subcategory_base_selector = '#ctl00_ContentView_pt{}'
             checkbox_base_selector = '#ctl00_ContentView_pn{}CheckBox'
 
-            df = pd.DataFrame(columns=["category", "subcategory", "HS-Code"])
-
+            records = []
             category_id = 0
             prev_text = "0101"
 
-            process_category(page, category_id, subcategory_base_selector, checkbox_base_selector, prev_text, df, excel_path)
+            category_records = process_category(page, category_id, subcategory_base_selector, checkbox_base_selector, prev_text)
+            records.extend(category_records)
+
+            # Create DataFrame from records
+            df = pd.DataFrame(records, columns=["category", "subcategory", "HS-Code"])
 
             # Save the DataFrame to Excel workbook
             df.to_excel(excel_path, index=False, sheet_name="Sheet1")
