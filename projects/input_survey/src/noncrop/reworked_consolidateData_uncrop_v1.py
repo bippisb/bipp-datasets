@@ -9,7 +9,7 @@ import re
 base_dir = Path(__file__).parent.parent.parent
 state_dir = base_dir/"data"/"processed"/"2016"
 
-lgd_map_file = open(base_dir/"data"/"raw"/"LGD_map.json")
+lgd_map_file = open(base_dir/"src"/"LGD_map.json")
 lgd_data = json.load(lgd_map_file)
 
 def quote_name(text: str):
@@ -55,7 +55,7 @@ districtNames_Dict = {
     'DANGS':"Dang", 
     'SABARKANTHA':"Sabar Kantha", 
     'BANASKANTHA':"Banas Kantha", 
-    'DAHOD':"Def", 
+    'DAHOD':"Dahod", 
     'CHAMARAJANAGAR':"Chamarajanagara", 
     'CHICHBALLAPURA':"Chikkaballapura", 
     'KALABURGI':"Kalaburagi", 
@@ -122,7 +122,18 @@ districtNames_Dict = {
     'EAST CHAMPARAN':"Purbi Champaran", 
     'PURNEA':"Purnia", 
     'WEST CHAMPARAN':"Pashchim Champaran", 
-    'EAST SINGHBHUM':"Def"
+    'EAST SINGHBHUM':"East Singhbum",
+    "MINICOY":"Minicory",
+    "ANDROTT":"Andrott",
+    "AMINI":"Amini",
+    "KAVARATTI":"Kavaratti",
+    "PAPUMPARE": "Papum Pare",
+    "DANTEWADA":"Dakshin Bastar Dantewada",
+    "ROPAR":"Rupnagar",
+    "SHAHED BHAGAT SINGH NAGAR":"Shahid Bhagat Singh Nagar",
+    "TARN-TARAN":"Tarn Taran",
+    "MOHALI":"S.A.S Nagar",
+    "MUKTSAR":"Sri Muktsar Sahib"
 }
 
 def districtLGDMapping(districtname,statename):
@@ -138,17 +149,6 @@ def districtLGDMapping(districtname,statename):
                 lgdstateCode = lgd_data[districtNames_Dict[districtname].title()]["StateLGDCode"]
                 lgddistrictName = lgd_data[districtNames_Dict[districtname].title()]["DistrictName"]
                 lgddistrictCode = lgd_data[districtNames_Dict[districtname].title()]["DistictLGDcCode"]
-            else:
-                lgdstateName = statename.title()
-                lgdstateCode = "Def"
-                lgddistrictName = districtname.title()
-                lgddistrictCode = "Def"
-        else:
-            print("Problem:",districtname)
-            lgdstateName = statename.title()
-            lgdstateCode = "Def"
-            lgddistrictName = districtname.title()
-            lgddistrictCode = "Def"
 
     return lgdstateName,lgdstateCode,lgddistrictName,lgddistrictCode
 

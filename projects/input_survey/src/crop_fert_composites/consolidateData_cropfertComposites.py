@@ -9,8 +9,12 @@ from functools import reduce
 base_dir = Path(__file__).parent.parent.parent
 state_dir = base_dir/"data"/"processed"/"2016"
 
-lgd_map_file = open(base_dir/"data"/"raw"/"LGD_map.json")
+lgd_map_file = open(base_dir/"src"/"LGD_map.json")
 lgd_data = json.load(lgd_map_file)
+
+crop_map_file = open(base_dir/"src"/"cropFert_map.json")
+crop_data = json.load(crop_map_file)
+
 # Functions to quote special characters in a name
 def quote_name(text: str):
     return quote(text.replace("/", "__or__"))
@@ -54,7 +58,7 @@ districtNames_Dict = {
     'DANGS':"Dang", 
     'SABARKANTHA':"Sabar Kantha", 
     'BANASKANTHA':"Banas Kantha", 
-    'DAHOD':"Def", 
+    'DAHOD':"Dahod", 
     'CHAMARAJANAGAR':"Chamarajanagara", 
     'CHICHBALLAPURA':"Chikkaballapura", 
     'KALABURGI':"Kalaburagi", 
@@ -121,7 +125,63 @@ districtNames_Dict = {
     'EAST CHAMPARAN':"Purbi Champaran", 
     'PURNEA':"Purnia", 
     'WEST CHAMPARAN':"Pashchim Champaran", 
-    'EAST SINGHBHUM':"Def"
+    'EAST SINGHBHUM':"East Singhbum",
+    "MINICOY":"Minicory",
+    "ANDROTT":"Andrott",
+    "AMINI":"Amini",
+    "KAVARATTI":"Kavaratti",
+    "PAPUMPARE": "Papum Pare",
+    "DANTEWADA":"Dakshin Bastar Dantewada",
+    "ROPAR":"Rupnagar",
+    "SHAHED BHAGAT SINGH NAGAR":"Shahid Bhagat Singh Nagar",
+    "TARN-TARAN":"Tarn Taran",
+    "MOHALI":"S.A.S Nagar",
+    "MUKTSAR":"Sri Muktsar Sahib"
+}
+
+cropNames_Dict = {
+    "Total Oil Seeds":"Def",
+    'Moong':"Def",
+    "Ladys Finger (Bhindi)": "Lady's finger", 
+    "Total Aromatic And Medicinal Plants":"Def", 
+    "Gram":"Def", 
+    'Total Non-Food Crops':"Def", 
+    'Beans (Green)':"Def", 
+    'Total Food Crops':"def", 
+    'Mulberry Crop':"Mullberry Crop", 
+    'Chillies':"Dry Chillies", 
+    'Horsegram':"Def", 
+    'Total Spices & Condiments':"Def", 
+    'Total Fibres':"Def",
+    'Tur (Arhar)':"Def",
+    'Urad':"Def", 
+    'All Vegetables':"Def", 
+    'Ragi':"Def", 
+    'Total Foodgrains':"Def", 
+    'Lemon / Acid Lime':"Lime", 
+    'Total Sugar Crops':"Def", 
+    'Total Fruits':"Def", 
+    'Total Cereals':"Def", 
+    'Cashewnuts':"Cashew", 
+    # 'Mangoes', 
+    # 'Other Non-Food Crops', 
+    # 'Total Pulses', 
+    # 'Sesamum (Til)', 
+    # 'Total Other Non-Food Crops', 
+    # 'Casuarina', 'Watermelon', 'Ginger', 'Bajra', 'Beetlvine', 'Bottle Gourd (Lauki)', 
+    # 'Green Chillies', 'Other Gourd', 'Total Plantation Crops', 'Fodder & Green Manures', 
+    # 'Green Manures', 'Other Plantation Crops', 'Tapioca (Cassava)', 'Mosambi', 'Merigold', 
+    # 'Total Drugs & Narcotics', 'Total Floriculture Crops', 'Jowar', 'Castorseed', 'Ajwain', 
+    # 'Beans (Pulses)', 'Chiku', 'Peas (Vegetable) (Green)', 'Chrysanthemum', 'Masur', 'Coriander', 
+    # 'Plantain', 'Rapeseed & Mustard (Toria/Taramira)', 'Other Condi. & Spices', 
+    # 'Betelnuts (Arecanuts)', 'Orange', 'Vench (Guar)', 'Peas (Pulses)', 'Strawberry', 
+    # 'Turnip (Shalgam)', 'Amaranths (Chaulai)', 'Table Grapes', 'Palmvriah', 'Spinach', 
+    # 'Cardamom (Large)', 'Colocasia/Arum', 'Pepper (Black)', 'Cardamom (Small)', 
+    # 'Total Dyes & Tanning Materials', 'Fenugreek', 'Elephant Foot Yam', 'Asgandh', 
+    # 'Isabgol', 'Jack Fruit', 'Nigerseed', 'Tuberose', 'Aonla (Amla)', 'Wine Grapes (Black)', 
+    # 'Koval (Little Gourd)', 'Ber', 'Other Citrus Fruits', 'Carnation', 'Gladiolus', 
+    # 'Tinda', 'Fennel / Anise Seed', 'Lichi', 'Peaches', 'Orchids', 'Vanilla', 'Kinnoo', 
+    # 'Gaillardia', 'Remputan', 'Gerbera', 'Allovera', 'Other Dyes & Tanning Materials'
 }
 
 def districtLGDMapping(districtname,statename):
@@ -137,19 +197,24 @@ def districtLGDMapping(districtname,statename):
                 lgdstateCode = lgd_data[districtNames_Dict[districtname].title()]["StateLGDCode"]
                 lgddistrictName = lgd_data[districtNames_Dict[districtname].title()]["DistrictName"]
                 lgddistrictCode = lgd_data[districtNames_Dict[districtname].title()]["DistictLGDcCode"]
-            else:
-                lgdstateName = statename.title()
-                lgdstateCode = "Def"
-                lgddistrictName = districtname.title()
-                lgddistrictCode = "Def"
-        else:
-            print("Problem:",districtname)
-            lgdstateName = statename.title()
-            lgdstateCode = "Def"
-            lgddistrictName = districtname.title()
-            lgddistrictCode = "Def"
 
     return lgdstateName,lgdstateCode,lgddistrictName,lgddistrictCode
+
+def cropMapping(cropname):
+    if(cropname.title()) in crop_data:
+        cropcode = crop_data[cropname.title()]["cropCode"]
+        croptype = crop_data[cropname.title()]["cropType"]
+    else:
+        if cropname.title() in cropNames_Dict:
+            if (cropNames_Dict[cropname.title()]) in crop_data:
+                cropcode = crop_data[cropNames_Dict[cropname.title()]]["cropCode"]
+                croptype = crop_data[cropNames_Dict[cropname.title()]]["cropType"]
+            else:
+                return "Def","Def"
+        else:
+            return "Def","Def"
+            
+    return cropcode,croptype
 
 # Function to consolidate data from TABLE4 for different crops
 def consolidateTable4():
@@ -179,6 +244,7 @@ def consolidateTable4():
                     continue
                 
                 lgdstateName,lgdstateCode,lgddistrictName,lgddistrictCode = districtLGDMapping(districtName,stateName)
+                cropType,cropCode = cropMapping(cropName)
 
                 for i in range(len(data)):
 
@@ -189,9 +255,8 @@ def consolidateTable4():
                         inputsurvey_corp_fert_table["district_name"] =lgddistrictName
                         inputsurvey_corp_fert_table["district_code"] = lgddistrictCode
                         inputsurvey_corp_fert_table["crop_name"] = cropName
-                        inputsurvey_corp_fert_table["fertlizer"] = "Def"
-                        inputsurvey_corp_fert_table["crop_type"] = "Def"
-                        inputsurvey_corp_fert_table["crop_code"] = "Def"
+                        inputsurvey_corp_fert_table["crop_type"] = cropType
+                        inputsurvey_corp_fert_table["crop_code"] = cropCode
                         inputsurvey_corp_fert_table["farm_size_category"] = data.loc[i, "Farm_size_category"]
                         inputsurvey_corp_fert_table["farm_size_class"] = data.loc[i, "Farm_size_class"]
                         inputsurvey_corp_fert_table["water_source"] = data.loc[i,"Water_source"]
