@@ -36,12 +36,21 @@ def new_web_driver(raw_datadir: Path = raw_datadir):
     Returns:
     - WebDriver: The configured Selenium WebDriver.
     """
-    options = webdriver.EdgeOptions()
+    # options = webdriver.EdgeOptions()
+
+    # options.add_experimental_option("prefs", {
+    #     "download.default_directory": str(raw_datadir.absolute())
+    # })
+    # driver = webdriver.Edge(options=options)
+    # driver.implicitly_wait(1.3)
+
+    options = webdriver.ChromeOptions()
 
     options.add_experimental_option("prefs", {
         "download.default_directory": str(raw_datadir.absolute())
     })
-    driver = webdriver.Edge(options=options)
+
+    driver = webdriver.Chrome(options=options)
     driver.implicitly_wait(1.3)
 
     return driver
@@ -251,6 +260,7 @@ def get_index() -> List[Dict]:
     Returns:
     - List[Dict]: List of dictionaries containing the selections for each data extraction point.
     """
+    print("Hiiii")
     index_path = raw_datadir / "index.jsonl"
     if index_path.exists():
         # Return existing index
@@ -279,15 +289,13 @@ def get_element_value(driver, element_id):
     element = driver.find_element(By.ID, element_id)
     return element.text
 
-def scrape_data(index) -> pd.DataFrame:
+
+def scrape_data(index) -> None:
     """
-    Scrapes data from a web page based on the provided index and saves it to a CSV file.
+    Scrapes data from a web page based on the provided index and saves it to CSV files in a hierarchical structure.
 
     Parameters:
     - index (List[Dict]): List of dictionaries containing selection information for data extraction.
-
-    Returns:
-    - pd.DataFrame: DataFrame containing the scraped data.
     """
     # Create a new WebDriver instance
     driver = new_web_driver()
@@ -303,8 +311,6 @@ def scrape_data(index) -> pd.DataFrame:
     block_select_id = "ctl00_ContentPlaceHolder1_ddlblock"
     grampan_select_id = "ctl00_ContentPlaceHolder1_ddlGP"
     
-    data_list = []
-
     for i in range(len(index[0])):    
         # Extracting selection values from the index
         year_selection_value = str(index[0][i]["selections"][0]['value'])
@@ -347,53 +353,32 @@ def scrape_data(index) -> pd.DataFrame:
         verified_aadhaar_value = get_element_value(driver, "ctl00_ContentPlaceHolder1_lblverified_aadhar")
         aadhaar_seeded_value = get_element_value(driver, "ctl00_ContentPlaceHolder1_lblaadhar_seeded")
 
-        # Extracted data is appended to the data list
+        # Constructing file path based on hierarchy
         year = str(index[0][i]["year"])
         state = str(index[0][i]["state"])
         district = str(index[0][i]["district"])
-        area = str(index[0][i]["area"])
-        block = str(index[0][i]["block"])
-        gp = str(index[0][i]["gp"])
 
-        row_data = [year, state, district, area, block, gp, totalBeneficiary_value, ignoaps_value, igndps_value, ignwps_value, nfbs_value,
+        # Creating directory if it doesn't exist
+        directory_path = Path(raw_datadir) / year / state
+        directory_path.mkdir(parents=True, exist_ok=True)
+
+        # Constructing file path
+        file_path = directory_path / f"{district}.csv"
+
+        # Appending data to a district-level CSV file
+        row_data = [year, state, district, area_selection_value, block_selection_value, gp_selection_value, totalBeneficiary_value, ignoaps_value, igndps_value, ignwps_value, nfbs_value,
                     bank_account_value, postal_account_value, money_order_value, cash_value,
                     total_aadhaar_value, verified_aadhaar_value, aadhaar_seeded_value]
         
-        data_list.append(row_data)
-
-    # Creating a DataFrame from the collected data and saving it to a CSV file
-    df = pd.DataFrame(data_list, columns=["year", "state", "district", "area", "block", "gp", "Total Beneficiary", "IGNOAPS", "IGNDPS", "IGNWPS", "NFBS", "Bank Account",
+        df = pd.DataFrame([row_data], columns=["year", "state", "district", "area", "block", "gp", "Total Beneficiary", "IGNOAPS", "IGNDPS", "IGNWPS", "NFBS", "Bank Account",
                                           "Postal Account", "Money Order", "Cash", "Total Aadhaar", "Verified Aadhaar",
                                           "Aadhaar Seeded"])
-
-    df.to_csv(raw_datadir/'output.csv', index=False)
-
-
-def separate_districts(input_csv_path, output_dir):
-    """
-    Separates data in the input CSV file based on year, state, and district, and saves the separated data to specific output directories.
-
-    Parameters:
-    - input_csv_path (str): Path to the input CSV file.
-    - output_dir (str): Path to the output directory.
-
-    Returns:
-    - None
-    """
-    df = pd.read_csv(input_csv_path)
-
-    # Grouping data based on year, state, and district
-    grouped = df.groupby(['year', 'state', 'district'])
-
-    for (year, state, district), group_df in grouped:
-        # Creating directory structure for output
-        year_state_district_dir = Path(output_dir) / str(year) / state / district
-        year_state_district_dir.mkdir(parents=True, exist_ok=True)
-
-        # Saving grouped data to specific output CSV files
-        output_file_path = year_state_district_dir / f"{year}_{state}_{district}_output.csv"
-        group_df.to_csv(output_file_path, index=False)
-
+        
+        # Save or append to district CSV file
+        if file_path.exists():
+            df.to_csv(file_path, mode='a', header=False, index=False)
+        else:
+            df.to_csv(file_path, index=False)
 
 def main():
 
@@ -401,8 +386,7 @@ def main():
 
     scrape_data(index)
 
-    separate_districts(raw_datadir/"output.csv", raw_datadir.parents[1]/"data"/"raw")
- 
 
 if __name__ == "__main__":
     main()
+
