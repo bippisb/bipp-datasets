@@ -5,13 +5,17 @@ description = "Monorepo for all the datasets generated at BIPP"
 authors = ["Bharti Institute of Public Policy<surya_kandukuri@isb.edu>"]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = ">=3.8,<4.0"
+tabula-py = "^2.9.0"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.8.3"
 black = "^22.3.0"
 isort = "^5.4.2"
 pytest = "^5.4.3"
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.2"
 
 [tool.black]
 line-length = 79
