@@ -1,3 +1,5 @@
+#%%
+from pathlib import Path
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By
@@ -12,7 +14,7 @@ options = Options()
 options.add_argument("--headless")
 
 url = "https://www.aai.aero/en/business-opportunities/aai-traffic-news"
-
+#%%
 def process_option(option_value, href_links):
     """
     Process the option value and fetch href links for the given year.
@@ -50,7 +52,7 @@ def process_option(option_value, href_links):
       
     finally:
         driver.quit()
-
+#%%
 options_dropdown = webdriver.Firefox(options=options)
 options_dropdown.get(url)
 
@@ -62,6 +64,7 @@ try:
 
     for option in year_options[1:]:
         option_value = option.get_attribute("value")
+        print(f"Processing option {option_value}")
         process_option(option_value, href_links)
 
 except Exception as e:
@@ -69,10 +72,13 @@ except Exception as e:
 
 finally:
     options_dropdown.quit()
-
+#%%
 # Download the files
 for href_link in href_links:
     response = requests.get(href_link, verify=False)
-    file_name = os.path.join("./data/raw", href_link.split("/")[-1])
+    # Construct the file path
+    base_dir = os.path.dirname(os.path.dirname(os.getcwd()))
+    file_name = os.path.join(base_dir, "data", "raw", href_link.split("/")[-1])
     with open(file_name, 'wb') as file:
         file.write(response.content)
+# %%

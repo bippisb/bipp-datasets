@@ -1,3 +1,4 @@
+#%%
 import pandas as pd
 import numpy as np
 import tabula
@@ -5,8 +6,10 @@ import re
 import os
 
 # Define the path to the raw folder containing PDF files
-raw_folder = "./raw/"
-
+base_dir = os.path.dirname(os.path.dirname(os.getcwd()))
+raw_folder = os.path.join(base_dir, "data", "raw")
+interim_folder = os.path.join(base_dir, "data", "interim")
+#%%
 # List all PDF files in the raw folder
 pdf_files = [file for file in os.listdir(raw_folder) if file.endswith(".pdf")]
 
@@ -49,6 +52,8 @@ for filename in pdf_files:
 
     # Save the cleaned data to a CSV file
     csv_filename = os.path.splitext(filename)[0] + ".csv"
-    df.to_csv(os.path.join(raw_folder, csv_filename), index=False)
+    df.to_csv(os.path.join(interim_folder, csv_filename), index=False)
 
     print(f"Processed {filename} and saved as {csv_filename}")
+
+# %%
