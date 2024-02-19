@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "nrlm-shg-g3"
+version = "0.1.0"
+description = "This repo contains all the scrapers for extracting the shg and shg member details from the nrlm g3 report."
+authors = ["harman"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+python-dotenv = "^0.13.0"
+click = "^7.1.2"
+pandas = "^1.0.5"
+numpy = "^1.19.0"
+selenium = "^4.7.2"
+webdriver-manager = "^3.8.5"
+lxml = "^4.9.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
