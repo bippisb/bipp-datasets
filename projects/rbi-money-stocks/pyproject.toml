@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "rbi-money-stocks"
+version = "0.1.0"
+description = "This project aims to systematically collect and analyze the monetary statistics data made available by the Reserve Bank of India (RBI) through its Comprehensive Database on Indian Economy (DBIE) portal. The primary source of data for this project is the Monetary Statistics section within the DBIE, where the RBI provides detailed reports on various aspects of India money stock, including but not limited to currency in circulation, reserves, demand deposits, and time deposits. These reports are updated on a fortnightly basis, offering a timely snapshot of the monetary conditions in the economy. Source - https://cimsdbie.rbi.org.in/DBIE/#/dbie/reports/Statistics/Financial%20Sector/Monetary%20Statistics"
+authors = ["Karan"]
+
+[tool.poetry.dependencies]
+python = ">=3.9"
+python-dotenv = "^0.13.0"
+playwright = "^1.41.2"
+pandas = "^2.2.1"
+pre-commit = "^3.6.2"
+lxml = "^5.1.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.3"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
