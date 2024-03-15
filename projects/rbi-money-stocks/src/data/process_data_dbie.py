@@ -63,9 +63,12 @@ df.rename(columns=col_names, inplace=True)
 # drop column 2.1, 2.2 and 2.6
 df = df.drop(columns=["2.1", "2.2", "2.6"])
 # %%
+df[1:].replace("-", None, inplace=True)
 # convert all columns to numeric except date column
 for c in df.columns[1:]:
     df[c] = pd.to_numeric(df[c])
+    # decimal points to 2
+    df[c] = df[c].round(2)
 # %%
 # convert date column to datetime
 df["date"] = pd.to_datetime(df["date"]).dt.strftime("%d-%m-%Y")
@@ -73,12 +76,12 @@ df["date"] = pd.to_datetime(df["date"]).dt.strftime("%d-%m-%Y")
 date = str(df["date"].iloc[0])
 # %%
 # Save as csv file in processed folder
-processed_csv_path = os.path.join(
-    processed_path, f"dbie_money_stocks_{date}.csv"
-)
+processed_csv_path = os.path.join(processed_path, "dbie_money_stocks.csv")
 df.to_csv(processed_csv_path, index=False)
 # Save as parquet file in processed folder
 processed_parquet_path = os.path.join(
-    processed_path, f"dbie_money_stocks_{date}.parquet"
+    processed_path, "dbie_money_stocks.parquet"
 )
 df.to_parquet(processed_parquet_path, index=False)
+
+# %%
