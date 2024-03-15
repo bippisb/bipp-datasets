@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "cold-chain-projects"
+version = "0.1.0"
+description = "The Project contains the scripts of Cold Chain Availability projects cost and component details obtained from https://nhb.gov.in/OnlineClient/rptMISCrops_midh.aspx"
+authors = ["karan"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+python-dotenv = "^0.13.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
